@@ -118,11 +118,11 @@ This material exists as supplementary educational material for [Machine Learning
 
 <img src="./assets/gifs/double-desent2.gif" alt="Double Descent 2 Article Image" width="400"/>
 
-**Title**: [Double Descent 2](https://mlu-explain.github.io/double-descent2/)
+**Title**: [Double Descent 2](https://mlu-explain.github.io/double-descenttwo/)
 
 **Summary**: Deepen your understanding of the double descent phenomenon. The article builds on the cubic spline example introduced in Double Descent 1, describing in mathematical detail what is happening.
 
-**Code**: [/code/double-descent2/](/code/double-descent2)
+**Code**: [/code/double-descenttwo/](/code/double-descent2)
 
 **Authors**:, 
 
