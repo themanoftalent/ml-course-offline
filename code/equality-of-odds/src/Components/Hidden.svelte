@@ -1,13 +1,13 @@
 <script>
-  export let shown = false;
+ export let shown = false;
 
-  export const show = () => {
-    shown = !shown;
-  };
+ export const show = () => {
+ shown = !shown;
+ };
 </script>
 
 {#if shown}
-  <slot />
+ <slot />
 {/if}
 
 <style>

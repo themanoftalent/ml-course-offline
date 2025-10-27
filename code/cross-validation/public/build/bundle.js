@@ -22581,7 +22581,7 @@ var app = (function () {
  br3 = element("br");
  t16 = text("\n A special thanks goes out to and\n ");
  a6 = element("a");
- a6.textContent = "Lucía Santamaría";
+ a6.textContent = "";
  t18 = text(" for helping review\n the content of this article.");
  attr_dev(span, "class", "section-arrow");
  add_location(span, file$5, 3, 2, 46);

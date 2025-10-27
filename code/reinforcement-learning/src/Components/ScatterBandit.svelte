@@ -1,5 +1,5 @@
 <script>
-  import QChartBandit from "./QChartBandit.svelte";
+ import QChartBandit from "./QChartBandit.svelte";
 </script>
 
 <QChartBandit />

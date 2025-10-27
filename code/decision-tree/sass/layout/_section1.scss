@@ -1,7 +1,7 @@
 /* ====================== */
 /* 
-    Styles for first scrolly section 
-    e.g, the side-by-side decision tree and scatter plot.
+ Styles for first scrolly section 
+ e.g, the side-by-side decision tree and scatter plot.
 */
 /* ====================== */
 @use 'utilities/fonts';
@@ -11,65 +11,65 @@
 /* TREE STYLES */
 /* ====================== */
 .dt-text {
-  font-family: $font-heavy;
-  stroke-linejoin: round;
-  fill: white;
-  paint-order: stroke fill;
-  font-size: 1rem;
+ font-family: $font-heavy;
+ stroke-linejoin: round;
+ fill: white;
+ paint-order: stroke fill;
+ font-size: 1rem;
 }
 
 .dt-scatter-legend {
-  font-family: $font-heavy;
-  font-size: 0.8rem;
-  stroke-linejoin: round;
-  fill: white;
-  paint-order: stroke fill;
-  // stroke: $bg-color-right;
-  stroke-width: 3px;
-  color: white;
+ font-family: $font-heavy;
+ font-size: 0.8rem;
+ stroke-linejoin: round;
+ fill: white;
+ paint-order: stroke fill;
+ // stroke: $bg-color-right;
+ stroke-width: 3px;
+ color: white;
 }
 
 #dt-scatter-y-axis,
 #dt-scatter-x-axis {
-  font-family: $font-heavy;
-  fill: white;
-  color: white;
+ font-family: $font-heavy;
+ fill: white;
+ color: white;
 }
 
 .scatter-axis-text {
-  font-family: $font-heavy;
-  fill: white;
-  font-size: 1rem;
-  color: white;
+ font-family: $font-heavy;
+ fill: white;
+ font-size: 1rem;
+ color: white;
 }
-//  iPad
+// iPad
 @media (max-width: 850px) {
-  .dt-scatter-legend {
-    font-size: 0.7rem;
-    stroke-width: 2px;
-  }
+ .dt-scatter-legend {
+ font-size: 0.7rem;
+ stroke-width: 2px;
+ }
 
-  .dt-text {
-    font-size: 0.8rem;
-  }
+ .dt-text {
+ font-size: 0.8rem;
+ }
 
-  .scatter-axis-text {
-    font-size: 0.85rem;
-  }
+ .scatter-axis-text {
+ font-size: 0.85rem;
+ }
 }
 
 // mobile
 @media (max-width: 650px) {
-  .dt-scatter-legend {
-    font-size: 0.7rem;
-    stroke-width: 2px;
-  }
+ .dt-scatter-legend {
+ font-size: 0.7rem;
+ stroke-width: 2px;
+ }
 
-  .dt-text {
-    font-size: 0.8rem;
-  }
+ .dt-text {
+ font-size: 0.8rem;
+ }
 
-  .scatter-axis-text {
-    font-size: 0.85rem;
-  }
+ .scatter-axis-text {
+ font-size: 0.85rem;
+ }
 }

@@ -16,8 +16,8 @@
 	
 	// changeMath function for button click
 	function changeMath() {
-		// increase index
-		index = (index + 1) % 3;
+ // increase index
+ index = (index + 1) % 3;
 	}
 </script>
 
@@ -31,19 +31,19 @@
 
 <div class='button-div'>
 	<button on:click={changeMath}>
-		Displaying equation {index}
+ Displaying equation {index}
 	</button>
 </div>
 
 <style>
-    /* sample css to style reactivity button */
-    .button-div {
-        display: flex;
-        justify-content: center;
-    }
-    button {
-        font-family: "Amazon Ember Mono";
-        border: 3px solid black;
-        padding: 5px 10px;
-    }
+ /* sample css to style reactivity button */
+ .button-div {
+ display: flex;
+ justify-content: center;
+ }
+ button {
+ font-family: "Amazon Ember Mono";
+ border: 3px solid black;
+ padding: 5px 10px;
+ }
 </style>

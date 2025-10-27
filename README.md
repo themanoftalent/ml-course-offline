@@ -88,7 +88,7 @@ This material exists as supplementary educational material for [Machine Learning
 
 **Code**: [/code/decision-tree/](/code/decision-tree)
 
-**Authors**: , Lucía Santamaría
+**Authors**: , 
 
 ## Bias Variance Tradeoff
 
