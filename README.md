@@ -52,7 +52,7 @@ This material exists as supplementary educational material for [Machine Learning
 
 **Code**: [/code/train-test-validation/](/code/train-test-validation)
 
-**Authors**: Jared Wilber, Brent Werness
+**Authors**: Jared Wilber, 
 
 ## Precision & Recall
 
@@ -100,7 +100,7 @@ This material exists as supplementary educational material for [Machine Learning
 
 **Code**: [/code/bias-variance/](/code/bias-variance)
 
-**Authors**: Jared Wilber, Brent Werness
+**Authors**: Jared Wilber, 
 
 ## Double Descent: A Visual Introduction
 
@@ -112,7 +112,7 @@ This material exists as supplementary educational material for [Machine Learning
 
 **Code**: [/code/double-descent/](/code/double-descent)
 
-**Authors**: Jared Wilber, Brent Werness
+**Authors**: Jared Wilber, 
 
 ## Double Descent 2: A Mathematical Explanation
 
@@ -124,7 +124,7 @@ This material exists as supplementary educational material for [Machine Learning
 
 **Code**: [/code/double-descent2/](/code/double-descent2)
 
-**Authors**: Brent Werness, Jared Wilber
+**Authors**:, Jared Wilber
 
 ## Running Locally
 

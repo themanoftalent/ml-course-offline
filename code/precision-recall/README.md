@@ -37,13 +37,13 @@ import preprocess from 'svelte-preprocess';
 
 // Add preprocess to the plugins:
 export default {
-  /* ... */
-  plugins: [
-    svelte({
-      /* ... */
-      preprocess: preprocess()
-  }),
-  /* ... */
+ /* ... */
+ plugins: [
+ svelte({
+ /* ... */
+ preprocess: preprocess()
+ }),
+ /* ... */
 }
 ```
 
@@ -54,6 +54,6 @@ export default {
 const preprocess = require('svelte-preprocess');
 
 module.exports = {
-  preprocess: preprocess()
+ preprocess: preprocess()
 };
 ```

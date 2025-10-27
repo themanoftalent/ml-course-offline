@@ -3,10 +3,10 @@ import { tweened } from "svelte/motion";
 
 export const mobile = writable(true);
 export const margin = writable({
-  top: 65,
-  bottom: 10,
-  left: 80,
-  right: 10,
+ top: 65,
+ bottom: 10,
+ left: 80,
+ right: 10,
 });
 
 export const outerWidth = writable(300);
@@ -23,24 +23,24 @@ export const wrongly_rejected_A = writable(1);
 export const wrongly_rejected_B = writable(1);
 
 export const stackedData = tweened([
-  {
-    xVal: "A",
-    Accepted: 30,
-    Declined: 20,
-  },
-  {
-    xVal: "A Predicted",
-    Accepted: 30,
-    Declined: 20,
-  },
-  {
-    xVal: "B",
-    Accepted: 10,
-    Declined: 15,
-  },
-  {
-    xVal: "B Predicted",
-    Accepted: 10,
-    Declined: 15,
-  },
+ {
+ xVal: "A",
+ Accepted: 30,
+ Declined: 20,
+ },
+ {
+ xVal: "A Predicted",
+ Accepted: 30,
+ Declined: 20,
+ },
+ {
+ xVal: "B",
+ Accepted: 10,
+ Declined: 15,
+ },
+ {
+ xVal: "B Predicted",
+ Accepted: 10,
+ Declined: 15,
+ },
 ]);

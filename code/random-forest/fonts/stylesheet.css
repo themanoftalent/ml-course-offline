@@ -3,11 +3,11 @@
 
 
 @font-face {
-    font-family: 'amazon_emberregular';
-    src: url('amazonember_rg-webfont.woff2') format('woff2'),
-         url('amazonember_rg-webfont.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
+ font-family: 'amazon_emberregular';
+ src: url('amazonember_rg-webfont.woff2') format('woff2'),
+ url('amazonember_rg-webfont.woff') format('woff');
+ font-weight: normal;
+ font-style: normal;
 
 }
 
@@ -15,11 +15,11 @@
 
 
 @font-face {
-    font-family: 'amazon_ember_displayheavy';
-    src: url('amazonemberdisplay_he-webfont.woff2') format('woff2'),
-         url('amazonemberdisplay_he-webfont.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
+ font-family: 'amazon_ember_displayheavy';
+ src: url('amazonemberdisplay_he-webfont.woff2') format('woff2'),
+ url('amazonemberdisplay_he-webfont.woff') format('woff');
+ font-weight: normal;
+ font-style: normal;
 
 }
 
@@ -27,10 +27,10 @@
 
 
 @font-face {
-    font-family: 'amazon_ember_monoregular';
-    src: url('amazonembermono_rg-webfont.woff2') format('woff2'),
-         url('amazonembermono_rg-webfont.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
+ font-family: 'amazon_ember_monoregular';
+ src: url('amazonembermono_rg-webfont.woff2') format('woff2'),
+ url('amazonembermono_rg-webfont.woff') format('woff');
+ font-weight: normal;
+ font-style: normal;
 
 }
