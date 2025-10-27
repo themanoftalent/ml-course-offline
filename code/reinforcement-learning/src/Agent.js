@@ -64,7 +64,7 @@ export class Agent {
  // Choose actions according to epsilon-greedy action selection
  chooseAction(state, greedy = false) {
  var actionIndex;
- if (Math.random() <= this.epsilon && !greedy) {
+ if (Math.random() <= this.epsilon!greedy) {
  // Exploratory action
  actionIndex = Math.floor(Math.random() * this.actions.length);
  } else {

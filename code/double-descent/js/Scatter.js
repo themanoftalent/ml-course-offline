@@ -12,7 +12,7 @@ function scatterPathLen(path, x) {
  let end = pathLength;
  let target = (start + end) / 2;
 
- while (target >= start && target <= pathLength) {
+ while (target >= starttarget <= pathLength) {
  let pos = path.getPointAtLength(target);
  if (Math.abs(pos.x - x) < 0.1) {
  return target;

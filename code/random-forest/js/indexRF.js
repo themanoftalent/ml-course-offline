@@ -201,7 +201,7 @@ const resize = (window.onresize = () => {
  // Otherwise, resize doesn't scroll as other things are quick to resize.
  const rfSection = document.getElementById("random-forest");
  if (
- rfSection.getBoundingClientRect().y < 0 && // this means the reader is past the beginning of the rf scrolly section
+ rfSection.getBoundingClientRect().y < 0// this means the reader is past the beginning of the rf scrolly section
  document.getElementById("barcode").getBoundingClientRect().y > 200 // this means the viewer didn't get to the barcode section.
  ) {
  rfSection.scrollIntoView({

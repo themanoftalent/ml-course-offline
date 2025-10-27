@@ -64,15 +64,15 @@ export default {
 
  // In dev mode, call `npm run start` once
  // the bundle has been generated
- !production && serve(),
+ !productionserve(),
 
  // Watch the `public` directory and refresh the
  // browser on changes when not in production
- !production && livereload("public"),
+ !productionlivereload("public"),
 
  // If we're building for production (npm run build
  // instead of npm run dev), minify
- production && terser(),
+ productionterser(),
  ],
  watch: {
  clearScreen: false,

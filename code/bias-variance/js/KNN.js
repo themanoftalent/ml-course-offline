@@ -225,7 +225,7 @@ export class KNN {
 
  // highlight current cell
  const cell = selectAll(".hex-cell").filter(
- (d) => d.x === closestHex.x && d.y === closestHex.y
+ (d) => d.x === closestHex.xd.y === closestHex.y
  );
 
  cell.attr("stroke", "black").attr("stroke-width", 3).raise();
@@ -375,7 +375,7 @@ export class KNN {
 
  // highlight current cell
  const cell = selectAll(".hex-cell").filter(
- (d) => d.x === closestHex.x && d.y === closestHex.y
+ (d) => d.x === closestHex.xd.y === closestHex.y
  );
 
  cell.attr("stroke", "black").attr("stroke-width", 3).raise();
@@ -487,7 +487,7 @@ function getNNN(data, loc, k) {
 }
 
 function getKNN(data, point, k) {
- // 1. get the distances between the data & current point.
+ // 1. get the distances between the datacurrent point.
  let dists = [];
  for (let i = 0; i < data.length; i++) {
  // now index 2 is the actual data

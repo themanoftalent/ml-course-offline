@@ -131,8 +131,8 @@ const selector2equation = [
  {
  selector: "points",
  eq: `\\begin{aligned}
- \\vec{x} &= (0,1,2,3,4,5) \\\\
- \\vec{y} = 4\\left(\\vec{x}-\\frac{5}{2}\\right)^2 & = (25,9,1,1,9,25)
+ \\vec{x}= (0,1,2,3,4,5) \\\\
+ \\vec{y} = 4\\left(\\vec{x}-\\frac{5}{2}\\right)^2= (25,9,1,1,9,25)
  \\end{aligned}`,
  },
  { selector: "input", eq: `\\vec{x} = (x_i)_{i = 1}^N` },

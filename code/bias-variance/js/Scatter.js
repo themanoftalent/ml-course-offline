@@ -303,7 +303,7 @@ export class Scatter {
  let end = pathLength;
  let target = (start + end) / 2;
 
- while (target >= start && target <= pathLength) {
+ while (target >= starttarget <= pathLength) {
  let pos = path.getPointAtLength(target);
 
  // use threshold bc float point precision
@@ -548,7 +548,7 @@ export class Scatter {
  transitionUp5() {
  this.removeRealizationLines();
 
- // remove lines & symbols from error line charts
+ // remove linessymbols from error line charts
  selectAll(".error-line-bottom").remove();
  select("rect.stacked-error").remove();
  select("#error-text").remove();

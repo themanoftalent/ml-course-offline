@@ -120,7 +120,7 @@ export class CantorChartCircles {
  const closestDataPoint = vis.data[closestPoint];
  // // highlight current circle
  d3.selectAll("circle.cantorCirc")
- .filter((d) => d.x === closestDataPoint.x && d.y === closestDataPoint.y)
+ .filter((d) => d.x === closestDataPoint.xd.y === closestDataPoint.y)
  .attr("stroke", "black")
  .attr("stroke-width", 2);
 

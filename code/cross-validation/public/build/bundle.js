@@ -22,13 +22,13 @@ var app = (function () {
  return typeof thing === 'function';
  }
  function safe_not_equal(a, b) {
- return a != a ? b == b : a !== b || ((a && typeof a === 'object') || typeof a === 'function');
+ return a != a ? b == b : a !== b || ((atypeof a === 'object') || typeof a === 'function');
  }
  function is_empty(obj) {
  return Object.keys(obj).length === 0;
  }
  function validate_store(store, name) {
- if (store != null && typeof store.subscribe !== 'function') {
+ if (store != nulltypeof store.subscribe !== 'function') {
  throw new Error(`'${name}' is not a store with a 'subscribe' method`);
  }
  }
@@ -106,7 +106,7 @@ var app = (function () {
  if (crossorigin === undefined) {
  crossorigin = false;
  try {
- if (typeof window !== 'undefined' && window.parent) {
+ if (typeof window !== 'undefined'window.parent) {
  void window.parent.document;
  }
  }
@@ -146,7 +146,7 @@ var app = (function () {
  if (crossorigin) {
  unsubscribe();
  }
- else if (unsubscribe && iframe.contentWindow) {
+ else if (unsubscribeiframe.contentWindow) {
  unsubscribe();
  }
  detach(iframe);
@@ -286,7 +286,7 @@ var app = (function () {
  run_all($$.before_update);
  const dirty = $$.dirty;
  $$.dirty = [-1];
- $$.fragment && $$.fragment.p($$.ctx, dirty);
+ $$.fragment$$.fragment.p($$.ctx, dirty);
  $$.after_update.forEach(add_render_callback);
  }
  }
@@ -306,13 +306,13 @@ var app = (function () {
  outros = outros.p;
  }
  function transition_in(block, local) {
- if (block && block.i) {
+ if (blockblock.i) {
  outroing.delete(block);
  block.i(local);
  }
  }
  function transition_out(block, local, detach, callback) {
- if (block && block.o) {
+ if (blockblock.o) {
  if (outroing.has(block))
  return;
  outroing.add(block);
@@ -334,11 +334,11 @@ var app = (function () {
  ? globalThis
  : global);
  function create_component(block) {
- block && block.c();
+ blockblock.c();
  }
  function mount_component(component, target, anchor, customElement) {
  const { fragment, on_mount, on_destroy, after_update } = component.$$;
- fragment && fragment.m(target, anchor);
+ fragmentfragment.m(target, anchor);
  if (!customElement) {
  // onMount happens before the initial afterUpdate
  add_render_callback(() => {
@@ -360,7 +360,7 @@ var app = (function () {
  const $$ = component.$$;
  if ($$.fragment !== null) {
  run_all($$.on_destroy);
- $$.fragment && $$.fragment.d(detaching);
+ $$.fragment$$.fragment.d(detaching);
  // TODO null out other refs, including component.$$ (but need to
  // preserve final state?)
  $$.on_destroy = $$.fragment = null;
@@ -399,13 +399,13 @@ var app = (function () {
  skip_bound: false,
  root: options.target || parent_component.$$.root
  };
- append_styles && append_styles($$.root);
+ append_stylesappend_styles($$.root);
  let ready = false;
  $$.ctx = instance
  ? instance(component, options.props || {}, (i, ret, ...rest) => {
  const value = rest.length ? rest[0] : ret;
- if ($$.ctx && not_equal($$.ctx[i], $$.ctx[i] = value)) {
- if (!$$.skip_bound && $$.bound[i])
+ if ($$.ctxnot_equal($$.ctx[i], $$.ctx[i] = value)) {
+ if (!$$.skip_bound$$.bound[i])
  $$.bound[i](value);
  if (ready)
  make_dirty(component, i);
@@ -422,12 +422,12 @@ var app = (function () {
  if (options.hydrate) {
  const nodes = children(options.target);
  // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
- $$.fragment && $$.fragment.l(nodes);
+ $$.fragment$$.fragment.l(nodes);
  nodes.forEach(detach);
  }
  else {
  // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
- $$.fragment && $$.fragment.c();
+ $$.fragment$$.fragment.c();
  }
  if (options.intro)
  transition_in(component.$$.fragment);
@@ -454,7 +454,7 @@ var app = (function () {
  };
  }
  $set($$props) {
- if (this.$$set && !is_empty($$props)) {
+ if (this.$$set!is_empty($$props)) {
  this.$$.skip_bound = true;
  this.$$set($$props);
  this.$$.skip_bound = false;
@@ -505,9 +505,9 @@ var app = (function () {
  text.data = data;
  }
  function validate_each_argument(arg) {
- if (typeof arg !== 'string' && !(arg && typeof arg === 'object' && 'length' in arg)) {
+ if (typeof arg !== 'string'!(argtypeof arg === 'object''length' in arg)) {
  let msg = '{#each} only iterates over array-like objects.';
- if (typeof Symbol === 'function' && arg && Symbol.iterator in arg) {
+ if (typeof Symbol === 'function'argSymbol.iterator in arg) {
  msg += ' You can use a spread to convert this iterable into an array.';
  }
  throw new Error(msg);
@@ -525,7 +525,7 @@ var app = (function () {
  */
  class SvelteComponentDev extends SvelteComponent {
  constructor(options) {
- if (!options || (!options.target && !options.$$inline)) {
+ if (!options || (!options.target!options.$$inline)) {
  throw new Error("'target' is a required option");
  }
  super();
@@ -662,27 +662,27 @@ var app = (function () {
  append_dev(h2, t3);
  },
  p: function update(ctx, [dirty]) {
- if (dirty & /*robotLogoColor*/ 2) {
+ if (dirty/*robotLogoColor*/ 2) {
  attr_dev(path0, "fill", /*robotLogoColor*/ ctx[1]);
  }
 
- if (dirty & /*robotLogoColor*/ 2) {
+ if (dirty/*robotLogoColor*/ 2) {
  attr_dev(path1, "fill", /*robotLogoColor*/ ctx[1]);
  }
 
- if (dirty & /*robotLogoColor*/ 2) {
+ if (dirty/*robotLogoColor*/ 2) {
  attr_dev(path2, "fill", /*robotLogoColor*/ ctx[1]);
  }
 
- if (dirty & /*robotLogoColor*/ 2) {
+ if (dirty/*robotLogoColor*/ 2) {
  attr_dev(path3, "fill", /*robotLogoColor*/ ctx[1]);
  }
 
- if (dirty & /*robotLogoColor*/ 2) {
+ if (dirty/*robotLogoColor*/ 2) {
  attr_dev(path4, "fill", /*robotLogoColor*/ ctx[1]);
  }
 
- if (dirty & /*aiLogoColor*/ 1) {
+ if (dirty/*aiLogoColor*/ 1) {
  set_style(div, "--ai-color", /*aiLogoColor*/ ctx[0]);
  }
  },
@@ -712,7 +712,7 @@ var app = (function () {
  const writable_props = ['aiLogoColor', 'robotLogoColor'];
 
  Object.keys($$props).forEach(key => {
- if (!~writable_props.indexOf(key) && key.slice(0, 2) !== '$$' && key !== 'slot') console.warn(`<Logo> was created with unknown prop '${key}'`);
+ if (!~writable_props.indexOf(key)key.slice(0, 2) !== '$$'key !== 'slot') console.warn(`<Logo> was created with unknown prop '${key}'`);
  });
 
  $$self.$$set = $$props => {
@@ -727,7 +727,7 @@ var app = (function () {
  if ('robotLogoColor' in $$props) $$invalidate(1, robotLogoColor = $$props.robotLogoColor);
  };
 
- if ($$props && "$$inject" in $$props) {
+ if ($$props"$$inject" in $$props) {
  $$self.$inject_state($$props.$$inject);
  }
 
@@ -764,7 +764,7 @@ var app = (function () {
  }
  }
 
- const t="http://www.w3.org/2000/svg";class e{constructor(t){this.seed=t;}next(){return this.seed?(2**31-1&(this.seed=Math.imul(48271,this.seed)))/2**31:Math.random()}}function s(t,e,s,i,n){return {type:"path",ops:c(t,e,s,i,n)}}function i(t,e,i){const n=(t||[]).length;if(n>2){const s=[];for(let e=0;e<n-1;e++)s.push(...c(t[e][0],t[e][1],t[e+1][0],t[e+1][1],i));return e&&s.push(...c(t[n-1][0],t[n-1][1],t[0][0],t[0][1],i)),{type:"path",ops:s}}return 2===n?s(t[0][0],t[0][1],t[1][0],t[1][1],i):{type:"path",ops:[]}}function n(t,e,s,n,o){return function(t,e){return i(t,!0,e)}([[t,e],[t+s,e],[t+s,e+n],[t,e+n]],o)}function o(t,e,s,i,n){return function(t,e,s,i){const[n,o]=l(i.increment,t,e,i.rx,i.ry,1,i.increment*h(.1,h(.4,1,s),s),s);let r=f(n,null,s);if(!s.disableMultiStroke){const[n]=l(i.increment,t,e,i.rx,i.ry,1.5,0,s),o=f(n,null,s);r=r.concat(o);}return {estimatedPoints:o,opset:{type:"path",ops:r}}}(t,e,n,function(t,e,s){const i=Math.sqrt(2*Math.PI*Math.sqrt((Math.pow(t/2,2)+Math.pow(e/2,2))/2)),n=Math.max(s.curveStepCount,s.curveStepCount/Math.sqrt(200)*i),o=2*Math.PI/n;let r=Math.abs(t/2),h=Math.abs(e/2);const c=1-s.curveFitting;return r+=a(r*c,s),h+=a(h*c,s),{increment:o,rx:r,ry:h}}(s,i,n)).opset}function r(t){return t.randomizer||(t.randomizer=new e(t.seed||0)),t.randomizer.next()}function h(t,e,s,i=1){return s.roughness*i*(r(s)*(e-t)+t)}function a(t,e,s=1){return h(-t,t,e,s)}function c(t,e,s,i,n,o=!1){const r=o?n.disableMultiStrokeFill:n.disableMultiStroke,h=u(t,e,s,i,n,!0,!1);if(r)return h;const a=u(t,e,s,i,n,!0,!0);return h.concat(a)}function u(t,e,s,i,n,o,h){const c=Math.pow(t-s,2)+Math.pow(e-i,2),u=Math.sqrt(c);let f=1;f=u<200?1:u>500?.4:-.0016668*u+1.233334;let l=n.maxRandomnessOffset||0;l*l*100>c&&(l=u/10);const g=l/2,d=.2+.2*r(n);let p=n.bowing*n.maxRandomnessOffset*(i-e)/200,_=n.bowing*n.maxRandomnessOffset*(t-s)/200;p=a(p,n,f),_=a(_,n,f);const m=[],w=()=>a(g,n,f),v=()=>a(l,n,f);return o&&(h?m.push({op:"move",data:[t+w(),e+w()]}):m.push({op:"move",data:[t+a(l,n,f),e+a(l,n,f)]})),h?m.push({op:"bcurveTo",data:[p+t+(s-t)*d+w(),_+e+(i-e)*d+w(),p+t+2*(s-t)*d+w(),_+e+2*(i-e)*d+w(),s+w(),i+w()]}):m.push({op:"bcurveTo",data:[p+t+(s-t)*d+v(),_+e+(i-e)*d+v(),p+t+2*(s-t)*d+v(),_+e+2*(i-e)*d+v(),s+v(),i+v()]}),m}function f(t,e,s){const i=t.length,n=[];if(i>3){const o=[],r=1-s.curveTightness;n.push({op:"move",data:[t[1][0],t[1][1]]});for(let e=1;e+2<i;e++){const s=t[e];o[0]=[s[0],s[1]],o[1]=[s[0]+(r*t[e+1][0]-r*t[e-1][0])/6,s[1]+(r*t[e+1][1]-r*t[e-1][1])/6],o[2]=[t[e+1][0]+(r*t[e][0]-r*t[e+2][0])/6,t[e+1][1]+(r*t[e][1]-r*t[e+2][1])/6],o[3]=[t[e+1][0],t[e+1][1]],n.push({op:"bcurveTo",data:[o[1][0],o[1][1],o[2][0],o[2][1],o[3][0],o[3][1]]});}if(e&&2===e.length){const t=s.maxRandomnessOffset;n.push({op:"lineTo",data:[e[0]+a(t,s),e[1]+a(t,s)]});}}else 3===i?(n.push({op:"move",data:[t[1][0],t[1][1]]}),n.push({op:"bcurveTo",data:[t[1][0],t[1][1],t[2][0],t[2][1],t[2][0],t[2][1]]})):2===i&&n.push(...c(t[0][0],t[0][1],t[1][0],t[1][1],s));return n}function l(t,e,s,i,n,o,r,h){const c=[],u=[],f=a(.5,h)-Math.PI/2;u.push([a(o,h)+e+.9*i*Math.cos(f-t),a(o,h)+s+.9*n*Math.sin(f-t)]);for(let r=f;r<2*Math.PI+f-.01;r+=t){const t=[a(o,h)+e+i*Math.cos(r),a(o,h)+s+n*Math.sin(r)];c.push(t),u.push(t);}return u.push([a(o,h)+e+i*Math.cos(f+2*Math.PI+.5*r),a(o,h)+s+n*Math.sin(f+2*Math.PI+.5*r)]),u.push([a(o,h)+e+.98*i*Math.cos(f+r),a(o,h)+s+.98*n*Math.sin(f+r)]),u.push([a(o,h)+e+.9*i*Math.cos(f+.5*r),a(o,h)+s+.9*n*Math.sin(f+.5*r)]),[u,c]}function g(t,e){return {maxRandomnessOffset:2,roughness:"highlight"===t?3:1.5,bowing:1,stroke:"#000",strokeWidth:1.5,curveTightness:0,curveFitting:.95,curveStepCount:9,fillStyle:"hachure",fillWeight:-1,hachureAngle:-41,hachureGap:-1,dashOffset:-1,dashGap:-1,zigzagOffset:-1,combineNestedSvgPaths:!1,disableMultiStroke:"double"!==t,disableMultiStrokeFill:!1,seed:e}}function d(e,r,h,a,c,u){const f=[];let l=h.strokeWidth||2;const d=function(t){const e=t.padding;if(e||0===e){if("number"==typeof e)return [e,e,e,e];if(Array.isArray(e)){const t=e;if(t.length)switch(t.length){case 4:return [...t];case 1:return [t[0],t[0],t[0],t[0]];case 2:return [...t,...t];case 3:return [...t,t[1]];default:return [t[0],t[1],t[2],t[3]]}}}return [5,5,5,5]}(h),p=void 0===h.animate||!!h.animate,_=h.iterations||2,m=g("single",u);switch(h.type){case"underline":{const t=r.y+r.h+d[2];for(let e=0;e<_;e++)e%2?f.push(s(r.x+r.w,t,r.x,t,m)):f.push(s(r.x,t,r.x+r.w,t,m));break}case"strike-through":{const t=r.y+r.h/2;for(let e=0;e<_;e++)e%2?f.push(s(r.x+r.w,t,r.x,t,m)):f.push(s(r.x,t,r.x+r.w,t,m));break}case"box":{const t=r.x-d[3],e=r.y-d[0],s=r.w+(d[1]+d[3]),i=r.h+(d[0]+d[2]);for(let o=0;o<_;o++)f.push(n(t,e,s,i,m));break}case"bracket":{const t=Array.isArray(h.brackets)?h.brackets:h.brackets?[h.brackets]:["right"],e=r.x-2*d[3],s=r.x+r.w+2*d[1],n=r.y-2*d[0],o=r.y+r.h+2*d[2];for(const h of t){let t;switch(h){case"bottom":t=[[e,r.y+r.h],[e,o],[s,o],[s,r.y+r.h]];break;case"top":t=[[e,r.y],[e,n],[s,n],[s,r.y]];break;case"left":t=[[r.x,n],[e,n],[e,o],[r.x,o]];break;case"right":t=[[r.x+r.w,n],[s,n],[s,o],[r.x+r.w,o]];}t&&f.push(i(t,!1,m));}break}case"crossed-off":{const t=r.x,e=r.y,i=t+r.w,n=e+r.h;for(let o=0;o<_;o++)o%2?f.push(s(i,n,t,e,m)):f.push(s(t,e,i,n,m));for(let o=0;o<_;o++)o%2?f.push(s(t,n,i,e,m)):f.push(s(i,e,t,n,m));break}case"circle":{const t=g("double",u),e=r.w+(d[1]+d[3]),s=r.h+(d[0]+d[2]),i=r.x-d[3]+e/2,n=r.y-d[0]+s/2,h=Math.floor(_/2),a=_-2*h;for(let r=0;r<h;r++)f.push(o(i,n,e,s,t));for(let t=0;t<a;t++)f.push(o(i,n,e,s,m));break}case"highlight":{const t=g("highlight",u);l=.95*r.h;const e=r.y+r.h/2;for(let i=0;i<_;i++)i%2?f.push(s(r.x+r.w,e,r.x,e,t)):f.push(s(r.x,e,r.x+r.w,e,t));break}}if(f.length){const s=function(t){const e=[];for(const s of t){let t="";for(const i of s.ops){const s=i.data;switch(i.op){case"move":t.trim()&&e.push(t.trim()),t=`M${s[0]} ${s[1]} `;break;case"bcurveTo":t+=`C${s[0]} ${s[1]}, ${s[2]} ${s[3]}, ${s[4]} ${s[5]} `;break;case"lineTo":t+=`L${s[0]} ${s[1]} `;}}t.trim()&&e.push(t.trim());}return e}(f),i=[],n=[];let o=0;const r=(t,e,s)=>t.setAttribute(e,s);for(const a of s){const s=document.createElementNS(t,"path");if(r(s,"d",a),r(s,"fill","none"),r(s,"stroke",h.color||"currentColor"),r(s,"stroke-width",""+l),p){const t=s.getTotalLength();i.push(t),o+=t;}e.appendChild(s),n.push(s);}if(p){let t=0;for(let e=0;e<n.length;e++){const s=n[e],r=i[e],h=o?c*(r/o):0,u=a+t,f=s.style;f.strokeDashoffset=""+r,f.strokeDasharray=""+r,f.animation=`rough-notation-dash ${h}ms ease-out ${u}ms forwards`,t+=h;}}}}class p{constructor(t,e){this._state="unattached",this._resizing=!1,this._seed=Math.floor(Math.random()*2**31),this._lastSizes=[],this._animationDelay=0,this._resizeListener=()=>{this._resizing||(this._resizing=!0,setTimeout(()=>{this._resizing=!1,"showing"===this._state&&this.haveRectsChanged()&&this.show();},400));},this._e=t,this._config=JSON.parse(JSON.stringify(e)),this.attach();}get animate(){return this._config.animate}set animate(t){this._config.animate=t;}get animationDuration(){return this._config.animationDuration}set animationDuration(t){this._config.animationDuration=t;}get iterations(){return this._config.iterations}set iterations(t){this._config.iterations=t;}get color(){return this._config.color}set color(t){this._config.color!==t&&(this._config.color=t,this.refresh());}get strokeWidth(){return this._config.strokeWidth}set strokeWidth(t){this._config.strokeWidth!==t&&(this._config.strokeWidth=t,this.refresh());}get padding(){return this._config.padding}set padding(t){this._config.padding!==t&&(this._config.padding=t,this.refresh());}attach(){if("unattached"===this._state&&this._e.parentElement){!function(){if(!window.__rno_kf_s){const t=window.__rno_kf_s=document.createElement("style");t.textContent="@keyframes rough-notation-dash { to { stroke-dashoffset: 0; } }",document.head.appendChild(t);}}();const e=this._svg=document.createElementNS(t,"svg");e.setAttribute("class","rough-annotation");const s=e.style;s.position="absolute",s.top="0",s.left="0",s.overflow="visible",s.pointerEvents="none",s.width="100px",s.height="100px";const i="highlight"===this._config.type;if(this._e.insertAdjacentElement(i?"beforebegin":"afterend",e),this._state="not-showing",i){const t=window.getComputedStyle(this._e).position;(!t||"static"===t)&&(this._e.style.position="relative");}this.attachListeners();}}detachListeners(){window.removeEventListener("resize",this._resizeListener),this._ro&&this._ro.unobserve(this._e);}attachListeners(){this.detachListeners(),window.addEventListener("resize",this._resizeListener,{passive:!0}),!this._ro&&"ResizeObserver"in window&&(this._ro=new window.ResizeObserver(t=>{for(const e of t)e.contentRect&&this._resizeListener();})),this._ro&&this._ro.observe(this._e);}haveRectsChanged(){if(this._lastSizes.length){const t=this.rects();if(t.length!==this._lastSizes.length)return !0;for(let e=0;e<t.length;e++)if(!this.isSameRect(t[e],this._lastSizes[e]))return !0}return !1}isSameRect(t,e){const s=(t,e)=>Math.round(t)===Math.round(e);return s(t.x,e.x)&&s(t.y,e.y)&&s(t.w,e.w)&&s(t.h,e.h)}isShowing(){return "not-showing"!==this._state}refresh(){this.isShowing()&&!this.pendingRefresh&&(this.pendingRefresh=Promise.resolve().then(()=>{this.isShowing()&&this.show(),delete this.pendingRefresh;}));}show(){switch(this._state){case"unattached":break;case"showing":this.hide(),this._svg&&this.render(this._svg,!0);break;case"not-showing":this.attach(),this._svg&&this.render(this._svg,!1);}}hide(){if(this._svg)for(;this._svg.lastChild;)this._svg.removeChild(this._svg.lastChild);this._state="not-showing";}remove(){this._svg&&this._svg.parentElement&&this._svg.parentElement.removeChild(this._svg),this._svg=void 0,this._state="unattached",this.detachListeners();}render(t,e){let s=this._config;e&&(s=JSON.parse(JSON.stringify(this._config)),s.animate=!1);const i=this.rects();let n=0;i.forEach(t=>n+=t.w);const o=s.animationDuration||800;let r=0;for(let e=0;e<i.length;e++){const h=o*(i[e].w/n);d(t,i[e],s,r+this._animationDelay,h,this._seed),r+=h;}this._lastSizes=i,this._state="showing";}rects(){const t=[];if(this._svg)if(this._config.multiline){const e=this._e.getClientRects();for(let s=0;s<e.length;s++)t.push(this.svgRect(this._svg,e[s]));}else t.push(this.svgRect(this._svg,this._e.getBoundingClientRect()));return t}svgRect(t,e){const s=t.getBoundingClientRect(),i=e;return {x:(i.x||i.left)-(s.x||s.left),y:(i.y||i.top)-(s.y||s.top),w:i.width,h:i.height}}}function _(t,e){return new p(t,e)}
+ const t="http://www.w3.org/2000/svg";class e{constructor(t){this.seed=t;}next(){return this.seed?(2**31-1(this.seed=Math.imul(48271,this.seed)))/2**31:Math.random()}}function s(t,e,s,i,n){return {type:"path",ops:c(t,e,s,i,n)}}function i(t,e,i){const n=(t||[]).length;if(n>2){const s=[];for(let e=0;e<n-1;e++)s.push(...c(t[e][0],t[e][1],t[e+1][0],t[e+1][1],i));return es.push(...c(t[n-1][0],t[n-1][1],t[0][0],t[0][1],i)),{type:"path",ops:s}}return 2===n?s(t[0][0],t[0][1],t[1][0],t[1][1],i):{type:"path",ops:[]}}function n(t,e,s,n,o){return function(t,e){return i(t,!0,e)}([[t,e],[t+s,e],[t+s,e+n],[t,e+n]],o)}function o(t,e,s,i,n){return function(t,e,s,i){const[n,o]=l(i.increment,t,e,i.rx,i.ry,1,i.increment*h(.1,h(.4,1,s),s),s);let r=f(n,null,s);if(!s.disableMultiStroke){const[n]=l(i.increment,t,e,i.rx,i.ry,1.5,0,s),o=f(n,null,s);r=r.concat(o);}return {estimatedPoints:o,opset:{type:"path",ops:r}}}(t,e,n,function(t,e,s){const i=Math.sqrt(2*Math.PI*Math.sqrt((Math.pow(t/2,2)+Math.pow(e/2,2))/2)),n=Math.max(s.curveStepCount,s.curveStepCount/Math.sqrt(200)*i),o=2*Math.PI/n;let r=Math.abs(t/2),h=Math.abs(e/2);const c=1-s.curveFitting;return r+=a(r*c,s),h+=a(h*c,s),{increment:o,rx:r,ry:h}}(s,i,n)).opset}function r(t){return t.randomizer||(t.randomizer=new e(t.seed||0)),t.randomizer.next()}function h(t,e,s,i=1){return s.roughness*i*(r(s)*(e-t)+t)}function a(t,e,s=1){return h(-t,t,e,s)}function c(t,e,s,i,n,o=!1){const r=o?n.disableMultiStrokeFill:n.disableMultiStroke,h=u(t,e,s,i,n,!0,!1);if(r)return h;const a=u(t,e,s,i,n,!0,!0);return h.concat(a)}function u(t,e,s,i,n,o,h){const c=Math.pow(t-s,2)+Math.pow(e-i,2),u=Math.sqrt(c);let f=1;f=u<200?1:u>500?.4:-.0016668*u+1.233334;let l=n.maxRandomnessOffset||0;l*l*100>c(l=u/10);const g=l/2,d=.2+.2*r(n);let p=n.bowing*n.maxRandomnessOffset*(i-e)/200,_=n.bowing*n.maxRandomnessOffset*(t-s)/200;p=a(p,n,f),_=a(_,n,f);const m=[],w=()=>a(g,n,f),v=()=>a(l,n,f);return o(h?m.push({op:"move",data:[t+w(),e+w()]}):m.push({op:"move",data:[t+a(l,n,f),e+a(l,n,f)]})),h?m.push({op:"bcurveTo",data:[p+t+(s-t)*d+w(),_+e+(i-e)*d+w(),p+t+2*(s-t)*d+w(),_+e+2*(i-e)*d+w(),s+w(),i+w()]}):m.push({op:"bcurveTo",data:[p+t+(s-t)*d+v(),_+e+(i-e)*d+v(),p+t+2*(s-t)*d+v(),_+e+2*(i-e)*d+v(),s+v(),i+v()]}),m}function f(t,e,s){const i=t.length,n=[];if(i>3){const o=[],r=1-s.curveTightness;n.push({op:"move",data:[t[1][0],t[1][1]]});for(let e=1;e+2<i;e++){const s=t[e];o[0]=[s[0],s[1]],o[1]=[s[0]+(r*t[e+1][0]-r*t[e-1][0])/6,s[1]+(r*t[e+1][1]-r*t[e-1][1])/6],o[2]=[t[e+1][0]+(r*t[e][0]-r*t[e+2][0])/6,t[e+1][1]+(r*t[e][1]-r*t[e+2][1])/6],o[3]=[t[e+1][0],t[e+1][1]],n.push({op:"bcurveTo",data:[o[1][0],o[1][1],o[2][0],o[2][1],o[3][0],o[3][1]]});}if(e2===e.length){const t=s.maxRandomnessOffset;n.push({op:"lineTo",data:[e[0]+a(t,s),e[1]+a(t,s)]});}}else 3===i?(n.push({op:"move",data:[t[1][0],t[1][1]]}),n.push({op:"bcurveTo",data:[t[1][0],t[1][1],t[2][0],t[2][1],t[2][0],t[2][1]]})):2===in.push(...c(t[0][0],t[0][1],t[1][0],t[1][1],s));return n}function l(t,e,s,i,n,o,r,h){const c=[],u=[],f=a(.5,h)-Math.PI/2;u.push([a(o,h)+e+.9*i*Math.cos(f-t),a(o,h)+s+.9*n*Math.sin(f-t)]);for(let r=f;r<2*Math.PI+f-.01;r+=t){const t=[a(o,h)+e+i*Math.cos(r),a(o,h)+s+n*Math.sin(r)];c.push(t),u.push(t);}return u.push([a(o,h)+e+i*Math.cos(f+2*Math.PI+.5*r),a(o,h)+s+n*Math.sin(f+2*Math.PI+.5*r)]),u.push([a(o,h)+e+.98*i*Math.cos(f+r),a(o,h)+s+.98*n*Math.sin(f+r)]),u.push([a(o,h)+e+.9*i*Math.cos(f+.5*r),a(o,h)+s+.9*n*Math.sin(f+.5*r)]),[u,c]}function g(t,e){return {maxRandomnessOffset:2,roughness:"highlight"===t?3:1.5,bowing:1,stroke:"#000",strokeWidth:1.5,curveTightness:0,curveFitting:.95,curveStepCount:9,fillStyle:"hachure",fillWeight:-1,hachureAngle:-41,hachureGap:-1,dashOffset:-1,dashGap:-1,zigzagOffset:-1,combineNestedSvgPaths:!1,disableMultiStroke:"double"!==t,disableMultiStrokeFill:!1,seed:e}}function d(e,r,h,a,c,u){const f=[];let l=h.strokeWidth||2;const d=function(t){const e=t.padding;if(e||0===e){if("number"==typeof e)return [e,e,e,e];if(Array.isArray(e)){const t=e;if(t.length)switch(t.length){case 4:return [...t];case 1:return [t[0],t[0],t[0],t[0]];case 2:return [...t,...t];case 3:return [...t,t[1]];default:return [t[0],t[1],t[2],t[3]]}}}return [5,5,5,5]}(h),p=void 0===h.animate||!!h.animate,_=h.iterations||2,m=g("single",u);switch(h.type){case"underline":{const t=r.y+r.h+d[2];for(let e=0;e<_;e++)e%2?f.push(s(r.x+r.w,t,r.x,t,m)):f.push(s(r.x,t,r.x+r.w,t,m));break}case"strike-through":{const t=r.y+r.h/2;for(let e=0;e<_;e++)e%2?f.push(s(r.x+r.w,t,r.x,t,m)):f.push(s(r.x,t,r.x+r.w,t,m));break}case"box":{const t=r.x-d[3],e=r.y-d[0],s=r.w+(d[1]+d[3]),i=r.h+(d[0]+d[2]);for(let o=0;o<_;o++)f.push(n(t,e,s,i,m));break}case"bracket":{const t=Array.isArray(h.brackets)?h.brackets:h.brackets?[h.brackets]:["right"],e=r.x-2*d[3],s=r.x+r.w+2*d[1],n=r.y-2*d[0],o=r.y+r.h+2*d[2];for(const h of t){let t;switch(h){case"bottom":t=[[e,r.y+r.h],[e,o],[s,o],[s,r.y+r.h]];break;case"top":t=[[e,r.y],[e,n],[s,n],[s,r.y]];break;case"left":t=[[r.x,n],[e,n],[e,o],[r.x,o]];break;case"right":t=[[r.x+r.w,n],[s,n],[s,o],[r.x+r.w,o]];}tf.push(i(t,!1,m));}break}case"crossed-off":{const t=r.x,e=r.y,i=t+r.w,n=e+r.h;for(let o=0;o<_;o++)o%2?f.push(s(i,n,t,e,m)):f.push(s(t,e,i,n,m));for(let o=0;o<_;o++)o%2?f.push(s(t,n,i,e,m)):f.push(s(i,e,t,n,m));break}case"circle":{const t=g("double",u),e=r.w+(d[1]+d[3]),s=r.h+(d[0]+d[2]),i=r.x-d[3]+e/2,n=r.y-d[0]+s/2,h=Math.floor(_/2),a=_-2*h;for(let r=0;r<h;r++)f.push(o(i,n,e,s,t));for(let t=0;t<a;t++)f.push(o(i,n,e,s,m));break}case"highlight":{const t=g("highlight",u);l=.95*r.h;const e=r.y+r.h/2;for(let i=0;i<_;i++)i%2?f.push(s(r.x+r.w,e,r.x,e,t)):f.push(s(r.x,e,r.x+r.w,e,t));break}}if(f.length){const s=function(t){const e=[];for(const s of t){let t="";for(const i of s.ops){const s=i.data;switch(i.op){case"move":t.trim()e.push(t.trim()),t=`M${s[0]} ${s[1]} `;break;case"bcurveTo":t+=`C${s[0]} ${s[1]}, ${s[2]} ${s[3]}, ${s[4]} ${s[5]} `;break;case"lineTo":t+=`L${s[0]} ${s[1]} `;}}t.trim()e.push(t.trim());}return e}(f),i=[],n=[];let o=0;const r=(t,e,s)=>t.setAttribute(e,s);for(const a of s){const s=document.createElementNS(t,"path");if(r(s,"d",a),r(s,"fill","none"),r(s,"stroke",h.color||"currentColor"),r(s,"stroke-width",""+l),p){const t=s.getTotalLength();i.push(t),o+=t;}e.appendChild(s),n.push(s);}if(p){let t=0;for(let e=0;e<n.length;e++){const s=n[e],r=i[e],h=o?c*(r/o):0,u=a+t,f=s.style;f.strokeDashoffset=""+r,f.strokeDasharray=""+r,f.animation=`rough-notation-dash ${h}ms ease-out ${u}ms forwards`,t+=h;}}}}class p{constructor(t,e){this._state="unattached",this._resizing=!1,this._seed=Math.floor(Math.random()*2**31),this._lastSizes=[],this._animationDelay=0,this._resizeListener=()=>{this._resizing||(this._resizing=!0,setTimeout(()=>{this._resizing=!1,"showing"===this._statethis.haveRectsChanged()this.show();},400));},this._e=t,this._config=JSON.parse(JSON.stringify(e)),this.attach();}get animate(){return this._config.animate}set animate(t){this._config.animate=t;}get animationDuration(){return this._config.animationDuration}set animationDuration(t){this._config.animationDuration=t;}get iterations(){return this._config.iterations}set iterations(t){this._config.iterations=t;}get color(){return this._config.color}set color(t){this._config.color!==t(this._config.color=t,this.refresh());}get strokeWidth(){return this._config.strokeWidth}set strokeWidth(t){this._config.strokeWidth!==t(this._config.strokeWidth=t,this.refresh());}get padding(){return this._config.padding}set padding(t){this._config.padding!==t(this._config.padding=t,this.refresh());}attach(){if("unattached"===this._statethis._e.parentElement){!function(){if(!window.__rno_kf_s){const t=window.__rno_kf_s=document.createElement("style");t.textContent="@keyframes rough-notation-dash { to { stroke-dashoffset: 0; } }",document.head.appendChild(t);}}();const e=this._svg=document.createElementNS(t,"svg");e.setAttribute("class","rough-annotation");const s=e.style;s.position="absolute",s.top="0",s.left="0",s.overflow="visible",s.pointerEvents="none",s.width="100px",s.height="100px";const i="highlight"===this._config.type;if(this._e.insertAdjacentElement(i?"beforebegin":"afterend",e),this._state="not-showing",i){const t=window.getComputedStyle(this._e).position;(!t||"static"===t)(this._e.style.position="relative");}this.attachListeners();}}detachListeners(){window.removeEventListener("resize",this._resizeListener),this._rothis._ro.unobserve(this._e);}attachListeners(){this.detachListeners(),window.addEventListener("resize",this._resizeListener,{passive:!0}),!this._ro"ResizeObserver"in window(this._ro=new window.ResizeObserver(t=>{for(const e of t)e.contentRectthis._resizeListener();})),this._rothis._ro.observe(this._e);}haveRectsChanged(){if(this._lastSizes.length){const t=this.rects();if(t.length!==this._lastSizes.length)return !0;for(let e=0;e<t.length;e++)if(!this.isSameRect(t[e],this._lastSizes[e]))return !0}return !1}isSameRect(t,e){const s=(t,e)=>Math.round(t)===Math.round(e);return s(t.x,e.x)s(t.y,e.y)s(t.w,e.w)s(t.h,e.h)}isShowing(){return "not-showing"!==this._state}refresh(){this.isShowing()!this.pendingRefresh(this.pendingRefresh=Promise.resolve().then(()=>{this.isShowing()this.show(),delete this.pendingRefresh;}));}show(){switch(this._state){case"unattached":break;case"showing":this.hide(),this._svgthis.render(this._svg,!0);break;case"not-showing":this.attach(),this._svgthis.render(this._svg,!1);}}hide(){if(this._svg)for(;this._svg.lastChild;)this._svg.removeChild(this._svg.lastChild);this._state="not-showing";}remove(){this._svgthis._svg.parentElementthis._svg.parentElement.removeChild(this._svg),this._svg=void 0,this._state="unattached",this.detachListeners();}render(t,e){let s=this._config;e(s=JSON.parse(JSON.stringify(this._config)),s.animate=!1);const i=this.rects();let n=0;i.forEach(t=>n+=t.w);const o=s.animationDuration||800;let r=0;for(let e=0;e<i.length;e++){const h=o*(i[e].w/n);d(t,i[e],s,r+this._animationDelay,h,this._seed),r+=h;}this._lastSizes=i,this._state="showing";}rects(){const t=[];if(this._svg)if(this._config.multiline){const e=this._e.getClientRects();for(let s=0;s<e.length;s++)t.push(this.svgRect(this._svg,e[s]));}else t.push(this.svgRect(this._svg,this._e.getBoundingClientRect()));return t}svgRect(t,e){const s=t.getBoundingClientRect(),i=e;return {x:(i.x||i.left)-(s.x||s.left),y:(i.y||i.top)-(s.y||s.top),w:i.width,h:i.height}}}function _(t,e){return new p(t,e)}
 
  /* src/Components/Title.svelte generated by Svelte v3.48.0 */
  const file$a = "src/Components/Title.svelte";
@@ -794,8 +794,8 @@ var app = (function () {
  t3 = space();
  h3 = element("h3");
  a0 = element("a");
- a0.textContent = "Jared Wilber";
- t5 = text(" &\n ");
+ a0.textContent = "";
+ t5 = text("\n ");
  a1 = element("a");
  a1.textContent = "Jasper Croome";
  t7 = text(", May\n 2022");
@@ -881,7 +881,7 @@ var app = (function () {
  const writable_props = [];
 
  Object.keys($$props).forEach(key => {
- if (!~writable_props.indexOf(key) && key.slice(0, 2) !== '$$' && key !== 'slot') console.warn(`<Title> was created with unknown prop '${key}'`);
+ if (!~writable_props.indexOf(key)key.slice(0, 2) !== '$$'key !== 'slot') console.warn(`<Title> was created with unknown prop '${key}'`);
  });
 
  $$self.$capture_state = () => ({ onMount, annotate: _ });
@@ -905,7 +905,7 @@ var app = (function () {
  var commonjsGlobal = typeof globalThis !== 'undefined' ? globalThis : typeof window !== 'undefined' ? window : typeof global !== 'undefined' ? global : typeof self !== 'undefined' ? self : {};
 
  function getDefaultExportFromCjs (x) {
- return x && x.__esModule && Object.prototype.hasOwnProperty.call(x, 'default') ? x['default'] : x;
+ return xx.__esModuleObject.prototype.hasOwnProperty.call(x, 'default') ? x['default'] : x;
  }
 
  function createCommonjsModule(fn) {
@@ -961,31 +961,31 @@ var app = (function () {
  /******/
  /******/ // define __esModule on exports
  /******/ __webpack_require__.r = function(exports) {
- /******/ if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
+ /******/ if(typeof Symbol !== 'undefined'Symbol.toStringTag) {
  /******/ Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
  /******/ }
  /******/ Object.defineProperty(exports, '__esModule', { value: true });
  /******/ };
  /******/
  /******/ // create a fake namespace object
- /******/ // mode & 1: value is a module id, require it
- /******/ // mode & 2: merge all properties of value into the ns
- /******/ // mode & 4: return value when already ns object
- /******/ // mode & 8|1: behave like require
+ /******/ // mode1: value is a module id, require it
+ /******/ // mode2: merge all properties of value into the ns
+ /******/ // mode4: return value when already ns object
+ /******/ // mode8|1: behave like require
  /******/ __webpack_require__.t = function(value, mode) {
- /******/ if(mode & 1) value = __webpack_require__(value);
- /******/ if(mode & 8) return value;
- /******/ if((mode & 4) && typeof value === 'object' && value && value.__esModule) return value;
+ /******/ if(mode1) value = __webpack_require__(value);
+ /******/ if(mode8) return value;
+ /******/ if((mode4)typeof value === 'object'valuevalue.__esModule) return value;
  /******/ var ns = Object.create(null);
  /******/ __webpack_require__.r(ns);
  /******/ Object.defineProperty(ns, 'default', { enumerable: true, value: value });
- /******/ if(mode & 2 && typeof value != 'string') for(var key in value) __webpack_require__.d(ns, key, function(key) { return value[key]; }.bind(null, key));
+ /******/ if(mode2typeof value != 'string') for(var key in value) __webpack_require__.d(ns, key, function(key) { return value[key]; }.bind(null, key));
  /******/ return ns;
  /******/ };
  /******/
  /******/ // getDefaultExport function for compatibility with non-harmony modules
  /******/ __webpack_require__.n = function(module) {
- /******/ var getter = module && module.__esModule ?
+ /******/ var getter = modulemodule.__esModule ?
  /******/ function getDefault() { return module['default']; } :
  /******/ function getModuleExports() { return module; };
  /******/ __webpack_require__.d(getter, 'a', getter);
@@ -1049,7 +1049,7 @@ var app = (function () {
 
  SourceLocation.range = function range(first, second) {
  if (!second) {
- return first && first.loc;
+ return firstfirst.loc;
  } else if (!first || !first.loc || !second.loc || first.loc.lexer !== second.loc.lexer) {
  return null;
  } else {
@@ -1129,9 +1129,9 @@ var app = (function () {
  this.position = void 0;
  var error = "KaTeX parse error: " + message;
  var start;
- var loc = token && token.loc;
+ var loc = tokentoken.loc;
 
- if (loc && loc.start <= loc.end) {
+ if (locloc.start <= loc.end) {
  // If we have the input and a position, make the error a bit fancier
  // Get the input
  var input = loc.lexer.input; // Prepend some information
@@ -1146,7 +1146,7 @@ var app = (function () {
  } // Underline token in question using combining underscores
 
 
- var underlined = input.slice(start, end).replace(/[^]/g, "$&\u0332"); // Extract some context from the input and add it to the error
+ var underlined = input.slice(start, end).replace(/[^]/g, "$\u0332"); // Extract some context from the input and add it to the error
 
  var left;
 
@@ -1211,13 +1211,13 @@ var app = (function () {
  };
 
  var ESCAPE_LOOKUP = {
- "&": "&amp;",
- ">": "&gt;",
- "<": "&lt;",
- "\"": "&quot;",
- "'": "&#x27;"
+ "": "amp;",
+ ">": "gt;",
+ "<": "lt;",
+ "\"": "quot;",
+ "'": "#x27;"
  };
- var ESCAPE_REGEX = /[&><"']/g;
+ var ESCAPE_REGEX = /[><"']/g;
  /**
  * Escapes text to prevent scripting attacks.
  */
@@ -1279,7 +1279,7 @@ var app = (function () {
  */
 
  var protocolFromUrl = function protocolFromUrl(url) {
- var protocol = /^\s*([^\\/#]*?)(?::|&#0*58|&#x0*3a)/i.exec(url);
+ var protocol = /^\s*([^\\/#]*?)(?::|#0*58|#x0*3a)/i.exec(url);
  return protocol != null ? protocol[1] : "_relative";
  };
  /* harmony default export */ var utils = ({
@@ -1369,10 +1369,10 @@ var app = (function () {
  } else if (strict === true || strict === "error") {
  throw new src_ParseError("LaTeX-incompatible input and strict mode is set to 'error': " + (errorMsg + " [" + errorCode + "]"), token);
  } else if (strict === "warn") {
- typeof console !== "undefined" && console.warn("LaTeX-incompatible input and strict mode is set to 'warn': " + (errorMsg + " [" + errorCode + "]"));
+ typeof console !== "undefined"console.warn("LaTeX-incompatible input and strict mode is set to 'warn': " + (errorMsg + " [" + errorCode + "]"));
  } else {
  // won't happen in type-safe code
- typeof console !== "undefined" && console.warn("LaTeX-incompatible input and strict mode is set to " + ("unrecognized '" + strict + "': " + errorMsg + " [" + errorCode + "]"));
+ typeof console !== "undefined"console.warn("LaTeX-incompatible input and strict mode is set to " + ("unrecognized '" + strict + "': " + errorMsg + " [" + errorCode + "]"));
  }
  }
  /**
@@ -1405,11 +1405,11 @@ var app = (function () {
  } else if (strict === true || strict === "error") {
  return true;
  } else if (strict === "warn") {
- typeof console !== "undefined" && console.warn("LaTeX-incompatible input and strict mode is set to 'warn': " + (errorMsg + " [" + errorCode + "]"));
+ typeof console !== "undefined"console.warn("LaTeX-incompatible input and strict mode is set to 'warn': " + (errorMsg + " [" + errorCode + "]"));
  return false;
  } else {
  // won't happen in type-safe code
- typeof console !== "undefined" && console.warn("LaTeX-incompatible input and strict mode is set to " + ("unrecognized '" + strict + "': " + errorMsg + " [" + errorCode + "]"));
+ typeof console !== "undefined"console.warn("LaTeX-incompatible input and strict mode is set to " + ("unrecognized '" + strict + "': " + errorMsg + " [" + errorCode + "]"));
  return false;
  }
  }
@@ -1424,7 +1424,7 @@ var app = (function () {
  ;
 
  _proto.isTrusted = function isTrusted(context) {
- if (context.url && !context.protocol) {
+ if (context.url!context.protocol) {
  context.protocol = utils.protocolFromUrl(context.url);
  }
 
@@ -1627,7 +1627,7 @@ var app = (function () {
  for (var _i = 0; _i < script.blocks.length; _i++) {
  var block = script.blocks[_i];
 
- if (codepoint >= block[0] && codepoint <= block[1]) {
+ if (codepoint >= block[0]codepoint <= block[1]) {
  return script.name;
  }
  }
@@ -1657,7 +1657,7 @@ var app = (function () {
 
  function supportedCodepoint(codepoint) {
  for (var i = 0; i < allBlocks.length; i += 2) {
- if (codepoint >= allBlocks[i] && codepoint <= allBlocks[i + 1]) {
+ if (codepoint >= allBlocks[i]codepoint <= allBlocks[i + 1]) {
  return true;
  }
  }
@@ -1807,7 +1807,7 @@ var app = (function () {
  twoheadrightarrow: "M400000 167\nc-68-40-115.7-95.7-143-167h-22c-15.3 0-23 .3-23 1 0 1.3 5.3 13.7 16 37 18 35.3\n 41.3 69 70 101l7 8h-125l-9-7c-50.7-39.3-85-86-103-140h-46c0 4.7 6.3 18.7 19 42\n 18 35.3 40 67.3 66 96l9 9H0v40h399716l-9 9c-26 28.7-48 60.7-66 96-12.7 23.333\n-19 37.333-19 42h46c18-54 52.3-100.7 103-140l9-7h125l-7 8c-28.7 32-52 65.7-70\n 101-10.7 23.333-16 35.7-16 37 0 .7 7.7 1 23 1h22c27.3-71.3 75-127 143-167z",
  // tilde1 is a modified version of a glyph from the MnSymbol package
  tilde1: "M200 55.538c-77 0-168 73.953-177 73.953-3 0-7\n-2.175-9-5.437L2 97c-1-2-2-4-2-6 0-4 2-7 5-9l20-12C116 12 171 0 207 0c86 0\n 114 68 191 68 78 0 168-68 177-68 4 0 7 2 9 5l12 19c1 2.175 2 4.35 2 6.525 0\n 4.35-2 7.613-5 9.788l-19 13.05c-92 63.077-116.937 75.308-183 76.128\n-68.267.847-113-73.952-191-73.952z",
- // ditto tilde2, tilde3, & tilde4
+ // ditto tilde2, tilde3,tilde4
  tilde2: "M344 55.266c-142 0-300.638 81.316-311.5 86.418\n-8.01 3.762-22.5 10.91-23.5 5.562L1 120c-1-2-1-3-1-4 0-5 3-9 8-10l18.4-9C160.9\n 31.9 283 0 358 0c148 0 188 122 331 122s314-97 326-97c4 0 8 2 10 7l7 21.114\nc1 2.14 1 3.21 1 4.28 0 5.347-3 9.626-7 10.696l-22.3 12.622C852.6 158.372 751\n 181.476 676 181.476c-149 0-189-126.21-332-126.21z",
  tilde3: "M786 59C457 59 32 175.242 13 175.242c-6 0-10-3.457\n-11-10.37L.15 138c-1-7 3-12 10-13l19.2-6.4C378.4 40.7 634.3 0 804.3 0c337 0\n 411.8 157 746.8 157 328 0 754-112 773-112 5 0 10 3 11 9l1 14.075c1 8.066-.697\n 16.595-6.697 17.492l-21.052 7.31c-367.9 98.146-609.15 122.696-778.15 122.696\n -338 0-409-156.573-744-156.573z",
  tilde4: "M786 58C457 58 32 177.487 13 177.487c-6 0-10-3.345\n-11-10.035L.15 143c-1-7 3-12 10-13l22-6.7C381.2 35 637.15 0 807.15 0c337 0 409\n 177 744 177 328 0 754-127 773-127 5 0 10 3 11 9l1 14.794c1 7.805-3 13.38-9\n 14.495l-20.7 5.574c-366.85 99.79-607.3 139.372-776.3 139.372-338 0-409\n -175.236-744-175.236z",
@@ -1815,7 +1815,7 @@ var app = (function () {
  vec: "M377 20c0-5.333 1.833-10 5.5-14S391 0 397 0c4.667 0 8.667 1.667 12 5\n3.333 2.667 6.667 9 10 19 6.667 24.667 20.333 43.667 41 57 7.333 4.667 11\n10.667 11 18 0 6-1 10-3 12s-6.667 5-14 9c-28.667 14.667-53.667 35.667-75 63\n-1.333 1.333-3.167 3.5-5.5 6.5s-4 4.833-5 5.5c-1 .667-2.5 1.333-4.5 2s-4.333 1\n-7 1c-4.667 0-9.167-1.833-13.5-5.5S337 184 337 178c0-12.667 15.667-32.333 47-59\nH213l-171-1c-8.667-6-13-12.333-13-19 0-4.667 4.333-11.333 13-20h359\nc-16-25.333-24-45-24-59z",
  // widehat1 is a modified version of a glyph from the MnSymbol package
  widehat1: "M529 0h5l519 115c5 1 9 5 9 10 0 1-1 2-1 3l-4 22\nc-1 5-5 9-11 9h-2L532 67 19 159h-2c-5 0-9-4-11-9l-5-22c-1-6 2-12 8-13z",
- // ditto widehat2, widehat3, & widehat4
+ // ditto widehat2, widehat3,widehat4
  widehat2: "M1181 0h2l1171 176c6 0 10 5 10 11l-2 23c-1 6-5 10\n-11 10h-1L1182 67 15 220h-1c-6 0-10-4-11-10l-2-23c-1-6 4-11 10-11z",
  widehat3: "M1181 0h2l1171 236c6 0 10 5 10 11l-2 23c-1 6-5 10\n-11 10h-1L1182 67 15 280h-1c-6 0-10-4-11-10l-2-23c-1-6 4-11 10-11z",
  widehat4: "M1181 0h2l1171 296c6 0 10 5 10 11l-2 23c-1 6-5 10\n-11 10h-1L1182 67 15 340h-1c-6 0-10-4-11-10l-2-23c-1-6 4-11 10-11z",
@@ -4783,12 +4783,12 @@ var app = (function () {
  var ch = character.charCodeAt(0);
  var metrics = fontMetricsData[font][ch];
 
- if (!metrics && character[0] in extraCharacterMap) {
+ if (!metricscharacter[0] in extraCharacterMap) {
  ch = extraCharacterMap[character[0]].charCodeAt(0);
  metrics = fontMetricsData[font][ch];
  }
 
- if (!metrics && mode === 'text') {
+ if (!metricsmode === 'text') {
  // We don't typically have font metrics for Asian scripts.
  // But since we support them in text mode, we need to return
  // some sort of metrics.
@@ -4893,7 +4893,7 @@ var app = (function () {
  replace: replace
  };
 
- if (acceptUnicodeChar && replace) {
+ if (acceptUnicodeCharreplace) {
  symbols[mode][replace] = symbols[mode][name];
  }
  } // Some abbreviations for commonly used strings.
@@ -4949,8 +4949,8 @@ var app = (function () {
 
  defineSymbol(symbols_math, main, symbols_textord, "#", "\\#");
  defineSymbol(symbols_text, main, symbols_textord, "#", "\\#");
- defineSymbol(symbols_math, main, symbols_textord, "&", "\\&");
- defineSymbol(symbols_text, main, symbols_textord, "&", "\\&");
+ defineSymbol(symbols_math, main, symbols_textord, "", "\\");
+ defineSymbol(symbols_text, main, symbols_textord, "", "\\");
  defineSymbol(symbols_math, main, symbols_textord, "\u2135", "\\aleph", true);
  defineSymbol(symbols_math, main, symbols_textord, "\u2200", "\\forall", true);
  defineSymbol(symbols_math, main, symbols_textord, "\u210F", "\\hbar", true);
@@ -4993,7 +4993,7 @@ var app = (function () {
  defineSymbol(symbols_math, main, bin, "\u2021", "\\ddagger");
  defineSymbol(symbols_math, main, bin, "\u2240", "\\wr", true);
  defineSymbol(symbols_math, main, bin, "\u2A3F", "\\amalg");
- defineSymbol(symbols_math, main, bin, "&", "\\And"); // from amsmath
+ defineSymbol(symbols_math, main, bin, "", "\\And"); // from amsmath
  // Arrow Symbols
 
  defineSymbol(symbols_math, main, rel, "\u27F5", "\\longleftarrow", true);
@@ -5773,12 +5773,12 @@ var app = (function () {
  var codePoint = (H - 0xD800) * 0x400 + (L - 0xDC00) + 0x10000;
  var j = mode === "math" ? 0 : 1; // column index for CSS class.
 
- if (0x1D400 <= codePoint && codePoint < 0x1D6A4) {
+ if (0x1D400 <= codePointcodePoint < 0x1D6A4) {
  // wideLatinLetterData contains exactly 26 chars on each row.
  // So we can calculate the relevant row. No traverse necessary.
  var i = Math.floor((codePoint - 0x1D400) / 26);
  return [wideLatinLetterData[i][2], wideLatinLetterData[i][j]];
- } else if (0x1D7CE <= codePoint && codePoint <= 0x1D7FF) {
+ } else if (0x1D7CE <= codePointcodePoint <= 0x1D7FF) {
  // Numerals, ten per row.
  var _i = Math.floor((codePoint - 0x1D7CE) / 10);
 
@@ -5786,7 +5786,7 @@ var app = (function () {
  } else if (codePoint === 0x1D6A5 || codePoint === 0x1D6A6) {
  // dotless i or j
  return [wideLatinLetterData[0][2], wideLatinLetterData[0][j]];
- } else if (0x1D6A6 < codePoint && codePoint < 0x1D7CE) {
+ } else if (0x1D6A6 < codePointcodePoint < 0x1D7CE) {
  // Greek letters. Not supported, yet.
  return ["", ""];
  } else {
@@ -5932,7 +5932,7 @@ var app = (function () {
  ;
 
  _proto.havingSize = function havingSize(size) {
- if (this.size === size && this.textSize === size) {
+ if (this.size === sizethis.textSize === size) {
  return this;
  } else {
  return this.extend({
@@ -5953,7 +5953,7 @@ var app = (function () {
  style = style || this.style.text();
  var wantSize = sizeAtStyle(Options.BASESIZE, style);
 
- if (this.size === wantSize && this.textSize === Options.BASESIZE && this.style === style) {
+ if (this.size === wantSizethis.textSize === Options.BASESIZEthis.style === style) {
  return this;
  } else {
  return this.extend({
@@ -6244,7 +6244,7 @@ var app = (function () {
  var buildCommon_lookupSymbol = function lookupSymbol(value, // TODO(#963): Use a union type for this.
  fontName, mode) {
  // Replace the value with its replaced value from symbol.js
- if (src_symbols[mode][value] && src_symbols[mode][value].replace) {
+ if (src_symbols[mode][value]src_symbols[mode][value].replace) {
  value = src_symbols[mode][value].replace;
  }
 
@@ -6274,14 +6274,14 @@ var app = (function () {
  if (metrics) {
  var italic = metrics.italic;
 
- if (mode === "text" || options && options.font === "mathit") {
+ if (mode === "text" || optionsoptions.font === "mathit") {
  italic = 0;
  }
 
  symbolNode = new domTree_SymbolNode(value, metrics.height, metrics.depth, italic, metrics.skew, metrics.width, classes);
  } else {
  // TODO(emily): Figure out a good way to only print this in development
- typeof console !== "undefined" && console.warn("No character metrics " + ("for '" + value + "' in style '" + fontName + "' and mode '" + mode + "'"));
+ typeof console !== "undefined"console.warn("No character metrics " + ("for '" + value + "' in style '" + fontName + "' and mode '" + mode + "'"));
  symbolNode = new domTree_SymbolNode(value, 0, 0, 0, 0, 0, classes);
  }
 
@@ -6319,7 +6319,7 @@ var app = (function () {
  // text ordinal and is therefore not present as a symbol in the symbols
  // table for text, as well as a special case for boldsymbol because it
  // can be used for bold + and -
- if (options.font === "boldsymbol" && buildCommon_lookupSymbol(value, "Main-Bold", mode).metrics) {
+ if (options.font === "boldsymbol"buildCommon_lookupSymbol(value, "Main-Bold", mode).metrics) {
  return buildCommon_makeSymbol(value, "Main-Bold", mode, options, classes.concat(["mathbf"]));
  } else if (value === "\\" || src_symbols[mode][value].font === "main") {
  return buildCommon_makeSymbol(value, "Main-Regular", mode, options, classes);
@@ -6336,7 +6336,7 @@ var app = (function () {
 
 
  var boldsymbol = function boldsymbol(value, mode, options, classes, type) {
- if (type !== "textord" && buildCommon_lookupSymbol(value, "Math-BoldItalic", mode).metrics) {
+ if (type !== "textord"buildCommon_lookupSymbol(value, "Math-BoldItalic", mode).metrics) {
  return {
  fontName: "Math-BoldItalic",
  fontClass: "boldsymbol"
@@ -6360,7 +6360,7 @@ var app = (function () {
  var text = group.text;
  var classes = ["mord"]; // Math mode or Old font (i.e. \rm)
 
- var isFont = mode === "math" || mode === "text" && options.font;
+ var isFont = mode === "math" || mode === "text"options.font;
  var fontOrFamily = isFont ? options.font : options.fontFamily;
 
  if (text.charCodeAt(0) === 0xD835) {
@@ -6388,7 +6388,7 @@ var app = (function () {
 
  if (buildCommon_lookupSymbol(text, fontName, mode).metrics) {
  return buildCommon_makeSymbol(text, fontName, mode, options, classes.concat(fontClasses));
- } else if (ligatures.hasOwnProperty(text) && fontName.substr(0, 10) === "Typewriter") {
+ } else if (ligatures.hasOwnProperty(text)fontName.substr(0, 10) === "Typewriter") {
  // Deconstruct ligatures in monospace fonts (\texttt, \tt).
  var parts = [];
 
@@ -6404,7 +6404,7 @@ var app = (function () {
  if (type === "mathord") {
  return buildCommon_makeSymbol(text, "Math-Italic", mode, options, classes.concat(["mathnormal"]));
  } else if (type === "textord") {
- var font = src_symbols[mode][text] && src_symbols[mode][text].font;
+ var font = src_symbols[mode][text]src_symbols[mode][text].font;
 
  if (font === "ams") {
  var _fontName = retrieveTextFontName("amsrm", options.fontWeight, options.fontShape);
@@ -6437,13 +6437,13 @@ var app = (function () {
  }
 
  for (var style in prev.style) {
- if (prev.style.hasOwnProperty(style) && prev.style[style] !== next.style[style]) {
+ if (prev.style.hasOwnProperty(style)prev.style[style] !== next.style[style]) {
  return false;
  }
  }
 
  for (var _style in next.style) {
- if (next.style.hasOwnProperty(_style) && prev.style[_style] !== next.style[_style]) {
+ if (next.style.hasOwnProperty(_style)prev.style[_style] !== next.style[_style]) {
  return false;
  }
  }
@@ -6461,7 +6461,7 @@ var app = (function () {
  var prev = chars[i];
  var next = chars[i + 1];
 
- if (prev instanceof domTree_SymbolNode && next instanceof domTree_SymbolNode && buildCommon_canCombine(prev, next)) {
+ if (prev instanceof domTree_SymbolNodenext instanceof domTree_SymbolNodebuildCommon_canCombine(prev, next)) {
  prev.text += next.text;
  prev.height = Math.max(prev.height, next.height);
  prev.depth = Math.max(prev.depth, next.depth); // Use the last character's italic correction since we use
@@ -6782,7 +6782,7 @@ var app = (function () {
 
  var fontStylesName;
 
- if (fontWeight === "textbf" && fontShape === "textit") {
+ if (fontWeight === "textbf"fontShape === "textit") {
  fontStylesName = "BoldItalic";
  } else if (fontWeight === "textbf") {
  fontStylesName = "Bold";
@@ -7192,9 +7192,9 @@ var app = (function () {
  var prevType = prev.classes[0];
  var type = node.classes[0];
 
- if (prevType === "mbin" && utils.contains(binRightCanceller, type)) {
+ if (prevType === "mbin"utils.contains(binRightCanceller, type)) {
  prev.classes[0] = "mord";
- } else if (type === "mbin" && utils.contains(binLeftCanceller, prevType)) {
+ } else if (type === "mbin"utils.contains(binLeftCanceller, prevType)) {
  node.classes[0] = "mord";
  }
  }, {
@@ -7204,7 +7204,7 @@ var app = (function () {
  var prevType = getTypeOfDomTree(prev);
  var type = getTypeOfDomTree(node); // 'mtight' indicates that the node is script or scriptscript style.
 
- var space = prevType && type ? node.hasClass("mtight") ? tightSpacings[prevType][type] : spacings[prevType][type] : null;
+ var space = prevTypetype ? node.hasClass("mtight") ? tightSpacings[prevType][type] : spacings[prevType][type] : null;
 
  if (space) {
  // Insert glue (spacing) after the `prev`.
@@ -7259,7 +7259,7 @@ var app = (function () {
 
  if (nonspace) {
  prev.node = node;
- } else if (isRoot && node.hasClass("newline")) {
+ } else if (isRootnode.hasClass("newline")) {
  prev.node = buildHTML_makeSpan(["leftmost"]); // treat like beginning of line
  }
 
@@ -7278,7 +7278,7 @@ var app = (function () {
 
 
  var buildHTML_checkPartialGroup = function checkPartialGroup(node) {
- if (node instanceof tree_DocumentFragment || node instanceof domTree_Anchor || node instanceof domTree_Span && node.hasClass("enclosing")) {
+ if (node instanceof tree_DocumentFragment || node instanceof domTree_Anchor || node instanceof domTree_Spannode.hasClass("enclosing")) {
  return node;
  }
 
@@ -7339,7 +7339,7 @@ var app = (function () {
  var groupNode = _htmlGroupBuilders[group.type](group, options); // If the size changed between the parent and the current group, account
  // for that size difference.
 
- if (baseOptions && options.size !== baseOptions.size) {
+ if (baseOptionsoptions.size !== baseOptions.size) {
  groupNode = buildHTML_makeSpan(options.sizingClasses(baseOptions), [groupNode], options);
  var multiplier = options.sizeMultiplier / baseOptions.sizeMultiplier;
  groupNode.height *= multiplier;
@@ -7380,7 +7380,7 @@ var app = (function () {
  // Strip off outer tag wrapper for processing below.
  var tag = null;
 
- if (tree.length === 1 && tree[0].type === "tag") {
+ if (tree.length === 1tree[0].type === "tag") {
  tag = tree[0].tag;
  tree = tree[0].body;
  } // Build the expression contained in the tree
@@ -7404,7 +7404,7 @@ var app = (function () {
  // Watch for \nobreak along the way, and stop at \newline.
  var nobreak = false;
 
- while (i < expression.length - 1 && expression[i + 1].hasClass("mspace") && !expression[i + 1].hasClass("newline")) {
+ while (i < expression.length - 1expression[i + 1].hasClass("mspace")!expression[i + 1].hasClass("newline")) {
  i++;
  parts.push(expression[i]);
 
@@ -7624,25 +7624,25 @@ var app = (function () {
  this.character = void 0;
  this.width = width; // See https://www.w3.org/TR/2000/WD-MathML2-20000328/chapter6.html
  // for a table of space-like characters. We use Unicode
- // representations instead of &LongNames; as it's not clear how to
+ // representations instead ofLongNames; as it's not clear how to
  // make the latter via document.createTextNode.
 
- if (width >= 0.05555 && width <= 0.05556) {
- this.character = "\u200A"; // &VeryThinSpace;
- } else if (width >= 0.1666 && width <= 0.1667) {
- this.character = "\u2009"; // &ThinSpace;
- } else if (width >= 0.2222 && width <= 0.2223) {
- this.character = "\u2005"; // &MediumSpace;
- } else if (width >= 0.2777 && width <= 0.2778) {
- this.character = "\u2005\u200A"; // &ThickSpace;
- } else if (width >= -0.05556 && width <= -0.05555) {
- this.character = "\u200A\u2063"; // &NegativeVeryThinSpace;
- } else if (width >= -0.1667 && width <= -0.1666) {
- this.character = "\u2009\u2063"; // &NegativeThinSpace;
- } else if (width >= -0.2223 && width <= -0.2222) {
- this.character = "\u205F\u2063"; // &NegativeMediumSpace;
- } else if (width >= -0.2778 && width <= -0.2777) {
- this.character = "\u2005\u2063"; // &NegativeThickSpace;
+ if (width >= 0.05555width <= 0.05556) {
+ this.character = "\u200A"; //VeryThinSpace;
+ } else if (width >= 0.1666width <= 0.1667) {
+ this.character = "\u2009"; //ThinSpace;
+ } else if (width >= 0.2222width <= 0.2223) {
+ this.character = "\u2005"; //MediumSpace;
+ } else if (width >= 0.2777width <= 0.2778) {
+ this.character = "\u2005\u200A"; //ThickSpace;
+ } else if (width >= -0.05556width <= -0.05555) {
+ this.character = "\u200A\u2063"; //NegativeVeryThinSpace;
+ } else if (width >= -0.1667width <= -0.1666) {
+ this.character = "\u2009\u2063"; //NegativeThinSpace;
+ } else if (width >= -0.2223width <= -0.2222) {
+ this.character = "\u205F\u2063"; //NegativeMediumSpace;
+ } else if (width >= -0.2778width <= -0.2777) {
+ this.character = "\u2005\u2063"; //NegativeThickSpace;
  } else {
  this.character = null;
  }
@@ -7717,7 +7717,7 @@ var app = (function () {
  * optional replacement from symbols.js.
  */
  var buildMathML_makeText = function makeText(text, mode, options) {
- if (src_symbols[mode][text] && src_symbols[mode][text].replace && text.charCodeAt(0) !== 0xD835 && !(ligatures.hasOwnProperty(text) && options && (options.fontFamily && options.fontFamily.substr(4, 2) === "tt" || options.font && options.font.substr(4, 2) === "tt"))) {
+ if (src_symbols[mode][text]src_symbols[mode][text].replacetext.charCodeAt(0) !== 0xD835!(ligatures.hasOwnProperty(text)options(options.fontFamilyoptions.fontFamily.substr(4, 2) === "tt" || options.fontoptions.font.substr(4, 2) === "tt"))) {
  text = src_symbols[mode][text].replace;
  }
 
@@ -7746,7 +7746,7 @@ var app = (function () {
  if (options.fontFamily === "texttt") {
  return "monospace";
  } else if (options.fontFamily === "textsf") {
- if (options.fontShape === "textit" && options.fontWeight === "textbf") {
+ if (options.fontShape === "textit"options.fontWeight === "textbf") {
  return "sans-serif-bold-italic";
  } else if (options.fontShape === "textit") {
  return "sans-serif-italic";
@@ -7755,7 +7755,7 @@ var app = (function () {
  } else {
  return "sans-serif";
  }
- } else if (options.fontShape === "textit" && options.fontWeight === "textbf") {
+ } else if (options.fontShape === "textit"options.fontWeight === "textbf") {
  return "bold-italic";
  } else if (options.fontShape === "textit") {
  return "italic";
@@ -7796,7 +7796,7 @@ var app = (function () {
  return null;
  }
 
- if (src_symbols[mode][text] && src_symbols[mode][text].replace) {
+ if (src_symbols[mode][text]src_symbols[mode][text].replace) {
  text = src_symbols[mode][text].replace;
  }
 
@@ -7818,7 +7818,7 @@ var app = (function () {
  if (expression.length === 1) {
  var group = buildMathML_buildGroup(expression[0], options);
 
- if (isOrdgroup && group instanceof mathMLTree_MathNode && group.type === "mo") {
+ if (isOrdgroupgroup instanceof mathMLTree_MathNodegroup.type === "mo") {
  // When TeX writers want to suppress spacing on an operator,
  // they often put the operator by itself inside braces.
  group.setAttribute("lspace", "0em");
@@ -7834,37 +7834,37 @@ var app = (function () {
  for (var i = 0; i < expression.length; i++) {
  var _group = buildMathML_buildGroup(expression[i], options);
 
- if (_group instanceof mathMLTree_MathNode && lastGroup instanceof mathMLTree_MathNode) {
+ if (_group instanceof mathMLTree_MathNodelastGroup instanceof mathMLTree_MathNode) {
  // Concatenate adjacent <mtext>s
- if (_group.type === 'mtext' && lastGroup.type === 'mtext' && _group.getAttribute('mathvariant') === lastGroup.getAttribute('mathvariant')) {
+ if (_group.type === 'mtext'lastGroup.type === 'mtext'_group.getAttribute('mathvariant') === lastGroup.getAttribute('mathvariant')) {
  var _lastGroup$children;
 
  (_lastGroup$children = lastGroup.children).push.apply(_lastGroup$children, _group.children);
 
  continue; // Concatenate adjacent <mn>s
- } else if (_group.type === 'mn' && lastGroup.type === 'mn') {
+ } else if (_group.type === 'mn'lastGroup.type === 'mn') {
  var _lastGroup$children2;
 
  (_lastGroup$children2 = lastGroup.children).push.apply(_lastGroup$children2, _group.children);
 
  continue; // Concatenate <mn>...</mn> followed by <mi>.</mi>
- } else if (_group.type === 'mi' && _group.children.length === 1 && lastGroup.type === 'mn') {
+ } else if (_group.type === 'mi'_group.children.length === 1lastGroup.type === 'mn') {
  var child = _group.children[0];
 
- if (child instanceof mathMLTree_TextNode && child.text === '.') {
+ if (child instanceof mathMLTree_TextNodechild.text === '.') {
  var _lastGroup$children3;
 
  (_lastGroup$children3 = lastGroup.children).push.apply(_lastGroup$children3, _group.children);
 
  continue;
  }
- } else if (lastGroup.type === 'mi' && lastGroup.children.length === 1) {
+ } else if (lastGroup.type === 'mi'lastGroup.children.length === 1) {
  var lastChild = lastGroup.children[0];
 
- if (lastChild instanceof mathMLTree_TextNode && lastChild.text === "\u0338" && (_group.type === 'mo' || _group.type === 'mi' || _group.type === 'mn')) {
+ if (lastChild instanceof mathMLTree_TextNodelastChild.text === "\u0338"(_group.type === 'mo' || _group.type === 'mi' || _group.type === 'mn')) {
  var _child = _group.children[0];
 
- if (_child instanceof mathMLTree_TextNode && _child.text.length > 0) {
+ if (_child instanceof mathMLTree_TextNode_child.text.length > 0) {
  // Overlay with combining character long solidus
  _child.text = _child.text.slice(0, 1) + "\u0338" + _child.text.slice(1);
  groups.pop();
@@ -7920,7 +7920,7 @@ var app = (function () {
 
  var wrapper;
 
- if (expression.length === 1 && expression[0] instanceof mathMLTree_MathNode && utils.contains(["mrow", "mtable"], expression[0].type)) {
+ if (expression.length === 1expression[0] instanceof mathMLTree_MathNodeutils.contains(["mrow", "mtable"], expression[0].type)) {
  wrapper = expression[0];
  } else {
  wrapper = new mathMLTree.MathNode("mrow", expression);
@@ -8299,7 +8299,7 @@ var app = (function () {
  img = buildCommon.makeSpan(["stretchy", label], [], options);
 
  if (label === "fbox") {
- var color = options.color && options.getColor();
+ var color = options.coloroptions.getColor();
 
  if (color) {
  img.style.borderColor = color;
@@ -8382,7 +8382,7 @@ var app = (function () {
  */
 
  function checkSymbolNodeType(node) {
- if (node && (node.type === "atom" || NON_ATOMS.hasOwnProperty(node.type))) {
+ if (node(node.type === "atom" || NON_ATOMS.hasOwnProperty(node.type))) {
  // $FlowFixMe
  return node;
  }
@@ -8406,7 +8406,7 @@ var app = (function () {
  var group;
  var supSubGroup;
 
- if (grp && grp.type === "supsub") {
+ if (grpgrp.type === "supsub") {
  // If our base is a character box, and we have superscripts and
  // subscripts, the supsub will defer to us. In particular, we want
  // to attach the superscripts and subscripts to the inner body (so
@@ -8433,7 +8433,7 @@ var app = (function () {
 
  var body = buildHTML_buildGroup(base, options.havingCrampedStyle()); // Does the accent need to shift for the skew of a character?
 
- var mustShift = group.isShifty && utils.isCharacterBox(base); // Calculate the skew of the accent. This is based on the line "If the
+ var mustShift = group.isShiftyutils.isCharacterBox(base); // Calculate the skew of the accent. This is based on the line "If the
  // nucleus is not a single character, let s = 0; otherwise set s to the
  // kern amount for the nucleus followed by the \skewchar of its font."
  // Note that our skew metrics are just the kern between each character
@@ -8950,7 +8950,7 @@ var app = (function () {
  var newLine = false;
 
  if (!newRow) {
- if (parser.settings.displayMode && parser.settings.useStrictBehavior("newLineInDisplayMode", "In LaTeX, \\\\ or \\newline " + "does nothing in display mode")) {
+ if (parser.settings.displayModeparser.settings.useStrictBehavior("newLineInDisplayMode", "In LaTeX, \\\\ or \\newline " + "does nothing in display mode")) {
  newLine = false;
  } else {
  newLine = true;
@@ -8962,7 +8962,7 @@ var app = (function () {
  mode: parser.mode,
  newLine: newLine,
  newRow: newRow,
- size: size && assertNodeType(size, "size").value
+ size: sizeassertNodeType(size, "size").value
  };
  },
  // The following builders are called only at the top level,
@@ -9017,7 +9017,7 @@ var app = (function () {
  var def_checkControlSequence = function checkControlSequence(tok) {
  var name = tok.text;
 
- if (/^(?:[\\{}$&#^_]|EOF)$/.test(name)) {
+ if (/^(?:[\\{}$#^_]|EOF)$/.test(name)) {
  throw new src_ParseError("Expected a control sequence", tok);
  }
 
@@ -9112,7 +9112,7 @@ var app = (function () {
  var numArgs = 0;
  arg = parser.gullet.consumeArgs(1)[0];
 
- while (arg.length === 1 && arg[0].text === "#") {
+ while (arg.length === 1arg[0].text === "#") {
  arg = parser.gullet.consumeArgs(1)[0];
 
  if (arg.length !== 1) {
@@ -9231,7 +9231,7 @@ var app = (function () {
  * after following replacement from symbols.js)
  */
  var delimiter_getMetrics = function getMetrics(symbol, font, mode) {
- var replace = src_symbols.math[symbol] && src_symbols.math[symbol].replace;
+ var replace = src_symbols.math[symbol]src_symbols.math[symbol].replace;
  var metrics = getCharacterMetrics(replace || symbol, font, mode);
 
  if (!metrics) {
@@ -9523,7 +9523,7 @@ var app = (function () {
  // at a position that juts 0.005 above the bottom of the top element.
 
 
- if ((repeat === "\u239C" || repeat === "\u239F") && repeatCount === 0) {
+ if ((repeat === "\u239C" || repeat === "\u239F")repeatCount === 0) {
  // Parentheses need a short repeat element in order to avoid an overrun.
  // We'll make a 0.3em tall element from a SVG.
  var overlap = buildCommon.svgData.leftParenInner[2] / 2;
@@ -9971,7 +9971,7 @@ var app = (function () {
  function checkDelimiter(delim, context) {
  var symDelim = checkSymbolNodeType(delim);
 
- if (symDelim && utils.contains(delimiters, symDelim.text)) {
+ if (symDelimutils.contains(delimiters, symDelim.text)) {
  return symDelim;
  } else if (symDelim) {
  throw new src_ParseError("Invalid delimiter '" + symDelim.text + "' after '" + context.funcName + "'", delim);
@@ -10047,7 +10047,7 @@ var app = (function () {
  // uses this return value.
  var color = context.parser.gullet.macros.get("\\current@color");
 
- if (color && typeof color !== "string") {
+ if (colortypeof color !== "string") {
  throw new src_ParseError("\\current@color set to non-string in \\right");
  }
 
@@ -10343,7 +10343,7 @@ var app = (function () {
  vlist.depth = inner.depth;
  }
 
- if (/cancel/.test(label) && !isSingleChar) {
+ if (/cancel/.test(label)!isSingleChar) {
  // cancel does not create horiz space for its line extension.
  return buildCommon.makeSpan(["mord", "cancel-lap"], [vlist], options);
  } else {
@@ -10568,7 +10568,7 @@ var app = (function () {
  }
  /**
  * Parse the body of the environment, with rows delimited by \\ and
- * columns delimited by &, and create a nested list in row-major order
+ * columns delimited by and create a nested list in row-major order
  * with one group per cell. If given an optional argument style
  * ("text", "display", etc.), then each cell is cast into that style.
  */
@@ -10632,13 +10632,13 @@ var app = (function () {
  row.push(cell);
  var next = parser.fetch().text;
 
- if (next === "&") {
+ if (next === "") {
  parser.consume();
  } else if (next === "\\end") {
  // Arrays terminate newlines with `\crcr` which consumes a `\cr` if
  // the last line is empty.
  // NOTE: Currently, `cell` is the last item added into `row`.
- if (row.length === 1 && cell.type === "styling" && cell.body[0].body.length === 0) {
+ if (row.length === 1cell.type === "styling"cell.body[0].body.length === 0) {
  body.pop();
  }
 
@@ -10655,7 +10655,7 @@ var app = (function () {
  row = [];
  body.push(row);
  } else {
- throw new src_ParseError("Expected & or \\\\ or \\cr or \\end", parser.nextToken);
+ throw new src_ParseError("Expectedor \\\\ or \\cr or \\end", parser.nextToken);
  }
  } // End cell group
 
@@ -10702,7 +10702,7 @@ var app = (function () {
  var pt = 1 / options.fontMetrics().ptPerEm;
  var arraycolsep = 5 * pt; // default value, i.e. \arraycolsep in article.cls
 
- if (group.colSeparationType && group.colSeparationType === "small") {
+ if (group.colSeparationTypegroup.colSeparationType === "small") {
  // We're in a {smallmatrix}. Default column space is \thickspace,
  // i.e. 5/18em = 0.2778em, per amsmath.dtx for {smallmatrix}.
  // But that needs adjustment because LaTeX applies \scriptstyle to the
@@ -10964,7 +10964,7 @@ var app = (function () {
  var menclose = "";
  var align = "";
 
- if (group.cols && group.cols.length > 0) {
+ if (group.colsgroup.cols.length > 0) {
  // Find column alignment, column spacing, and vertical lines.
  var cols = group.cols;
  var columnLines = "";
@@ -11047,7 +11047,7 @@ var app = (function () {
  table.setAttribute("notation", menclose.trim());
  }
 
- if (group.arraystretch && group.arraystretch < 1) {
+ if (group.arraystretchgroup.arraystretch < 1) {
  // A small array. Wrap in scriptstyle so row gap is not too large.
  table = new mathMLTree.MathNode("mstyle", [table]);
  table.setAttribute("scriptlevel", "1");
@@ -11080,7 +11080,7 @@ var app = (function () {
  body: []
  };
 
- if (args[0] && args[0].type === "ordgroup") {
+ if (args[0]args[0].type === "ordgroup") {
  var arg0 = "";
 
  for (var i = 0; i < args[0].body.length; i++) {
@@ -11122,7 +11122,7 @@ var app = (function () {
 
  if (_i4 % 2 === 1) {
  align = "l";
- } else if (_i4 > 0 && isAligned) {
+ } else if (_i4 > 0isAligned) {
  // "aligned" mode.
  pregap = 1; // add one \quad
  }
@@ -11253,7 +11253,7 @@ var app = (function () {
  var colalign = symNode ? [args[0]] : assertNodeType(args[0], "ordgroup").body;
  var cols = colalign.map(function (nde) {
  var node = assertSymbolNodeType(nde);
- var ca = node.text; // {subarray} only recognizes "l" & "c"
+ var ca = node.text; // {subarray} only recognizes "l""c"
 
  if ("lc".indexOf(ca) !== -1) {
  return {
@@ -11276,7 +11276,7 @@ var app = (function () {
  };
  res = parseArray(context.parser, res, "script");
 
- if (res.body.length > 0 && res.body[0].length > 1) {
+ if (res.body.length > 0res.body[0].length > 1) {
  throw new src_ParseError("{subarray} can contain only one column");
  }
 
@@ -11555,9 +11555,9 @@ var app = (function () {
  // (by rendering separately and with {}s before and after, and measuring
  // the change in spacing). We'll do roughly the same by detecting the
  // atom type directly.
- var atom = arg.type === "ordgroup" && arg.body.length ? arg.body[0] : arg;
+ var atom = arg.type === "ordgroup"arg.body.length ? arg.body[0] : arg;
 
- if (atom.type === "atom" && (atom.family === "bin" || atom.family === "rel")) {
+ if (atom.type === "atom"(atom.family === "bin" || atom.family === "rel")) {
  return "m" + atom.family;
  } else {
  return "mord";
@@ -11764,7 +11764,7 @@ var app = (function () {
  // Get display style as a default.
  // If incoming style is sub/sup, use style.text() to get correct size.
  style = style.id >= src_Style.SCRIPT.id ? style.text() : src_Style.DISPLAY;
- } else if (size === "text" && style.size === src_Style.DISPLAY.size) {
+ } else if (size === "text"style.size === src_Style.DISPLAY.size) {
  // We're in a \tfrac but incoming style is displaystyle, so:
  style = src_Style.TEXT;
  } else if (size === "script") {
@@ -12130,8 +12130,8 @@ var app = (function () {
  var numer = args[4];
  var denom = args[5]; // Look into the parse nodes to get the desired delimiters.
 
- var leftDelim = args[0].type === "atom" && args[0].family === "open" ? delimFromValue(args[0].text) : null;
- var rightDelim = args[1].type === "atom" && args[1].family === "close" ? delimFromValue(args[1].text) : null;
+ var leftDelim = args[0].type === "atom"args[0].family === "open" ? delimFromValue(args[0].text) : null;
+ var rightDelim = args[1].type === "atom"args[1].family === "close" ? delimFromValue(args[1].text) : null;
  var barNode = assertNodeType(args[2], "size");
  var hasBarLine;
  var barSize = null;
@@ -12567,7 +12567,7 @@ var app = (function () {
  var span = buildCommon.makeSpan(classes, elements, options);
 
  for (var attr in group.attributes) {
- if (attr !== "class" && group.attributes.hasOwnProperty(attr)) {
+ if (attr !== "class"group.attributes.hasOwnProperty(attr)) {
  span.setAttribute(attr, group.attributes[attr]);
  }
  }
@@ -13036,7 +13036,7 @@ var app = (function () {
 
  var finalGroup;
 
- if (sup && sub) {
+ if (supsub) {
  var bottom = options.fontMetrics().bigOpSpacing5 + sub.elem.height + sub.elem.depth + sub.kern + base.depth + baseShift;
  finalGroup = buildCommon.makeVList({
  positionType: "bottom",
@@ -13158,7 +13158,7 @@ var app = (function () {
  var style = options.style;
  var large = false;
 
- if (style.size === src_Style.DISPLAY.size && group.symbol && !utils.contains(noSuccessor, group.name)) {
+ if (style.size === src_Style.DISPLAY.sizegroup.symbol!utils.contains(noSuccessor, group.name)) {
  // Most symbol operators get larger in displaystyle (rule 13)
  large = true;
  }
@@ -13207,7 +13207,7 @@ var app = (function () {
  // If this is a list, compose that list.
  var inner = buildHTML_buildExpression(group.body, options, true);
 
- if (inner.length === 1 && inner[0] instanceof domTree_SymbolNode) {
+ if (inner.length === 1inner[0] instanceof domTree_SymbolNode) {
  base = inner[0];
  base.classes[0] = "mop"; // replace old mclass
  } else {
@@ -13231,7 +13231,7 @@ var app = (function () {
  var baseShift = 0;
  var slant = 0;
 
- if ((base instanceof domTree_SymbolNode || group.name === "\\oiint" || group.name === "\\oiiint") && !group.suppressBaseShift) {
+ if ((base instanceof domTree_SymbolNode || group.name === "\\oiint" || group.name === "\\oiiint")!group.suppressBaseShift) {
  // We suppress the shift of the base of \overset and \underset. Otherwise,
  // shift the symbol so its center lies on the axis (rule 13). It
  // appears that our fonts have the centers of the symbols already
@@ -13272,7 +13272,7 @@ var app = (function () {
  } else {
  // This is a text operator. Add all of the characters from the
  // operator's name.
- node = new mathMLTree_MathNode("mi", [new mathMLTree_TextNode(group.name.slice(1))]); // Append an <mo>&ApplyFunction;</mo>.
+ node = new mathMLTree_MathNode("mi", [new mathMLTree_TextNode(group.name.slice(1))]); // Append an <mo>ApplyFunction;</mo>.
  // ref: https://www.w3.org/TR/REC-MathML/chap3_2.html#sec3.2.4
 
  var operator = new mathMLTree_MathNode("mo", [buildMathML_makeText("\u2061", "text")]);
@@ -13529,7 +13529,7 @@ var app = (function () {
  {
  var child = node.children[0];
 
- if (node.children.length === 1 && child instanceof mathMLTree.TextNode) {
+ if (node.children.length === 1child instanceof mathMLTree.TextNode) {
  child.text = child.text.replace(/\u2212/, "-").replace(/\u2217/, "*");
  } else {
  isAllString = false;
@@ -13555,7 +13555,7 @@ var app = (function () {
  }
 
  var identifier = new mathMLTree.MathNode("mi", expression);
- identifier.setAttribute("mathvariant", "normal"); // \u2061 is the same as &ApplyFunction;
+ identifier.setAttribute("mathvariant", "normal"); // \u2061 is the same asApplyFunction;
  // ref: https://www.w3schools.com/charsets/ref_html_entities_a.asp
 
  var operator = new mathMLTree.MathNode("mo", [buildMathML_makeText("\u2061", "text")]);
@@ -13843,7 +13843,7 @@ var app = (function () {
  return {
  type: "rule",
  mode: parser.mode,
- shift: shift && assertNodeType(shift, "size").value,
+ shift: shiftassertNodeType(shift, "size").value,
  width: width.value,
  height: height.value
  };
@@ -13873,7 +13873,7 @@ var app = (function () {
  var width = units_calculateSize(group.width, options);
  var height = units_calculateSize(group.height, options);
  var shift = group.shift ? units_calculateSize(group.shift, options) : 0;
- var color = options.color && options.getColor() || "black";
+ var color = options.coloroptions.getColor() || "black";
  var rule = new mathMLTree.MathNode("mspace");
  rule.setAttribute("mathbackground", color);
  rule.setAttribute("width", width + "em");
@@ -13982,7 +13982,7 @@ var app = (function () {
  var parser = _ref.parser;
  var smashHeight = false;
  var smashDepth = false;
- var tbArg = optArgs[0] && assertNodeType(optArgs[0], "ordgroup");
+ var tbArg = optArgs[0]assertNodeType(optArgs[0], "ordgroup");
 
  if (tbArg) {
  // Optional [tb] argument is engaged.
@@ -14022,7 +14022,7 @@ var app = (function () {
  htmlBuilder: function htmlBuilder(group, options) {
  var node = buildCommon.makeSpan([], [buildHTML_buildGroup(group.body, options)]);
 
- if (!group.smashHeight && !group.smashDepth) {
+ if (!group.smashHeight!group.smashDepth) {
  return node;
  }
 
@@ -14282,10 +14282,10 @@ var app = (function () {
  } else if (base.type === "op") {
  // Operators handle supsubs differently when they have limits
  // (e.g. `\displaystyle\sum_2^3`)
- var delegate = base.limits && (options.style.size === src_Style.DISPLAY.size || base.alwaysHandleSupSub);
+ var delegate = base.limits(options.style.size === src_Style.DISPLAY.size || base.alwaysHandleSupSub);
  return delegate ? op_htmlBuilder : null;
  } else if (base.type === "operatorname") {
- var _delegate = base.alwaysHandleSupSub && (options.style.size === src_Style.DISPLAY.size || base.limits);
+ var _delegate = base.alwaysHandleSupSub(options.style.size === src_Style.DISPLAY.size || base.limits);
 
  return _delegate ? operatorname_htmlBuilder : null;
  } else if (base.type === "accent") {
@@ -14323,7 +14323,7 @@ var app = (function () {
 
  var supShift = 0;
  var subShift = 0;
- var isCharacterBox = valueBase && utils.isCharacterBox(valueBase);
+ var isCharacterBox = valueBaseutils.isCharacterBox(valueBase);
 
  if (valueSup) {
  var newOptions = options.havingStyle(options.style.sup());
@@ -14365,7 +14365,7 @@ var app = (function () {
  // Subscripts shouldn't be shifted by the base's italic correction.
  // Account for that by shifting the subscript back the appropriate
  // amount. Note we only do this when the base is a single symbol.
- var isOiint = group.base && group.base.type === "op" && group.base.name && (group.base.name === "\\oiint" || group.base.name === "\\oiiint");
+ var isOiint = group.basegroup.base.type === "op"group.base.name(group.base.name === "\\oiint" || group.base.name === "\\oiiint");
 
  if (base instanceof domTree_SymbolNode || isOiint) {
  // $FlowFixMe
@@ -14375,7 +14375,7 @@ var app = (function () {
 
  var supsub;
 
- if (supm && subm) {
+ if (supmsubm) {
  supShift = Math.max(supShift, minSupShift, supm.depth + 0.25 * metrics.xHeight);
  subShift = Math.max(subShift, metrics.sub2);
  var ruleWidth = metrics.defaultRuleThickness; // Rule 18e
@@ -14448,7 +14448,7 @@ var app = (function () {
  var isOver;
  var isSup;
 
- if (group.base && group.base.type === "horizBrace") {
+ if (group.basegroup.base.type === "horizBrace") {
  isSup = !!group.sup;
 
  if (isSup === group.base.isOver) {
@@ -14457,7 +14457,7 @@ var app = (function () {
  }
  }
 
- if (group.base && (group.base.type === "op" || group.base.type === "operatorname")) {
+ if (group.base(group.base.type === "op" || group.base.type === "operatorname")) {
  group.base.parentIsSupSub = true;
  }
 
@@ -14478,9 +14478,9 @@ var app = (function () {
  } else if (!group.sub) {
  var base = group.base;
 
- if (base && base.type === "op" && base.limits && (options.style === src_Style.DISPLAY || base.alwaysHandleSupSub)) {
+ if (basebase.type === "op"base.limits(options.style === src_Style.DISPLAY || base.alwaysHandleSupSub)) {
  nodeType = "mover";
- } else if (base && base.type === "operatorname" && base.alwaysHandleSupSub && (base.limits || options.style === src_Style.DISPLAY)) {
+ } else if (basebase.type === "operatorname"base.alwaysHandleSupSub(base.limits || options.style === src_Style.DISPLAY)) {
  nodeType = "mover";
  } else {
  nodeType = "msup";
@@ -14488,9 +14488,9 @@ var app = (function () {
  } else if (!group.sup) {
  var _base = group.base;
 
- if (_base && _base.type === "op" && _base.limits && (options.style === src_Style.DISPLAY || _base.alwaysHandleSupSub)) {
+ if (_base_base.type === "op"_base.limits(options.style === src_Style.DISPLAY || _base.alwaysHandleSupSub)) {
  nodeType = "munder";
- } else if (_base && _base.type === "operatorname" && _base.alwaysHandleSupSub && (_base.limits || options.style === src_Style.DISPLAY)) {
+ } else if (_base_base.type === "operatorname"_base.alwaysHandleSupSub(_base.limits || options.style === src_Style.DISPLAY)) {
  nodeType = "munder";
  } else {
  nodeType = "msub";
@@ -14498,9 +14498,9 @@ var app = (function () {
  } else {
  var _base2 = group.base;
 
- if (_base2 && _base2.type === "op" && _base2.limits && options.style === src_Style.DISPLAY) {
+ if (_base2_base2.type === "op"_base2.limitsoptions.style === src_Style.DISPLAY) {
  nodeType = "munderover";
- } else if (_base2 && _base2.type === "operatorname" && _base2.alwaysHandleSupSub && (options.style === src_Style.DISPLAY || _base2.limits)) {
+ } else if (_base2_base2.type === "operatorname"_base2.alwaysHandleSupSub(options.style === src_Style.DISPLAY || _base2.limits)) {
  nodeType = "munderover";
  } else {
  nodeType = "msubsup";
@@ -15165,7 +15165,7 @@ var app = (function () {
  // value is the correct one.
  var top = this.undefStack[this.undefStack.length - 1];
 
- if (top && !top.hasOwnProperty(name)) {
+ if (top!top.hasOwnProperty(name)) {
  top[name] = this.current[name];
  }
  }
@@ -15254,7 +15254,7 @@ var app = (function () {
  context.consumeSpaces();
  var nextToken = context.future();
 
- if (args[0].length === 1 && args[0][0].text === nextToken.text) {
+ if (args[0].length === 1args[0][0].text === nextToken.text) {
  return {
  tokens: args[1],
  numArgs: 0
@@ -15356,7 +15356,7 @@ var app = (function () {
 
  var digit;
 
- while ((digit = digitToNumber[context.future().text]) != null && digit < base) {
+ while ((digit = digitToNumber[context.future().text]) != nulldigit < base) {
  number *= base;
  number += digit;
  context.popToken();
@@ -15378,22 +15378,22 @@ var app = (function () {
  var name = arg[0].text;
  var exists = context.isDefined(name);
 
- if (exists && !existsOK) {
+ if (exists!existsOK) {
  throw new src_ParseError("\\newcommand{" + name + "} attempting to redefine " + (name + "; use \\renewcommand"));
  }
 
- if (!exists && !nonexistsOK) {
+ if (!exists!nonexistsOK) {
  throw new src_ParseError("\\renewcommand{" + name + "} when command " + name + " " + "does not yet exist; use \\newcommand");
  }
 
  var numArgs = 0;
  arg = context.consumeArgs(1)[0];
 
- if (arg.length === 1 && arg[0].text === "[") {
+ if (arg.length === 1arg[0].text === "[") {
  var argText = '';
  var token = context.expandNextToken();
 
- while (token.text !== "]" && token.text !== "EOF") {
+ while (token.text !== "]"token.text !== "EOF") {
  // TODO: Should properly expand arg, e.g., ignore {}s
  argText += token.text;
  token = context.expandNextToken();
@@ -15687,7 +15687,7 @@ var app = (function () {
  var next = context.future().text; // \dotsc uses \extra@ but not \extrap@, instead specially checking for
  // ';' and '.', but doesn't check for ','.
 
- if (next in spaceAfterDots && next !== ',') {
+ if (next in spaceAfterDotsnext !== ',') {
  return "\\ldots\\,";
  } else {
  return "\\ldots";
@@ -16283,8 +16283,8 @@ var app = (function () {
  var name = topToken.text;
  var expansion = !topToken.noexpand ? this._getExpansion(name) : null;
 
- if (expansion == null || expandableOnly && expansion.unexpandable) {
- if (expandableOnly && expansion == null && name[0] === "\\" && !this.isDefined(name)) {
+ if (expansion == null || expandableOnlyexpansion.unexpandable) {
+ if (expandableOnlyexpansion == nullname[0] === "\\"!this.isDefined(name)) {
  throw new src_ParseError("Undefined control sequence: " + name);
  }
 
@@ -16492,7 +16492,7 @@ var app = (function () {
  var macro = this.macros.get(name);
  return macro != null ? typeof macro === "string" || typeof macro === "function" || !macro.unexpandable // TODO(ylem): #2085
  : src_functions.hasOwnProperty(name)
- /* && !functions[name].primitive*/
+ /*!functions[name].primitive*/
  ;
  };
 
@@ -17026,11 +17026,11 @@ var app = (function () {
  break;
  }
 
- if (breakOnTokenText && lex.text === breakOnTokenText) {
+ if (breakOnTokenTextlex.text === breakOnTokenText) {
  break;
  }
 
- if (breakOnInfix && src_functions[lex.text] && src_functions[lex.text].infix) {
+ if (breakOnInfixsrc_functions[lex.text]src_functions[lex.text].infix) {
  break;
  }
 
@@ -17075,13 +17075,13 @@ var app = (function () {
  }
  }
 
- if (overIndex !== -1 && funcName) {
+ if (overIndex !== -1funcName) {
  var numerNode;
  var denomNode;
  var numerBody = body.slice(0, overIndex);
  var denomBody = body.slice(overIndex + 1);
 
- if (numerBody.length === 1 && numerBody[0].type === "ordgroup") {
+ if (numerBody.length === 1numerBody[0].type === "ordgroup") {
  numerNode = numerBody[0];
  } else {
  numerNode = {
@@ -17091,7 +17091,7 @@ var app = (function () {
  };
  }
 
- if (denomBody.length === 1 && denomBody[0].type === "ordgroup") {
+ if (denomBody.length === 1denomBody[0].type === "ordgroup") {
  denomNode = denomBody[0];
  } else {
  denomNode = {
@@ -17187,11 +17187,11 @@ var app = (function () {
 
  if (lex.text === "\\limits" || lex.text === "\\nolimits") {
  // We got a limit control
- if (base && base.type === "op") {
+ if (basebase.type === "op") {
  var limits = lex.text === "\\limits";
  base.limits = limits;
  base.alwaysHandleSupSub = true;
- } else if (base && base.type === "operatorname" && base.alwaysHandleSupSub) {
+ } else if (basebase.type === "operatorname"base.alwaysHandleSupSub) {
  var _limits = lex.text === "\\limits";
 
  base.limits = _limits;
@@ -17286,11 +17286,11 @@ var app = (function () {
 
  this.consume(); // consume command token
 
- if (greediness != null && funcData.greediness <= greediness) {
+ if (greediness != nullfuncData.greediness <= greediness) {
  throw new src_ParseError("Got function '" + func + "' with no arguments" + (name ? " as " + name : ""), token);
- } else if (this.mode === "text" && !funcData.allowedInText) {
+ } else if (this.mode === "text"!funcData.allowedInText) {
  throw new src_ParseError("Can't use function '" + func + "' in text mode", token);
- } else if (this.mode === "math" && funcData.allowedInMath === false) {
+ } else if (this.mode === "math"funcData.allowedInMath === false) {
  throw new src_ParseError("Can't use function '" + func + "' in math mode", token);
  }
 
@@ -17314,7 +17314,7 @@ var app = (function () {
  };
  var func = src_functions[name];
 
- if (func && func.handler) {
+ if (funcfunc.handler) {
  return func.handler(context, args, optArgs);
  } else {
  throw new src_ParseError("No function handler for " + name);
@@ -17341,19 +17341,19 @@ var app = (function () {
  var optArgs = [];
 
  for (var i = 0; i < totalArgs; i++) {
- var argType = funcData.argTypes && funcData.argTypes[i];
+ var argType = funcData.argTypesfuncData.argTypes[i];
  var isOptional = i < funcData.numOptionalArgs; // Ignore spaces between arguments. As the TeXbook says:
  // "After you have said ‘\def\row#1#2{...}’, you are allowed to
  // put spaces between the arguments (e.g., ‘\row x n’), because
  // TeX doesn’t use single spaces as undelimited arguments."
 
- var consumeSpaces = i > 0 && !isOptional || // Also consume leading spaces in math mode, as parseSymbol
+ var consumeSpaces = i > 0!isOptional || // Also consume leading spaces in math mode, as parseSymbol
  // won't know what to do with them. This can only happen with
  // macros, e.g. \frac\foo\foo where \foo expands to a space symbol.
  // In LaTeX, the \foo's get treated as (blank) arguments.
  // In KaTeX, for now, both spaces will get consumed.
  // TODO(edemaine)
- i === 0 && !isOptional && this.mode === "math";
+ i === 0!isOptionalthis.mode === "math";
  var arg = this.parseGroupOfType("argument to '" + func + "'", argType, isOptional, baseGreediness, consumeSpaces);
 
  if (!arg) {
@@ -17427,7 +17427,7 @@ var app = (function () {
  this.consumeSpaces();
  }
 
- if (optional && this.fetch().text === "{") {
+ if (optionalthis.fetch().text === "{") {
  return null;
  }
 
@@ -17478,7 +17478,7 @@ var app = (function () {
  if (beginToken.text !== groupBegin) {
  if (optional) {
  return null;
- } else if (raw && beginToken.text !== "EOF" && /[^{}[\]]/.test(beginToken.text)) {
+ } else if (rawbeginToken.text !== "EOF"/[^{}[\]]/.test(beginToken.text)) {
  this.consume();
  return beginToken;
  }
@@ -17494,7 +17494,7 @@ var app = (function () {
  var lastToken = firstToken;
  var nextToken;
 
- while ((nextToken = this.fetch()).text !== groupEnd || raw && nested > 0) {
+ while ((nextToken = this.fetch()).text !== groupEnd || rawnested > 0) {
  switch (nextToken.text) {
  case "EOF":
  throw new src_ParseError("Unexpected end of input in " + modeName, firstToken.range(lastToken, str));
@@ -17532,7 +17532,7 @@ var app = (function () {
  var str = "";
  var nextToken;
 
- while ((nextToken = this.fetch()).text !== "EOF" && regex.test(str + nextToken.text)) {
+ while ((nextToken = this.fetch()).text !== "EOF"regex.test(str + nextToken.text)) {
  lastToken = nextToken;
  str += lastToken.text;
  this.consume();
@@ -17587,7 +17587,7 @@ var app = (function () {
  var res;
  var isBlank = false;
 
- if (!optional && this.fetch().text !== "{") {
+ if (!optionalthis.fetch().text !== "{") {
  res = this.parseRegexGroup(/^[-+]? *(?:$|\d+|\d+\.\d*|\.\d*) *[a-z]{0,2} *$/, "size");
  } else {
  res = this.parseStringGroup("size", optional);
@@ -17597,7 +17597,7 @@ var app = (function () {
  return null;
  }
 
- if (!optional && res.text.length === 0) {
+ if (!optionalres.text.length === 0) {
  // Because we've tested for what is !optional, this block won't
  // affect \kern, \hspace, etc. It will capture the mandatory arguments
  // to \genfrac and \above.
@@ -17650,7 +17650,7 @@ var app = (function () {
  // replace backslashes with forward slashes.
 
 
- var url = res.text.replace(/\\([#$%&~_^{}])/g, '$1');
+ var url = res.text.replace(/\\([#$%~_^{}])/g, '$1');
  return {
  type: "url",
  mode: this.mode,
@@ -17722,7 +17722,7 @@ var app = (function () {
  // Otherwise, just return a nucleus
  result = this.parseFunction(breakOnTokenText, name, greediness) || this.parseSymbol();
 
- if (result == null && text[0] === "\\" && !implicitCommands.hasOwnProperty(text)) {
+ if (result == nulltext[0] === "\\"!implicitCommands.hasOwnProperty(text)) {
  if (this.settings.throwOnError) {
  throw new src_ParseError("Undefined control sequence: " + text, firstToken);
  }
@@ -17757,8 +17757,8 @@ var app = (function () {
 
  var v = a.text;
 
- if (v === "-" && group[i + 1].text === "-") {
- if (i + 1 < n && group[i + 2].text === "-") {
+ if (v === "-"group[i + 1].text === "-") {
+ if (i + 1 < ngroup[i + 2].text === "-") {
  group.splice(i, 3, {
  type: "textord",
  mode: "text",
@@ -17777,7 +17777,7 @@ var app = (function () {
  }
  }
 
- if ((v === "'" || v === "`") && group[i + 1].text === v) {
+ if ((v === "'" || v === "`")group[i + 1].text === v) {
  group.splice(i, 2, {
  type: "textord",
  mode: "text",
@@ -17825,9 +17825,9 @@ var app = (function () {
  // First expand any accented base symbol according to unicodeSymbols.
 
 
- if (unicodeSymbols.hasOwnProperty(text[0]) && !src_symbols[this.mode][text[0]]) {
+ if (unicodeSymbols.hasOwnProperty(text[0])!src_symbols[this.mode][text[0]]) {
  // This behavior is not strict (XeTeX-compatible) in math mode.
- if (this.settings.strict && this.mode === "math") {
+ if (this.settings.strictthis.mode === "math") {
  this.settings.reportNonstrict("unicodeTextInMathMode", "Accented Unicode text character \"" + text[0] + "\" used in " + "math mode", nucleus);
  }
 
@@ -17851,7 +17851,7 @@ var app = (function () {
  var symbol;
 
  if (src_symbols[this.mode][text]) {
- if (this.settings.strict && this.mode === 'math' && extraLatin.indexOf(text) >= 0) {
+ if (this.settings.strictthis.mode === 'math'extraLatin.indexOf(text) >= 0) {
  this.settings.reportNonstrict("unicodeTextInMathMode", "Latin-1/Unicode text character \"" + text[0] + "\" used in " + "math mode", nucleus);
  }
 
@@ -17941,7 +17941,7 @@ var app = (function () {
  return Parser;
  }();
 
- Parser_Parser.endOfExpression = ["}", "\\endgroup", "\\end", "\\right", "&"];
+ Parser_Parser.endOfExpression = ["}", "\\endgroup", "\\end", "\\right", ""];
  Parser_Parser.endOfGroup = {
  "[": "]",
  "{": "}",
@@ -18035,7 +18035,7 @@ var app = (function () {
 
  if (typeof document !== "undefined") {
  if (document.compatMode !== "CSS1Compat") {
- typeof console !== "undefined" && console.warn("Warning: KaTeX doesn't work in quirks mode. Make sure your " + "website has a suitable doctype.");
+ typeof console !== "undefined"console.warn("Warning: KaTeX doesn't work in quirks mode. Make sure your " + "website has a suitable doctype.");
 
  katex_render = function render() {
  throw new src_ParseError("KaTeX doesn't work in quirks mode.");
@@ -18299,7 +18299,7 @@ var app = (function () {
  const writable_props = [];
 
  Object.keys($$props).forEach(key => {
- if (!~writable_props.indexOf(key) && key.slice(0, 2) !== '$$' && key !== 'slot') console.warn(`<Intro> was created with unknown prop '${key}'`);
+ if (!~writable_props.indexOf(key)key.slice(0, 2) !== '$$'key !== 'slot') console.warn(`<Intro> was created with unknown prop '${key}'`);
  });
 
  $$self.$capture_state = () => ({ katexify });
@@ -18359,7 +18359,7 @@ var app = (function () {
  if (lo == null) lo = 0;
  if (hi == null) hi = a.length;
  const i = left(a, x, lo, hi - 1);
- return i > lo && delta(a[i - 1], x) > -delta(a[i], x) ? i - 1 : i;
+ return i > lodelta(a[i - 1], x) > -delta(a[i], x) ? i - 1 : i;
  }
 
  return {left, center, right};
@@ -18420,7 +18420,7 @@ var app = (function () {
  step;
 
  stop = +stop, start = +start, count = +count;
- if (start === stop && count > 0) return [start];
+ if (start === stopcount > 0) return [start];
  if (reverse = stop < start) n = start, start = stop, stop = n;
  if ((step = tickIncrement(start, stop, count)) === 0 || !isFinite(step)) return [];
 
@@ -18468,7 +18468,7 @@ var app = (function () {
  if (valueof === undefined) {
  for (const value of values) {
  if (value != null
- && (max < value || (max === undefined && value >= value))) {
+(max < value || (max === undefinedvalue >= value))) {
  max = value;
  }
  }
@@ -18476,7 +18476,7 @@ var app = (function () {
  let index = -1;
  for (let value of values) {
  if ((value = valueof(value, ++index, values)) != null
- && (max < value || (max === undefined && value >= value))) {
+(max < value || (max === undefinedvalue >= value))) {
  max = value;
  }
  }
@@ -18489,14 +18489,14 @@ var app = (function () {
  let sum = 0;
  if (valueof === undefined) {
  for (let value of values) {
- if (value != null && (value = +value) >= value) {
+ if (value != null(value = +value) >= value) {
  ++count, sum += value;
  }
  }
  } else {
  let index = -1;
  for (let value of values) {
- if ((value = valueof(value, ++index, values)) != null && (value = +value) >= value) {
+ if ((value = valueof(value, ++index, values)) != null(value = +value) >= value) {
  ++count, sum += value;
  }
  }
@@ -18860,9 +18860,9 @@ var app = (function () {
  var m, l;
  format = (format + "").trim().toLowerCase();
  return (m = reHex.exec(format)) ? (l = m[1].length, m = parseInt(m[1], 16), l === 6 ? rgbn(m) // #ff0000
- : l === 3 ? new Rgb((m >> 8 & 0xf) | (m >> 4 & 0xf0), (m >> 4 & 0xf) | (m & 0xf0), ((m & 0xf) << 4) | (m & 0xf), 1) // #f00
- : l === 8 ? rgba(m >> 24 & 0xff, m >> 16 & 0xff, m >> 8 & 0xff, (m & 0xff) / 0xff) // #ff000000
- : l === 4 ? rgba((m >> 12 & 0xf) | (m >> 8 & 0xf0), (m >> 8 & 0xf) | (m >> 4 & 0xf0), (m >> 4 & 0xf) | (m & 0xf0), (((m & 0xf) << 4) | (m & 0xf)) / 0xff) // #f000
+ : l === 3 ? new Rgb((m >> 80xf) | (m >> 40xf0), (m >> 40xf) | (m0xf0), ((m0xf) << 4) | (m0xf), 1) // #f00
+ : l === 8 ? rgba(m >> 240xff, m >> 160xff, m >> 80xff, (m0xff) / 0xff) // #ff000000
+ : l === 4 ? rgba((m >> 120xf) | (m >> 80xf0), (m >> 80xf) | (m >> 40xf0), (m >> 40xf) | (m0xf0), (((m0xf) << 4) | (m0xf)) / 0xff) // #f000
  : null) // invalid hex
  : (m = reRgbInteger.exec(format)) ? new Rgb(m[1], m[2], m[3], 1) // rgb(255, 0, 0)
  : (m = reRgbPercent.exec(format)) ? new Rgb(m[1] * 255 / 100, m[2] * 255 / 100, m[3] * 255 / 100, 1) // rgb(100%, 0%, 0%)
@@ -18876,7 +18876,7 @@ var app = (function () {
  }
 
  function rgbn(n) {
- return new Rgb(n >> 16 & 0xff, n >> 8 & 0xff, n & 0xff, 1);
+ return new Rgb(n >> 160xff, n >> 80xff, n0xff, 1);
  }
 
  function rgba(r, g, b, a) {
@@ -18915,10 +18915,10 @@ var app = (function () {
  return this;
  },
  displayable: function() {
- return (-0.5 <= this.r && this.r < 255.5)
- && (-0.5 <= this.g && this.g < 255.5)
- && (-0.5 <= this.b && this.b < 255.5)
- && (0 <= this.opacity && this.opacity <= 1);
+ return (-0.5 <= this.rthis.r < 255.5)
+(-0.5 <= this.gthis.g < 255.5)
+(-0.5 <= this.bthis.b < 255.5)
+(0 <= this.opacitythis.opacity <= 1);
  },
  hex: rgb_formatHex, // Deprecated! Use color.formatHex.
  formatHex: rgb_formatHex,
@@ -18972,7 +18972,7 @@ var app = (function () {
  s /= l < 0.5 ? max + min : 2 - max - min;
  h *= 60;
  } else {
- s = l > 0 && l < 1 ? 0 : h;
+ s = l > 0l < 1 ? 0 : h;
  }
  return new Hsl(h, s, l, o.opacity);
  }
@@ -19011,9 +19011,9 @@ var app = (function () {
  );
  },
  displayable: function() {
- return (0 <= this.s && this.s <= 1 || isNaN(this.s))
- && (0 <= this.l && this.l <= 1)
- && (0 <= this.opacity && this.opacity <= 1);
+ return (0 <= this.sthis.s <= 1 || isNaN(this.s))
+(0 <= this.lthis.l <= 1)
+(0 <= this.opacitythis.opacity <= 1);
  },
  formatHsl: function() {
  var a = this.opacity; a = isNaN(a) ? 1 : Math.max(0, Math.min(1, a));
@@ -19092,7 +19092,7 @@ var app = (function () {
  }
 
  function isNumberArray(x) {
- return ArrayBuffer.isView(x) && !(x instanceof DataView);
+ return ArrayBuffer.isView(x)!(x instanceof DataView);
  }
 
  function genericArray(a, b) {
@@ -19173,15 +19173,15 @@ var app = (function () {
  // Coerce inputs to strings.
  a = a + "", b = b + "";
 
- // Interpolate pairs of numbers in a & b.
+ // Interpolate pairs of numbers in ab.
  while ((am = reA.exec(a))
- && (bm = reB.exec(b))) {
+(bm = reB.exec(b))) {
  if ((bs = bm.index) > bi) { // a string precedes the next number in b
  bs = b.slice(bi, bs);
  if (s[i]) s[i] += bs; // coalesce with previous string
  else s[++i] = bs;
  }
- if ((am = am[0]) === (bm = bm[0])) { // numbers in a & b match
+ if ((am = am[0]) === (bm = bm[0])) { // numbers in ab match
  if (s[i]) s[i] += bm; // coalesce with previous string
  else s[++i] = bm;
  } else { // interpolate non-matching numbers
@@ -19218,7 +19218,7 @@ var app = (function () {
  : b instanceof Date ? date
  : isNumberArray(b) ? numberArray
  : Array.isArray(b) ? genericArray
- : typeof b.valueOf !== "function" && typeof b.toString !== "function" || isNaN(b) ? object
+ : typeof b.valueOf !== "function"typeof b.toString !== "function" || isNaN(b) ? object
  : interpolateNumber)(a, b);
  }
 
@@ -19392,7 +19392,7 @@ var app = (function () {
  g = grouping[0],
  length = 0;
 
- while (i > 0 && g > 0) {
+ while (i > 0g > 0) {
  if (length + g + 1 > width) g = Math.max(1, width - length);
  t.push(value.substring(i -= g, i + g));
  if ((length += g + 1) > width) break;
@@ -19425,7 +19425,7 @@ var app = (function () {
  zero: match[5],
  width: match[6],
  comma: match[7],
- precision: match[8] && match[8].slice(1),
+ precision: match[8]match[8].slice(1),
  trim: match[9],
  type: match[10]
  });
@@ -19547,14 +19547,14 @@ var app = (function () {
  if (type === "n") comma = true, type = "g";
 
  // The "" type, and any invalid type, is an alias for ".12~g".
- else if (!formatTypes[type]) precision === undefined && (precision = 12), trim = true, type = "g";
+ else if (!formatTypes[type]) precision === undefined(precision = 12), trim = true, type = "g";
 
  // If zero fill is specified, padding goes after sign and before digits.
- if (zero || (fill === "0" && align === "=")) zero = true, fill = "0", align = "=";
+ if (zero || (fill === "0"align === "=")) zero = true, fill = "0", align = "=";
 
  // Compute the prefix and suffix.
  // For SI-prefix, the suffix is lazily computed.
- var prefix = symbol === "$" ? currencyPrefix : symbol === "#" && /[boxX]/.test(type) ? "0" + type.toLowerCase() : "",
+ var prefix = symbol === "$" ? currencyPrefix : symbol === "#"/[boxX]/.test(type) ? "0" + type.toLowerCase() : "",
  suffix = symbol === "$" ? currencySuffix : /[%p]/.test(type) ? percent : "";
 
  // What format function should we use?
@@ -19592,11 +19592,11 @@ var app = (function () {
  if (trim) value = formatTrim(value);
 
  // If a negative value rounds to zero after formatting, and no explicit positive sign is requested, hide the sign.
- if (valueNegative && +value === 0 && sign !== "+") valueNegative = false;
+ if (valueNegative+value === 0sign !== "+") valueNegative = false;
 
  // Compute the prefix and suffix.
  valuePrefix = (valueNegative ? (sign === "(" ? sign : minus) : sign === "-" || sign === "(" ? "" : sign) + valuePrefix;
- valueSuffix = (type === "s" ? prefixes[8 + prefixExponent / 3] : "") + valueSuffix + (valueNegative && sign === "(" ? ")" : "");
+ valueSuffix = (type === "s" ? prefixes[8 + prefixExponent / 3] : "") + valueSuffix + (valueNegativesign === "(" ? ")" : "");
 
  // Break the formatted value into the integer “value” part that can be
  // grouped, and fractional or exponential “suffix” part that is not.
@@ -19613,14 +19613,14 @@ var app = (function () {
  }
 
  // If the fill character is not "0", grouping is applied before padding.
- if (comma && !zero) value = group(value, Infinity);
+ if (comma!zero) value = group(value, Infinity);
 
  // Compute the padding.
  var length = valuePrefix.length + value.length + valueSuffix.length,
  padding = length < width ? new Array(width - length + 1).join(fill) : "";
 
  // If the fill character is "0", grouping is applied after padding.
- if (comma && zero) value = group(padding + value, padding.length ? width - valueSuffix.length : Infinity), padding = "";
+ if (commazero) value = group(padding + value, padding.length ? width - valueSuffix.length : Infinity), padding = "";
 
  // Reconstruct the final output based on the desired alignment.
  switch (align) {
@@ -19693,7 +19693,7 @@ var app = (function () {
  switch (specifier.type) {
  case "s": {
  var value = Math.max(Math.abs(start), Math.abs(stop));
- if (specifier.precision == null && !isNaN(precision = precisionPrefix(step, value))) specifier.precision = precision;
+ if (specifier.precision == null!isNaN(precision = precisionPrefix(step, value))) specifier.precision = precision;
  return formatPrefix(specifier, value);
  }
  case "":
@@ -19701,12 +19701,12 @@ var app = (function () {
  case "g":
  case "p":
  case "r": {
- if (specifier.precision == null && !isNaN(precision = precisionRound(step, Math.max(Math.abs(start), Math.abs(stop))))) specifier.precision = precision - (specifier.type === "e");
+ if (specifier.precision == null!isNaN(precision = precisionRound(step, Math.max(Math.abs(start), Math.abs(stop))))) specifier.precision = precision - (specifier.type === "e");
  break;
  }
  case "f":
  case "%": {
- if (specifier.precision == null && !isNaN(precision = precisionFixed(step))) specifier.precision = precision - (specifier.type === "%") * 2;
+ if (specifier.precision == null!isNaN(precision = precisionFixed(step))) specifier.precision = precision - (specifier.type === "%") * 2;
  break;
  }
  }
@@ -19867,23 +19867,23 @@ var app = (function () {
  insert_dev(target, rect, anchor);
  },
  p: function update(ctx, dirty) {
- if (dirty & /*numCol, radiusGap*/ 129 && rect_x_value !== (rect_x_value = /*d*/ ctx[18] % /*numCol*/ ctx[0] * /*radiusGap*/ ctx[7])) {
+ if (dirty/*numCol, radiusGap*/ 129rect_x_value !== (rect_x_value = /*d*/ ctx[18] % /*numCol*/ ctx[0] * /*radiusGap*/ ctx[7])) {
  attr_dev(rect, "x", rect_x_value);
  }
 
- if (dirty & /*rectYScale, numCol*/ 65 && rect_y_value !== (rect_y_value = /*rectYScale*/ ctx[6](Math.floor(/*d*/ ctx[18] / /*numCol*/ ctx[0])))) {
+ if (dirty/*rectYScale, numCol*/ 65rect_y_value !== (rect_y_value = /*rectYScale*/ ctx[6](Math.floor(/*d*/ ctx[18] / /*numCol*/ ctx[0])))) {
  attr_dev(rect, "y", rect_y_value);
  }
 
- if (dirty & /*radius*/ 32) {
+ if (dirty/*radius*/ 32) {
  attr_dev(rect, "width", /*radius*/ ctx[5]);
  }
 
- if (dirty & /*radius*/ 32) {
+ if (dirty/*radius*/ 32) {
  attr_dev(rect, "height", /*radius*/ ctx[5]);
  }
 
- if (dirty & /*fillRule*/ 8 && rect_fill_value !== (rect_fill_value = /*fillRule*/ ctx[3](/*i*/ ctx[20]))) {
+ if (dirty/*fillRule*/ 8rect_fill_value !== (rect_fill_value = /*fillRule*/ ctx[3](/*i*/ ctx[20]))) {
  attr_dev(rect, "fill", rect_fill_value);
  }
  },
@@ -19930,7 +19930,7 @@ var app = (function () {
  insert_dev(target, each_1_anchor, anchor);
  },
  p: function update(ctx, dirty) {
- if (dirty & /*rectYScale, labels, radius*/ 112) {
+ if (dirty/*rectYScale, labels, radius*/ 112) {
  each_value = /*labels*/ ctx[4];
  validate_each_argument(each_value);
  let i;
@@ -19997,17 +19997,17 @@ var app = (function () {
  append_dev(text_1, t);
  },
  p: function update(ctx, dirty) {
- if (dirty & /*labels*/ 16 && t_value !== (t_value = /*label*/ ctx[15].label + "")) set_data_dev(t, t_value);
+ if (dirty/*labels*/ 16t_value !== (t_value = /*label*/ ctx[15].label + "")) set_data_dev(t, t_value);
 
- if (dirty & /*rectYScale, labels, radius*/ 112 && text_1_y_value !== (text_1_y_value = /*rectYScale*/ ctx[6](/*label*/ ctx[15].y) + /*radius*/ ctx[5] * 2)) {
+ if (dirty/*rectYScale, labels, radius*/ 112text_1_y_value !== (text_1_y_value = /*rectYScale*/ ctx[6](/*label*/ ctx[15].y) + /*radius*/ ctx[5] * 2)) {
  attr_dev(text_1, "y", text_1_y_value);
  }
 
- if (dirty & /*labels*/ 16 && text_1_dy_value !== (text_1_dy_value = /*label*/ ctx[15].dy)) {
+ if (dirty/*labels*/ 16text_1_dy_value !== (text_1_dy_value = /*label*/ ctx[15].dy)) {
  attr_dev(text_1, "dy", text_1_dy_value);
  }
 
- if (dirty & /*radius*/ 32 && text_1_dx_value !== (text_1_dx_value = /*radius*/ ctx[5] * 2.5)) {
+ if (dirty/*radius*/ 32text_1_dx_value !== (text_1_dx_value = /*radius*/ ctx[5] * 2.5)) {
  attr_dev(text_1, "dx", text_1_dx_value);
  }
  },
@@ -20039,7 +20039,7 @@ var app = (function () {
  each_blocks[i] = create_each_block_1(get_each_context_1(ctx, each_value_1, i));
  }
 
- let if_block = /*labels*/ ctx[4] && create_if_block$4(ctx);
+ let if_block = /*labels*/ ctx[4]create_if_block$4(ctx);
 
  const block = {
  c: function create() {
@@ -20068,7 +20068,7 @@ var app = (function () {
  if (if_block) if_block.m(g, null);
  },
  p: function update(ctx, [dirty]) {
- if (dirty & /*data, numCol, radiusGap, rectYScale, Math, radius, fillRule*/ 489) {
+ if (dirty/*data, numCol, radiusGap, rectYScale, Math, radius, fillRule*/ 489) {
  each_value_1 = /*data*/ ctx[8];
  validate_each_argument(each_value_1);
  let i;
@@ -20105,7 +20105,7 @@ var app = (function () {
  if_block = null;
  }
 
- if (dirty & /*x, y*/ 6 && g_transform_value !== (g_transform_value = "translate(" + /*x*/ ctx[1] + ", " + /*y*/ ctx[2] + ")")) {
+ if (dirty/*x, y*/ 6g_transform_value !== (g_transform_value = "translate(" + /*x*/ ctx[1] + ", " + /*y*/ ctx[2] + ")")) {
  attr_dev(g, "transform", g_transform_value);
  }
  },
@@ -20159,7 +20159,7 @@ var app = (function () {
  const writable_props = ['height', 'numRects', 'numCol', 'x', 'y', 'margin', 'fillRule', 'labels'];
 
  Object.keys($$props).forEach(key => {
- if (!~writable_props.indexOf(key) && key.slice(0, 2) !== '$$' && key !== 'slot') console.warn(`<StackedRects> was created with unknown prop '${key}'`);
+ if (!~writable_props.indexOf(key)key.slice(0, 2) !== '$$'key !== 'slot') console.warn(`<StackedRects> was created with unknown prop '${key}'`);
  });
 
  $$self.$$set = $$props => {
@@ -20209,29 +20209,29 @@ var app = (function () {
  if ('numRow' in $$props) $$invalidate(13, numRow = $$props.numRow);
  };
 
- if ($$props && "$$inject" in $$props) {
+ if ($$props"$$inject" in $$props) {
  $$self.$inject_state($$props.$$inject);
  }
 
  $$self.$$.update = () => {
- if ($$self.$$.dirty & /*numRects, numCol*/ 1025) {
+ if ($$self.$$.dirty/*numRects, numCol*/ 1025) {
  // reactive vars
  $$invalidate(13, numRow = Math.ceil(numRects / numCol));
  }
 
- if ($$self.$$.dirty & /*numRow*/ 8192) {
+ if ($$self.$$.dirty/*numRow*/ 8192) {
  $$invalidate(12, dataDomain = [...Array(numRow).keys()]);
  }
 
- if ($$self.$$.dirty & /*dataDomain, height, margin*/ 6656) {
+ if ($$self.$$.dirty/*dataDomain, height, margin*/ 6656) {
  $$invalidate(6, rectYScale = band().domain(dataDomain).range([height - margin.top, margin.bottom]).padding(0.1));
  }
 
- if ($$self.$$.dirty & /*rectYScale*/ 64) {
+ if ($$self.$$.dirty/*rectYScale*/ 64) {
  $$invalidate(5, radius = rectYScale.bandwidth());
  }
 
- if ($$self.$$.dirty & /*radius*/ 32) {
+ if ($$self.$$.dirty/*radius*/ 32) {
  $$invalidate(7, radiusGap = radius + 2);
  }
  };
@@ -20279,7 +20279,7 @@ var app = (function () {
  const { ctx } = this.$$;
  const props = options.props || {};
 
- if (/*labels*/ ctx[4] === undefined && !('labels' in props)) {
+ if (/*labels*/ ctx[4] === undefined!('labels' in props)) {
  console.warn("<StackedRects> was created without expected prop 'labels'");
  }
  }
@@ -20380,19 +20380,19 @@ var app = (function () {
  insert_dev(target, line, anchor);
  },
  p: function update(ctx, dirty) {
- if (dirty & /*xScale, data*/ 257 && line_x__value !== (line_x__value = /*xScale*/ ctx[8](/*d*/ ctx[10].x))) {
+ if (dirty/*xScale, data*/ 257line_x__value !== (line_x__value = /*xScale*/ ctx[8](/*d*/ ctx[10].x))) {
  attr_dev(line, "x1", line_x__value);
  }
 
- if (dirty & /*xScale, data*/ 257 && line_x__value_1 !== (line_x__value_1 = /*xScale*/ ctx[8](/*d*/ ctx[10].x))) {
+ if (dirty/*xScale, data*/ 257line_x__value_1 !== (line_x__value_1 = /*xScale*/ ctx[8](/*d*/ ctx[10].x))) {
  attr_dev(line, "x2", line_x__value_1);
  }
 
- if (dirty & /*yScale, data*/ 129 && line_y__value !== (line_y__value = /*yScale*/ ctx[7](/*d*/ ctx[10].y))) {
+ if (dirty/*yScale, data*/ 129line_y__value !== (line_y__value = /*yScale*/ ctx[7](/*d*/ ctx[10].y))) {
  attr_dev(line, "y1", line_y__value);
  }
 
- if (dirty & /*yScale, data, regressionData*/ 161 && line_y__value_1 !== (line_y__value_1 = /*yScale*/ ctx[7](/*d*/ ctx[10].x * /*regressionData*/ ctx[5]["a"] + /*regressionData*/ ctx[5]["b"]))) {
+ if (dirty/*yScale, data, regressionData*/ 161line_y__value_1 !== (line_y__value_1 = /*yScale*/ ctx[7](/*d*/ ctx[10].x * /*regressionData*/ ctx[5]["a"] + /*regressionData*/ ctx[5]["b"]))) {
  attr_dev(line, "y2", line_y__value_1);
  }
  },
@@ -20418,7 +20418,7 @@ var app = (function () {
  let rect_x_value;
  let rect_y_value;
  let rect_fill_value;
- let if_block = /*d*/ ctx[10].color === "#f46ebb" && create_if_block$3(ctx);
+ let if_block = /*d*/ ctx[10].color === "#f46ebb"create_if_block$3(ctx);
 
  const block = {
  c: function create() {
@@ -20449,15 +20449,15 @@ var app = (function () {
  if_block = null;
  }
 
- if (dirty & /*xScale, data*/ 257 && rect_x_value !== (rect_x_value = /*xScale*/ ctx[8](/*d*/ ctx[10].x) - radius / 2)) {
+ if (dirty/*xScale, data*/ 257rect_x_value !== (rect_x_value = /*xScale*/ ctx[8](/*d*/ ctx[10].x) - radius / 2)) {
  attr_dev(rect, "x", rect_x_value);
  }
 
- if (dirty & /*yScale, data*/ 129 && rect_y_value !== (rect_y_value = /*yScale*/ ctx[7](/*d*/ ctx[10].y) - radius / 2)) {
+ if (dirty/*yScale, data*/ 129rect_y_value !== (rect_y_value = /*yScale*/ ctx[7](/*d*/ ctx[10].y) - radius / 2)) {
  attr_dev(rect, "y", rect_y_value);
  }
 
- if (dirty & /*data*/ 1 && rect_fill_value !== (rect_fill_value = /*d*/ ctx[10].color)) {
+ if (dirty/*data*/ 1rect_fill_value !== (rect_fill_value = /*d*/ ctx[10].color)) {
  attr_dev(rect, "fill", rect_fill_value);
  }
  },
@@ -20558,7 +20558,7 @@ var app = (function () {
  append_dev(text_1, t);
  },
  p: function update(ctx, [dirty]) {
- if (dirty & /*xScale, data, radius, yScale, regressionData*/ 417) {
+ if (dirty/*xScale, data, radius, yScale, regressionData*/ 417) {
  each_value = /*data*/ ctx[0];
  validate_each_argument(each_value);
  let i;
@@ -20582,49 +20582,49 @@ var app = (function () {
  each_blocks.length = each_value.length;
  }
 
- if (dirty & /*xScale, regressionData*/ 288 && line0_x__value !== (line0_x__value = /*xScale*/ ctx[8](/*regressionData*/ ctx[5][0][0]))) {
+ if (dirty/*xScale, regressionData*/ 288line0_x__value !== (line0_x__value = /*xScale*/ ctx[8](/*regressionData*/ ctx[5][0][0]))) {
  attr_dev(line0, "x1", line0_x__value);
  }
 
- if (dirty & /*xScale, regressionData*/ 288 && line0_x__value_1 !== (line0_x__value_1 = /*xScale*/ ctx[8](/*regressionData*/ ctx[5][1][0]))) {
+ if (dirty/*xScale, regressionData*/ 288line0_x__value_1 !== (line0_x__value_1 = /*xScale*/ ctx[8](/*regressionData*/ ctx[5][1][0]))) {
  attr_dev(line0, "x2", line0_x__value_1);
  }
 
- if (dirty & /*yScale, regressionData*/ 160 && line0_y__value !== (line0_y__value = /*yScale*/ ctx[7](/*regressionData*/ ctx[5][0][1]))) {
+ if (dirty/*yScale, regressionData*/ 160line0_y__value !== (line0_y__value = /*yScale*/ ctx[7](/*regressionData*/ ctx[5][0][1]))) {
  attr_dev(line0, "y1", line0_y__value);
  }
 
- if (dirty & /*yScale, regressionData*/ 160 && line0_y__value_1 !== (line0_y__value_1 = /*yScale*/ ctx[7](/*regressionData*/ ctx[5][1][1]))) {
+ if (dirty/*yScale, regressionData*/ 160line0_y__value_1 !== (line0_y__value_1 = /*yScale*/ ctx[7](/*regressionData*/ ctx[5][1][1]))) {
  attr_dev(line0, "y2", line0_y__value_1);
  }
 
- if (dirty & /*width*/ 4 && line1_x__value_1 !== (line1_x__value_1 = /*width*/ ctx[2] - /*margin*/ ctx[9].right)) {
+ if (dirty/*width*/ 4line1_x__value_1 !== (line1_x__value_1 = /*width*/ ctx[2] - /*margin*/ ctx[9].right)) {
  attr_dev(line1, "x2", line1_x__value_1);
  }
 
- if (dirty & /*height*/ 2) {
+ if (dirty/*height*/ 2) {
  attr_dev(line1, "y1", /*height*/ ctx[1]);
  }
 
- if (dirty & /*height*/ 2) {
+ if (dirty/*height*/ 2) {
  attr_dev(line1, "y2", /*height*/ ctx[1]);
  }
 
- if (dirty & /*height*/ 2) {
+ if (dirty/*height*/ 2) {
  attr_dev(line2, "y2", /*height*/ ctx[1]);
  }
 
- if (dirty & /*label*/ 64) set_data_dev(t, /*label*/ ctx[6]);
+ if (dirty/*label*/ 64) set_data_dev(t, /*label*/ ctx[6]);
 
- if (dirty & /*width*/ 4 && text_1_x_value !== (text_1_x_value = /*width*/ ctx[2] / 2)) {
+ if (dirty/*width*/ 4text_1_x_value !== (text_1_x_value = /*width*/ ctx[2] / 2)) {
  attr_dev(text_1, "x", text_1_x_value);
  }
 
- if (dirty & /*height*/ 2 && text_1_y_value !== (text_1_y_value = /*height*/ ctx[1] * 1.2)) {
+ if (dirty/*height*/ 2text_1_y_value !== (text_1_y_value = /*height*/ ctx[1] * 1.2)) {
  attr_dev(text_1, "y", text_1_y_value);
  }
 
- if (dirty & /*x, y*/ 24 && g_transform_value !== (g_transform_value = "translate(" + /*x*/ ctx[3] + ", " + /*y*/ ctx[4] + ")")) {
+ if (dirty/*x, y*/ 24g_transform_value !== (g_transform_value = "translate(" + /*x*/ ctx[3] + ", " + /*y*/ ctx[4] + ")")) {
  attr_dev(g, "transform", g_transform_value);
  }
  },
@@ -20665,7 +20665,7 @@ var app = (function () {
  const writable_props = ['data', 'height', 'width', 'x', 'y', 'regressionData', 'label'];
 
  Object.keys($$props).forEach(key => {
- if (!~writable_props.indexOf(key) && key.slice(0, 2) !== '$$' && key !== 'slot') console.warn(`<Scatterplot> was created with unknown prop '${key}'`);
+ if (!~writable_props.indexOf(key)key.slice(0, 2) !== '$$'key !== 'slot') console.warn(`<Scatterplot> was created with unknown prop '${key}'`);
  });
 
  $$self.$$set = $$props => {
@@ -20706,17 +20706,17 @@ var app = (function () {
  if ('xScale' in $$props) $$invalidate(8, xScale = $$props.xScale);
  };
 
- if ($$props && "$$inject" in $$props) {
+ if ($$props"$$inject" in $$props) {
  $$self.$inject_state($$props.$$inject);
  }
 
  $$self.$$.update = () => {
- if ($$self.$$.dirty & /*data, width*/ 5) {
+ if ($$self.$$.dirty/*data, width*/ 5) {
  // scale
  $$invalidate(8, xScale = linear().domain(extent(data, d => d.x)).range([margin.left, width - margin.right]));
  }
 
- if ($$self.$$.dirty & /*data, height*/ 3) {
+ if ($$self.$$.dirty/*data, height*/ 3) {
  $$invalidate(7, yScale = linear().domain(extent(data, d => d.y)).range([height - margin.bottom, margin.top]));
  }
  };
@@ -20748,19 +20748,19 @@ var app = (function () {
  const { ctx } = this.$$;
  const props = options.props || {};
 
- if (/*data*/ ctx[0] === undefined && !('data' in props)) {
+ if (/*data*/ ctx[0] === undefined!('data' in props)) {
  console.warn("<Scatterplot> was created without expected prop 'data'");
  }
 
- if (/*width*/ ctx[2] === undefined && !('width' in props)) {
+ if (/*width*/ ctx[2] === undefined!('width' in props)) {
  console.warn("<Scatterplot> was created without expected prop 'width'");
  }
 
- if (/*regressionData*/ ctx[5] === undefined && !('regressionData' in props)) {
+ if (/*regressionData*/ ctx[5] === undefined!('regressionData' in props)) {
  console.warn("<Scatterplot> was created without expected prop 'regressionData'");
  }
 
- if (/*label*/ ctx[6] === undefined && !('label' in props)) {
+ if (/*label*/ ctx[6] === undefined!('label' in props)) {
  console.warn("<Scatterplot> was created without expected prop 'label'");
  }
  }
@@ -20845,14 +20845,14 @@ var app = (function () {
  for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) {
  _arr.push(_s.value);
 
- if (i && _arr.length === i) break;
+ if (i_arr.length === i) break;
  }
  } catch (err) {
  _d = true;
  _e = err;
  } finally {
  try {
- if (!_n && _i["return"] != null) _i["return"]();
+ if (!_n_i["return"] != null) _i["return"]();
  } finally {
  if (_d) throw _e;
  }
@@ -20872,7 +20872,7 @@ var app = (function () {
  data = data.filter(function (d, i) {
  var u = x(d, i),
  v = y(d, i);
- return u != null && isFinite(u) && v != null && isFinite(v);
+ return u != nullisFinite(u)v != nullisFinite(v);
  });
 
  if (sort) {
@@ -20916,7 +20916,7 @@ var app = (function () {
  dx = +x(d, i, data),
  dy = +y(d, i, data);
 
- if (dx != null && isFinite(dx) && dy != null && isFinite(dy)) {
+ if (dx != nullisFinite(dx)dy != nullisFinite(dy)) {
  cb(dx, dy, iterations++);
  }
  }
@@ -20954,7 +20954,7 @@ var app = (function () {
  var points = [px(xmin), px(xmax)],
  iter = 0;
 
- while (find(points) && iter < maxIter) {
+ while (find(points)iter < maxIter) {
  }
 
  return points;
@@ -21246,7 +21246,7 @@ var app = (function () {
  if (right >= xv.length) return; // Step right if distance to new right edge is <= distance to old left edge
  // Step when distance is equal to ensure movement over duplicate x values
 
- while (i > left && xv[right] - val <= val - xv[left]) {
+ while (i > leftxv[right] - val <= val - xv[left]) {
  interval[0] = ++left;
  interval[1] = right;
  ++right;
@@ -21769,25 +21769,25 @@ var app = (function () {
  p: function update(new_ctx, dirty) {
  ctx = new_ctx;
  const stackedrects_changes = {};
- if (dirty & /*yScale*/ 2048) stackedrects_changes.height = /*yScale*/ ctx[11].bandwidth();
- if (dirty & /*$marginGrid*/ 128) stackedrects_changes.margin = /*$marginGrid*/ ctx[7];
- if (dirty & /*numCol*/ 512) stackedrects_changes.numCol = /*numCol*/ ctx[9];
- if (dirty & /*xScale, nSplits, width*/ 4113) stackedrects_changes.x = /*xScale*/ ctx[12](/*tick*/ ctx[23] % (/*width*/ ctx[0] <= 700 ? 2 : 3));
- if (dirty & /*yScale, nSplits, width, xDiff*/ 3089) stackedrects_changes.y = /*yScale*/ ctx[11](Math.floor(/*tick*/ ctx[23] / (/*width*/ ctx[0] <= 700 ? 2 : 3))) - /*yScale*/ ctx[11].bandwidth() - /*xDiff*/ ctx[10] * 0;
- if (dirty & /*numTest, numValidation, nSplits*/ 56) stackedrects_changes.fillRule = func;
+ if (dirty/*yScale*/ 2048) stackedrects_changes.height = /*yScale*/ ctx[11].bandwidth();
+ if (dirty/*$marginGrid*/ 128) stackedrects_changes.margin = /*$marginGrid*/ ctx[7];
+ if (dirty/*numCol*/ 512) stackedrects_changes.numCol = /*numCol*/ ctx[9];
+ if (dirty/*xScale, nSplits, width*/ 4113) stackedrects_changes.x = /*xScale*/ ctx[12](/*tick*/ ctx[23] % (/*width*/ ctx[0] <= 700 ? 2 : 3));
+ if (dirty/*yScale, nSplits, width, xDiff*/ 3089) stackedrects_changes.y = /*yScale*/ ctx[11](Math.floor(/*tick*/ ctx[23] / (/*width*/ ctx[0] <= 700 ? 2 : 3))) - /*yScale*/ ctx[11].bandwidth() - /*xDiff*/ ctx[10] * 0;
+ if (dirty/*numTest, numValidation, nSplits*/ 56) stackedrects_changes.fillRule = func;
  stackedrects.$set(stackedrects_changes);
  const scatterplot_changes = {};
- if (dirty & /*dataArray, nSplits*/ 20) scatterplot_changes.data = /*dataArray*/ ctx[2][/*tick*/ ctx[23]]["scatterData"];
- if (dirty & /*dataArray, nSplits*/ 20) scatterplot_changes.regressionData = /*dataArray*/ ctx[2][/*tick*/ ctx[23]]["regressionData"];
- if (dirty & /*dataArray, nSplits*/ 20) scatterplot_changes.label = `Val MSE: ${/*formatter*/ ctx[13](/*dataArray*/ ctx[2][/*tick*/ ctx[23]]["mse"])}`;
+ if (dirty/*dataArray, nSplits*/ 20) scatterplot_changes.data = /*dataArray*/ ctx[2][/*tick*/ ctx[23]]["scatterData"];
+ if (dirty/*dataArray, nSplits*/ 20) scatterplot_changes.regressionData = /*dataArray*/ ctx[2][/*tick*/ ctx[23]]["regressionData"];
+ if (dirty/*dataArray, nSplits*/ 20) scatterplot_changes.label = `Val MSE: ${/*formatter*/ ctx[13](/*dataArray*/ ctx[2][/*tick*/ ctx[23]]["mse"])}`;
 
- if (dirty & /*window, yScale*/ 2112) scatterplot_changes.width = /*window*/ ctx[6] === "mobile"
+ if (dirty/*window, yScale*/ 2112) scatterplot_changes.width = /*window*/ ctx[6] === "mobile"
  ? /*yScale*/ ctx[11].bandwidth() * 0.5
  : /*yScale*/ ctx[11].bandwidth() * 0.9;
 
- if (dirty & /*yScale*/ 2048) scatterplot_changes.height = /*yScale*/ ctx[11].bandwidth();
- if (dirty & /*xScale, nSplits, width, xDiff*/ 5137) scatterplot_changes.x = /*xScale*/ ctx[12](/*tick*/ ctx[23] % (/*width*/ ctx[0] <= 700 ? 2 : 3)) + /*xDiff*/ ctx[10] * 3;
- if (dirty & /*yScale, nSplits, width*/ 2065) scatterplot_changes.y = /*yScale*/ ctx[11](Math.floor(/*tick*/ ctx[23] / (/*width*/ ctx[0] <= 700 ? 2 : 3))) - /*yScale*/ ctx[11].bandwidth();
+ if (dirty/*yScale*/ 2048) scatterplot_changes.height = /*yScale*/ ctx[11].bandwidth();
+ if (dirty/*xScale, nSplits, width, xDiff*/ 5137) scatterplot_changes.x = /*xScale*/ ctx[12](/*tick*/ ctx[23] % (/*width*/ ctx[0] <= 700 ? 2 : 3)) + /*xDiff*/ ctx[10] * 3;
+ if (dirty/*yScale, nSplits, width*/ 2065) scatterplot_changes.y = /*yScale*/ ctx[11](Math.floor(/*tick*/ ctx[23] / (/*width*/ ctx[0] <= 700 ? 2 : 3))) - /*yScale*/ ctx[11].bandwidth();
  scatterplot.$set(scatterplot_changes);
  },
  i: function intro(local) {
@@ -22115,21 +22115,21 @@ var app = (function () {
  }
  },
  p: function update(ctx, [dirty]) {
- if (!current || dirty & /*nSplits*/ 16) set_data_dev(t11, /*nSplits*/ ctx[4]);
+ if (!current || dirty/*nSplits*/ 16) set_data_dev(t11, /*nSplits*/ ctx[4]);
 
- if (!current || dirty & /*numTest*/ 32 && input_max_value !== (input_max_value = numRects$1 - /*numTest*/ ctx[5])) {
+ if (!current || dirty/*numTest*/ 32input_max_value !== (input_max_value = numRects$1 - /*numTest*/ ctx[5])) {
  attr_dev(input, "max", input_max_value);
  }
 
- if (dirty & /*nSplits*/ 16) {
+ if (dirty/*nSplits*/ 16) {
  set_input_value(input, /*nSplits*/ ctx[4]);
  }
 
- if (!current || dirty & /*width*/ 1 && g_transform_value !== (g_transform_value = "translate(" + (/*width*/ ctx[0] / 2 - 102) + ", " + 0 + ")")) {
+ if (!current || dirty/*width*/ 1g_transform_value !== (g_transform_value = "translate(" + (/*width*/ ctx[0] / 2 - 102) + ", " + 0 + ")")) {
  attr_dev(g, "transform", g_transform_value);
  }
 
- if (dirty & /*dataArray, Array, nSplits, formatter, window, yScale, xScale, width, xDiff, Math, $marginGrid, numCol, numRects, numTest, testColor, numValidation, validationColor, trainColor*/ 16125) {
+ if (dirty/*dataArray, Array, nSplits, formatter, window, yScale, xScale, width, xDiff, Math, $marginGrid, numCol, numRects, numTest, testColor, numValidation, validationColor, trainColor*/ 16125) {
  each_value = [...Array(/*nSplits*/ ctx[4]).keys()];
  validate_each_argument(each_value);
  let i;
@@ -22157,21 +22157,21 @@ var app = (function () {
  check_outros();
  }
 
- if ((!current || dirty & /*errorMean*/ 256) && t18_value !== (t18_value = /*formatter*/ ctx[13](/*errorMean*/ ctx[8]) + "")) set_data_dev(t18, t18_value);
+ if ((!current || dirty/*errorMean*/ 256)t18_value !== (t18_value = /*formatter*/ ctx[13](/*errorMean*/ ctx[8]) + "")) set_data_dev(t18, t18_value);
 
- if (!current || dirty & /*width*/ 1 && text3_x_value !== (text3_x_value = /*width*/ ctx[0] / 2)) {
+ if (!current || dirty/*width*/ 1text3_x_value !== (text3_x_value = /*width*/ ctx[0] / 2)) {
  attr_dev(text3, "x", text3_x_value);
  }
 
- if (!current || dirty & /*yScale*/ 2048 && text3_y_value !== (text3_y_value = /*yScale*/ ctx[11].bandwidth() * (max(/*yScale*/ ctx[11].domain()) + 2) + 15 * (max(/*yScale*/ ctx[11].domain()) + 2))) {
+ if (!current || dirty/*yScale*/ 2048text3_y_value !== (text3_y_value = /*yScale*/ ctx[11].bandwidth() * (max(/*yScale*/ ctx[11].domain()) + 2) + 15 * (max(/*yScale*/ ctx[11].domain()) + 2))) {
  attr_dev(text3, "y", text3_y_value);
  }
 
- if (!current || dirty & /*width*/ 1) {
+ if (!current || dirty/*width*/ 1) {
  attr_dev(svg, "width", /*width*/ ctx[0]);
  }
 
- if (!current || dirty & /*height, $marginGrid*/ 130 && svg_height_value !== (svg_height_value = /*height*/ ctx[1] + /*$marginGrid*/ ctx[7].top + /*$marginGrid*/ ctx[7].bottom)) {
+ if (!current || dirty/*height, $marginGrid*/ 130svg_height_value !== (svg_height_value = /*height*/ ctx[1] + /*$marginGrid*/ ctx[7].top + /*$marginGrid*/ ctx[7].bottom)) {
  attr_dev(svg, "height", svg_height_value);
  }
  },
@@ -22303,7 +22303,7 @@ var app = (function () {
  const writable_props = [];
 
  Object.keys($$props).forEach(key => {
- if (!~writable_props.indexOf(key) && key.slice(0, 2) !== '$$' && key !== 'slot') console.warn(`<KFoldInteractive> was created with unknown prop '${key}'`);
+ if (!~writable_props.indexOf(key)key.slice(0, 2) !== '$$'key !== 'slot') console.warn(`<KFoldInteractive> was created with unknown prop '${key}'`);
  });
 
  function onwindowresize() {
@@ -22317,7 +22317,7 @@ var app = (function () {
 
  const func = (tick, d) => {
  if (d >= numRects$1 - numTest) return testColor;
- if (d >= numValidation * (nSplits - tick - 1) && d < numValidation * (nSplits - tick - 1) + numValidation) return validationColor;
+ if (d >= numValidation * (nSplits - tick - 1)d < numValidation * (nSplits - tick - 1) + numValidation) return validationColor;
  return trainColor;
  };
 
@@ -22383,46 +22383,46 @@ var app = (function () {
  if ('xScale' in $$props) $$invalidate(12, xScale = $$props.xScale);
  };
 
- if ($$props && "$$inject" in $$props) {
+ if ($$props"$$inject" in $$props) {
  $$self.$inject_state($$props.$$inject);
  }
 
  $$self.$$.update = () => {
- if ($$self.$$.dirty & /*width*/ 1) {
+ if ($$self.$$.dirty/*width*/ 1) {
  $$invalidate(6, window = width <= 700 ? "mobile" : "desktop");
  }
 
- if ($$self.$$.dirty & /*window, nSplits, width*/ 81) {
+ if ($$self.$$.dirty/*window, nSplits, width*/ 81) {
  $$invalidate(12, xScale = band().domain(range(0, dimensions[window][nSplits].cols)).range([width * 0.2, width * 0.95]));
  }
 
- if ($$self.$$.dirty & /*window, nSplits, $marginGrid, height*/ 210) {
+ if ($$self.$$.dirty/*window, nSplits, $marginGrid, height*/ 210) {
  $$invalidate(11, yScale = band().domain(range(-1, dimensions[window][nSplits].rows)).range([$marginGrid.bottom, height - $marginGrid.top]).// .range([$marginGrid.bottom, height - $marginGrid.top])
  padding(0.2));
  }
 
- if ($$self.$$.dirty & /*width*/ 1) {
+ if ($$self.$$.dirty/*width*/ 1) {
  $$invalidate(10, xDiff = Math.min(width * 0.04, 20));
  }
 
- if ($$self.$$.dirty & /*nSplits*/ 16) {
+ if ($$self.$$.dirty/*nSplits*/ 16) {
  // fill rule
  $$invalidate(9, numCol = nSplits > 10 + 2 ? 1 : 2);
  }
 
- if ($$self.$$.dirty & /*numTest, nSplits*/ 48) {
+ if ($$self.$$.dirty/*numTest, nSplits*/ 48) {
  $$invalidate(3, numValidation = (numRects$1 - numTest) / nSplits);
  }
 
- if ($$self.$$.dirty & /*numTest, numValidation*/ 40) {
+ if ($$self.$$.dirty/*numTest, numValidation*/ 40) {
  numTrain = numRects$1 - numTest - numValidation;
  }
 
- if ($$self.$$.dirty & /*nSplits*/ 16) {
+ if ($$self.$$.dirty/*nSplits*/ 16) {
  $$invalidate(14, splits = [...Array(nSplits).keys()]);
  }
 
- if ($$self.$$.dirty & /*splits, numTest, numValidation, nSplits, dataArray*/ 16444) {
+ if ($$self.$$.dirty/*splits, numTest, numValidation, nSplits, dataArray*/ 16444) {
  {
  $$invalidate(2, dataArray = []);
 
@@ -22432,7 +22432,7 @@ var app = (function () {
  // circle color to match train/test/val split
  const color = i >= numRects$1 - numTest
  ? testColor
- : i >= numValidation * (nSplits - tick - 1) && i < numValidation * (nSplits - tick - 1) + numValidation
+ : i >= numValidation * (nSplits - tick - 1)i < numValidation * (nSplits - tick - 1) + numValidation
  ? validationColor
  : trainColor;
 
@@ -22671,7 +22671,7 @@ var app = (function () {
  const writable_props = [];
 
  Object.keys($$props).forEach(key => {
- if (!~writable_props.indexOf(key) && key.slice(0, 2) !== '$$' && key !== 'slot') console.warn(`<Conclusion> was created with unknown prop '${key}'`);
+ if (!~writable_props.indexOf(key)key.slice(0, 2) !== '$$'key !== 'slot') console.warn(`<Conclusion> was created with unknown prop '${key}'`);
  });
 
  return [];
@@ -22802,13 +22802,13 @@ var app = (function () {
  a2 = element("a");
  a2.textContent = "[3] No Unbiased Estimator of the Variance of K-Fold Cross-Validation";
  br7 = element("br");
- t17 = text("\n (Yves Grandvalet & Yoshua Bengio, 2004)");
+ t17 = text("\n (Yves GrandvaletYoshua Bengio, 2004)");
  t18 = space();
  p4 = element("p");
  a3 = element("a");
  a3.textContent = "[4] Cross-Validation for Selecting a Model Selection Procedure";
  br8 = element("br");
- t20 = text("\n (Yongli Zhang & Yuhong Yang, 2015).");
+ t20 = text("\n (Yongli ZhangYuhong Yang, 2015).");
  t21 = space();
  p5 = element("p");
  a4 = element("a");
@@ -22826,14 +22826,14 @@ var app = (function () {
  a6 = element("a");
  a6.textContent = "D3.js";
  br11 = element("br");
- t29 = text("(Mike Bostock &\n Philippe Rivière)");
+ t29 = text("(Mike Bostock\n Philippe Rivière)");
  t30 = space();
  p8 = element("p");
  a7 = element("a");
  a7.textContent = "KaTeX";
  t32 = space();
  br12 = element("br");
- t33 = text("(Emily Eisenberg\n & Sophie Alpert)");
+ t33 = text("(Emily Eisenberg\nSophie Alpert)");
  t34 = space();
  p9 = element("p");
  a8 = element("a");
@@ -23022,7 +23022,7 @@ var app = (function () {
  const writable_props = [];
 
  Object.keys($$props).forEach(key => {
- if (!~writable_props.indexOf(key) && key.slice(0, 2) !== '$$' && key !== 'slot') console.warn(`<Resources> was created with unknown prop '${key}'`);
+ if (!~writable_props.indexOf(key)key.slice(0, 2) !== '$$'key !== 'slot') console.warn(`<Resources> was created with unknown prop '${key}'`);
  });
 
  return [];
@@ -23078,8 +23078,8 @@ var app = (function () {
  },
  p: function update(ctx, dirty) {
  const stackedrects_changes = {};
- if (dirty & /*height*/ 2) stackedrects_changes.height = /*height*/ ctx[1];
- if (dirty & /*xScale, xDiff*/ 20) stackedrects_changes.x = /*xScale*/ ctx[4](/*tick*/ ctx[9]) - /*xDiff*/ ctx[2];
+ if (dirty/*height*/ 2) stackedrects_changes.height = /*height*/ ctx[1];
+ if (dirty/*xScale, xDiff*/ 20) stackedrects_changes.x = /*xScale*/ ctx[4](/*tick*/ ctx[9]) - /*xDiff*/ ctx[2];
  stackedrects.$set(stackedrects_changes);
  },
  i: function intro(local) {
@@ -23132,8 +23132,8 @@ var app = (function () {
  },
  p: function update(ctx, dirty) {
  const stackedrects_changes = {};
- if (dirty & /*height*/ 2) stackedrects_changes.height = /*height*/ ctx[1];
- if (dirty & /*xScale, xDiff*/ 20) stackedrects_changes.x = /*xScale*/ ctx[4](/*tick*/ ctx[9]) - /*xDiff*/ ctx[2];
+ if (dirty/*height*/ 2) stackedrects_changes.height = /*height*/ ctx[1];
+ if (dirty/*xScale, xDiff*/ 20) stackedrects_changes.x = /*xScale*/ ctx[4](/*tick*/ ctx[9]) - /*xDiff*/ ctx[2];
  stackedrects.$set(stackedrects_changes);
  },
  i: function intro(local) {
@@ -23188,11 +23188,11 @@ var app = (function () {
  append_dev(g, path);
  },
  p: function update(ctx, dirty) {
- if (dirty & /*xDiff*/ 4 && path_style_value !== (path_style_value = `transform: scale(${/*xDiff*/ ctx[2] / arrowWidth$2})`)) {
+ if (dirty/*xDiff*/ 4path_style_value !== (path_style_value = `transform: scale(${/*xDiff*/ ctx[2] / arrowWidth$2})`)) {
  attr_dev(path, "style", path_style_value);
  }
 
- if (dirty & /*xScale, yScale*/ 24 && g_transform_value !== (g_transform_value = "translate(" + /*xScale*/ ctx[4](/*tick*/ ctx[9]) + ", " + /*yScale*/ ctx[3](0) + ")")) {
+ if (dirty/*xScale, yScale*/ 24g_transform_value !== (g_transform_value = "translate(" + /*xScale*/ ctx[4](/*tick*/ ctx[9]) + ", " + /*yScale*/ ctx[3](0) + ")")) {
  attr_dev(g, "transform", g_transform_value);
  }
  },
@@ -23455,7 +23455,7 @@ var app = (function () {
  current = true;
  },
  p: function update(ctx, [dirty]) {
- if (dirty & /*xScale, Array, nSplits, yScale, arrowPath, xDiff, arrowWidth, height, dataLabel, validationLabels*/ 222) {
+ if (dirty/*xScale, Array, nSplits, yScale, arrowPath, xDiff, arrowWidth, height, dataLabel, validationLabels*/ 222) {
  each_value = [...Array(nSplits$2).keys()];
  validate_each_argument(each_value);
  let i;
@@ -23483,11 +23483,11 @@ var app = (function () {
  check_outros();
  }
 
- if (!current || dirty & /*width*/ 1) {
+ if (!current || dirty/*width*/ 1) {
  attr_dev(svg, "width", /*width*/ ctx[0]);
  }
 
- if (!current || dirty & /*height, $marginStatic*/ 34 && svg_height_value !== (svg_height_value = /*height*/ ctx[1] + /*$marginStatic*/ ctx[5].top + /*$marginStatic*/ ctx[5].bottom)) {
+ if (!current || dirty/*height, $marginStatic*/ 34svg_height_value !== (svg_height_value = /*height*/ ctx[1] + /*$marginStatic*/ ctx[5].top + /*$marginStatic*/ ctx[5].bottom)) {
  attr_dev(svg, "height", svg_height_value);
  }
  },
@@ -23573,7 +23573,7 @@ var app = (function () {
  const writable_props = [];
 
  Object.keys($$props).forEach(key => {
- if (!~writable_props.indexOf(key) && key.slice(0, 2) !== '$$' && key !== 'slot') console.warn(`<ValidationSet> was created with unknown prop '${key}'`);
+ if (!~writable_props.indexOf(key)key.slice(0, 2) !== '$$'key !== 'slot') console.warn(`<ValidationSet> was created with unknown prop '${key}'`);
  });
 
  function div_elementresize_handler() {
@@ -23611,20 +23611,20 @@ var app = (function () {
  if ('xScale' in $$props) $$invalidate(4, xScale = $$props.xScale);
  };
 
- if ($$props && "$$inject" in $$props) {
+ if ($$props"$$inject" in $$props) {
  $$self.$inject_state($$props.$$inject);
  }
 
  $$self.$$.update = () => {
- if ($$self.$$.dirty & /*width*/ 1) {
+ if ($$self.$$.dirty/*width*/ 1) {
  $$invalidate(4, xScale = linear().domain([-1, nSplits$2]).range([0, width]));
  }
 
- if ($$self.$$.dirty & /*height*/ 2) {
+ if ($$self.$$.dirty/*height*/ 2) {
  $$invalidate(3, yScale = linear().domain([-1, 1]).range([height, 0]));
  }
 
- if ($$self.$$.dirty & /*width*/ 1) {
+ if ($$self.$$.dirty/*width*/ 1) {
  $$invalidate(2, xDiff = width / ((nSplits$2 + 1) * 4));
  }
  };
@@ -23696,8 +23696,8 @@ var app = (function () {
  p: function update(new_ctx, dirty) {
  ctx = new_ctx;
  const stackedrects_changes = {};
- if (dirty & /*height*/ 2) stackedrects_changes.height = /*height*/ ctx[1];
- if (dirty & /*xScale, xDiff*/ 20) stackedrects_changes.x = /*xScale*/ ctx[4](/*tick*/ ctx[8]) - /*xDiff*/ ctx[2];
+ if (dirty/*height*/ 2) stackedrects_changes.height = /*height*/ ctx[1];
+ if (dirty/*xScale, xDiff*/ 20) stackedrects_changes.x = /*xScale*/ ctx[4](/*tick*/ ctx[8]) - /*xDiff*/ ctx[2];
  stackedrects.$set(stackedrects_changes);
  },
  i: function intro(local) {
@@ -23751,8 +23751,8 @@ var app = (function () {
  },
  p: function update(ctx, dirty) {
  const stackedrects_changes = {};
- if (dirty & /*height*/ 2) stackedrects_changes.height = /*height*/ ctx[1];
- if (dirty & /*xScale, xDiff*/ 20) stackedrects_changes.x = /*xScale*/ ctx[4](/*tick*/ ctx[8]) - /*xDiff*/ ctx[2];
+ if (dirty/*height*/ 2) stackedrects_changes.height = /*height*/ ctx[1];
+ if (dirty/*xScale, xDiff*/ 20) stackedrects_changes.x = /*xScale*/ ctx[4](/*tick*/ ctx[8]) - /*xDiff*/ ctx[2];
  stackedrects.$set(stackedrects_changes);
  },
  i: function intro(local) {
@@ -23805,7 +23805,7 @@ var app = (function () {
  append_dev(g, path);
  },
  p: function update(ctx, dirty) {
- if (dirty & /*xScale, xDiff, yScale*/ 28 && g_transform_value !== (g_transform_value = "translate(" + (/*xScale*/ ctx[4](/*tick*/ ctx[8]) - /*xDiff*/ ctx[2]) + ", " + /*yScale*/ ctx[3](0) + ")")) {
+ if (dirty/*xScale, xDiff, yScale*/ 28g_transform_value !== (g_transform_value = "translate(" + (/*xScale*/ ctx[4](/*tick*/ ctx[8]) - /*xDiff*/ ctx[2]) + ", " + /*yScale*/ ctx[3](0) + ")")) {
  attr_dev(g, "transform", g_transform_value);
  }
  },
@@ -24164,11 +24164,11 @@ var app = (function () {
  current = true;
  },
  p: function update(ctx, [dirty]) {
- if (!current || dirty & /*width*/ 1 && g_transform_value !== (g_transform_value = "translate(" + (/*width*/ ctx[0] / 2 - 102) + ", " + 0 + ")")) {
+ if (!current || dirty/*width*/ 1g_transform_value !== (g_transform_value = "translate(" + (/*width*/ ctx[0] / 2 - 102) + ", " + 0 + ")")) {
  attr_dev(g, "transform", g_transform_value);
  }
 
- if (dirty & /*xScale, Array, nSplits, xDiff, yScale, arrowPath, height*/ 30) {
+ if (dirty/*xScale, Array, nSplits, xDiff, yScale, arrowPath, height*/ 30) {
  each_value = [...Array(nSplits$1).keys()];
  validate_each_argument(each_value);
  let i;
@@ -24196,11 +24196,11 @@ var app = (function () {
  check_outros();
  }
 
- if (!current || dirty & /*width*/ 1) {
+ if (!current || dirty/*width*/ 1) {
  attr_dev(svg, "width", /*width*/ ctx[0]);
  }
 
- if (!current || dirty & /*height, $marginStatic*/ 34 && svg_height_value !== (svg_height_value = /*height*/ ctx[1] + /*$marginStatic*/ ctx[5].top + /*$marginStatic*/ ctx[5].bottom)) {
+ if (!current || dirty/*height, $marginStatic*/ 34svg_height_value !== (svg_height_value = /*height*/ ctx[1] + /*$marginStatic*/ ctx[5].top + /*$marginStatic*/ ctx[5].bottom)) {
  attr_dev(svg, "height", svg_height_value);
  }
  },
@@ -24278,12 +24278,12 @@ var app = (function () {
  const writable_props = [];
 
  Object.keys($$props).forEach(key => {
- if (!~writable_props.indexOf(key) && key.slice(0, 2) !== '$$' && key !== 'slot') console.warn(`<KFoldCV> was created with unknown prop '${key}'`);
+ if (!~writable_props.indexOf(key)key.slice(0, 2) !== '$$'key !== 'slot') console.warn(`<KFoldCV> was created with unknown prop '${key}'`);
  });
 
  const func_1 = (tick, d) => {
  if (d > 59) return "#ffad97";
- if (d >= 15 * (3 - (tick - 2)) && d < 15 * (3 - (tick - 2)) + 15) return "#f46ebb";
+ if (d >= 15 * (3 - (tick - 2))d < 15 * (3 - (tick - 2)) + 15) return "#f46ebb";
  return "#003181";
  };
 
@@ -24318,20 +24318,20 @@ var app = (function () {
  if ('xScale' in $$props) $$invalidate(4, xScale = $$props.xScale);
  };
 
- if ($$props && "$$inject" in $$props) {
+ if ($$props"$$inject" in $$props) {
  $$self.$inject_state($$props.$$inject);
  }
 
  $$self.$$.update = () => {
- if ($$self.$$.dirty & /*width*/ 1) {
+ if ($$self.$$.dirty/*width*/ 1) {
  $$invalidate(4, xScale = linear().domain([-1, nSplits$1]).range([0, width]));
  }
 
- if ($$self.$$.dirty & /*height*/ 2) {
+ if ($$self.$$.dirty/*height*/ 2) {
  $$invalidate(3, yScale = linear().domain([-1, 1]).range([height, 0]));
  }
 
- if ($$self.$$.dirty & /*width*/ 1) {
+ if ($$self.$$.dirty/*width*/ 1) {
  $$invalidate(2, xDiff = width / ((nSplits$1 + 1) * 4));
  }
  };
@@ -24402,8 +24402,8 @@ var app = (function () {
  p: function update(new_ctx, dirty) {
  ctx = new_ctx;
  const stackedrects_changes = {};
- if (dirty & /*height*/ 2) stackedrects_changes.height = /*height*/ ctx[1];
- if (dirty & /*xScale, xDiff*/ 20) stackedrects_changes.x = /*xScale*/ ctx[4](/*tick*/ ctx[8]) - /*xDiff*/ ctx[2];
+ if (dirty/*height*/ 2) stackedrects_changes.height = /*height*/ ctx[1];
+ if (dirty/*xScale, xDiff*/ 20) stackedrects_changes.x = /*xScale*/ ctx[4](/*tick*/ ctx[8]) - /*xDiff*/ ctx[2];
  stackedrects.$set(stackedrects_changes);
  },
  i: function intro(local) {
@@ -24457,8 +24457,8 @@ var app = (function () {
  },
  p: function update(ctx, dirty) {
  const stackedrects_changes = {};
- if (dirty & /*height*/ 2) stackedrects_changes.height = /*height*/ ctx[1];
- if (dirty & /*xScale, xDiff*/ 20) stackedrects_changes.x = /*xScale*/ ctx[4](/*tick*/ ctx[8]) - /*xDiff*/ ctx[2];
+ if (dirty/*height*/ 2) stackedrects_changes.height = /*height*/ ctx[1];
+ if (dirty/*xScale, xDiff*/ 20) stackedrects_changes.x = /*xScale*/ ctx[4](/*tick*/ ctx[8]) - /*xDiff*/ ctx[2];
  stackedrects.$set(stackedrects_changes);
  },
  i: function intro(local) {
@@ -24512,7 +24512,7 @@ var app = (function () {
  append_dev(g, path);
  },
  p: function update(ctx, dirty) {
- if (dirty & /*xScale, xDiff, yScale*/ 28 && g_transform_value !== (g_transform_value = "translate(" + (/*xScale*/ ctx[4](/*tick*/ ctx[8]) - /*xDiff*/ ctx[2]) + ", " + /*yScale*/ ctx[3](0) + ")")) {
+ if (dirty/*xScale, xDiff, yScale*/ 28g_transform_value !== (g_transform_value = "translate(" + (/*xScale*/ ctx[4](/*tick*/ ctx[8]) - /*xDiff*/ ctx[2]) + ", " + /*yScale*/ ctx[3](0) + ")")) {
  attr_dev(g, "transform", g_transform_value);
  }
  },
@@ -24835,11 +24835,11 @@ var app = (function () {
  current = true;
  },
  p: function update(ctx, [dirty]) {
- if (!current || dirty & /*width*/ 1 && g_transform_value !== (g_transform_value = "translate(" + (/*width*/ ctx[0] / 2 - 102) + ", " + 0 + ")")) {
+ if (!current || dirty/*width*/ 1g_transform_value !== (g_transform_value = "translate(" + (/*width*/ ctx[0] / 2 - 102) + ", " + 0 + ")")) {
  attr_dev(g, "transform", g_transform_value);
  }
 
- if (dirty & /*xScale, Array, nSplits, xDiff, yScale, arrowPath, height, numCol, numRects*/ 30) {
+ if (dirty/*xScale, Array, nSplits, xDiff, yScale, arrowPath, height, numCol, numRects*/ 30) {
  each_value = [...Array(nSplits).keys()];
  validate_each_argument(each_value);
  let i;
@@ -24867,11 +24867,11 @@ var app = (function () {
  check_outros();
  }
 
- if (!current || dirty & /*width*/ 1) {
+ if (!current || dirty/*width*/ 1) {
  attr_dev(svg, "width", /*width*/ ctx[0]);
  }
 
- if (!current || dirty & /*height, $marginStatic*/ 34 && svg_height_value !== (svg_height_value = /*height*/ ctx[1] + /*$marginStatic*/ ctx[5].top + /*$marginStatic*/ ctx[5].bottom)) {
+ if (!current || dirty/*height, $marginStatic*/ 34svg_height_value !== (svg_height_value = /*height*/ ctx[1] + /*$marginStatic*/ ctx[5].top + /*$marginStatic*/ ctx[5].bottom)) {
  attr_dev(svg, "height", svg_height_value);
  }
  },
@@ -24945,7 +24945,7 @@ var app = (function () {
  const writable_props = [];
 
  Object.keys($$props).forEach(key => {
- if (!~writable_props.indexOf(key) && key.slice(0, 2) !== '$$' && key !== 'slot') console.warn(`<LOOCV> was created with unknown prop '${key}'`);
+ if (!~writable_props.indexOf(key)key.slice(0, 2) !== '$$'key !== 'slot') console.warn(`<LOOCV> was created with unknown prop '${key}'`);
  });
 
  const func_1 = (tick, d) => {
@@ -24987,20 +24987,20 @@ var app = (function () {
  if ('xScale' in $$props) $$invalidate(4, xScale = $$props.xScale);
  };
 
- if ($$props && "$$inject" in $$props) {
+ if ($$props"$$inject" in $$props) {
  $$self.$inject_state($$props.$$inject);
  }
 
  $$self.$$.update = () => {
- if ($$self.$$.dirty & /*width*/ 1) {
+ if ($$self.$$.dirty/*width*/ 1) {
  $$invalidate(4, xScale = linear().domain([-1, nSplits]).range([0, width]));
  }
 
- if ($$self.$$.dirty & /*height*/ 2) {
+ if ($$self.$$.dirty/*height*/ 2) {
  $$invalidate(3, yScale = linear().domain([-1, 1]).range([height, 0]));
  }
 
- if ($$self.$$.dirty & /*width*/ 1) {
+ if ($$self.$$.dirty/*width*/ 1) {
  $$invalidate(2, xDiff = width / ((nSplits + 1) * 4));
  }
  };
@@ -25340,7 +25340,7 @@ var app = (function () {
  const writable_props = [];
 
  Object.keys($$props).forEach(key => {
- if (!~writable_props.indexOf(key) && key.slice(0, 2) !== '$$' && key !== 'slot') console.warn(`<BiasVariance> was created with unknown prop '${key}'`);
+ if (!~writable_props.indexOf(key)key.slice(0, 2) !== '$$'key !== 'slot') console.warn(`<BiasVariance> was created with unknown prop '${key}'`);
  });
 
  $$self.$capture_state = () => ({ katexify });
@@ -25510,7 +25510,7 @@ var app = (function () {
  const writable_props = [];
 
  Object.keys($$props).forEach(key => {
- if (!~writable_props.indexOf(key) && key.slice(0, 2) !== '$$' && key !== 'slot') console.warn(`<App> was created with unknown prop '${key}'`);
+ if (!~writable_props.indexOf(key)key.slice(0, 2) !== '$$'key !== 'slot') console.warn(`<App> was created with unknown prop '${key}'`);
  });
 
  $$self.$capture_state = () => ({

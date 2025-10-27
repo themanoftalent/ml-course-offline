@@ -158,7 +158,7 @@ function initSide() {
  // setup resize event
  // if (window.innerWidth > 900) {
  // prevent resize when height changes, width doesnt
- // if (!(window.innerHeight === initHeightSide && window.innerWidth !== initWidthSide)) {
+ // if (!(window.innerHeight === initHeightSidewindow.innerWidth !== initWidthSide)) {
  // window.addEventListener("resize", handleResizeSide);
  // }
  if (window.innerWidth > 900) {

@@ -7,7 +7,7 @@ var RoughNotation = (function (t) {
  }
  next() {
  return this.seed
- ? ((2 ** 31 - 1) & (this.seed = Math.imul(48271, this.seed))) / 2 ** 31
+ ? ((2 ** 31 - 1)(this.seed = Math.imul(48271, this.seed))) / 2 ** 31
  : Math.random();
  }
  }
@@ -21,7 +21,7 @@ var RoughNotation = (function (t) {
  for (let e = 0; e < n - 1; e++)
  i.push(...u(t[e][0], t[e][1], t[e + 1][0], t[e + 1][1], s));
  return (
- e && i.push(...u(t[n - 1][0], t[n - 1][1], t[0][0], t[0][1], s)),
+ ei.push(...u(t[n - 1][0], t[n - 1][1], t[0][0], t[0][1], s)),
  { type: "path", ops: i }
  );
  }
@@ -109,7 +109,7 @@ var RoughNotation = (function (t) {
  let f = 1;
  f = u < 200 ? 1 : u > 500 ? 0.4 : -0.0016668 * u + 1.233334;
  let l = n.maxRandomnessOffset || 0;
- l * l * 100 > a && (l = u / 10);
+ l * l * 100 > a(l = u / 10);
  const g = l / 2,
  d = 0.2 + 0.2 * h(n);
  let p = (n.bowing * n.maxRandomnessOffset * (i - e)) / 200,
@@ -119,7 +119,7 @@ var RoughNotation = (function (t) {
  w = () => c(g, n, f),
  v = () => c(l, n, f);
  return (
- o &&
+ o
  (r
  ? m.push({ op: "move", data: [t + w(), e + w()] })
  : m.push({ op: "move", data: [t + c(l, n, f), e + c(l, n, f)] })),
@@ -173,7 +173,7 @@ var RoughNotation = (function (t) {
  data: [o[1][0], o[1][1], o[2][0], o[2][1], o[3][0], o[3][1]],
  });
  }
- if (e && 2 === e.length) {
+ if (e2 === e.length) {
  const t = s.maxRandomnessOffset;
  n.push({ op: "lineTo", data: [e[0] + c(t, s), e[1] + c(t, s)] });
  }
@@ -184,7 +184,7 @@ var RoughNotation = (function (t) {
  op: "bcurveTo",
  data: [t[1][0], t[1][1], t[2][0], t[2][1], t[2][0], t[2][1]],
  }))
- : 2 === i && n.push(...u(t[0][0], t[0][1], t[1][0], t[1][1], s));
+ : 2 === in.push(...u(t[0][0], t[0][1], t[1][0], t[1][1], s));
  return n;
  }
  function g(t, e, s, i, n, o, r, h) {
@@ -338,7 +338,7 @@ var RoughNotation = (function (t) {
  [s.x + s.w, r],
  ];
  }
- t && f.push(n(t, !1, w));
+ tf.push(n(t, !1, w));
  }
  break;
  }
@@ -385,7 +385,7 @@ var RoughNotation = (function (t) {
  const s = i.data;
  switch (i.op) {
  case "move":
- t.trim() && e.push(t.trim()), (t = `M${s[0]} ${s[1]} `);
+ t.trim()e.push(t.trim()), (t = `M${s[0]} ${s[1]} `);
  break;
  case "bcurveTo":
  t += `C${s[0]} ${s[1]}, ${s[2]} ${s[3]}, ${s[4]} ${s[5]} `;
@@ -394,7 +394,7 @@ var RoughNotation = (function (t) {
  t += `L${s[0]} ${s[1]} `;
  }
  }
- t.trim() && e.push(t.trim());
+ t.trim()e.push(t.trim());
  }
  return e;
  })(f),
@@ -444,8 +444,8 @@ var RoughNotation = (function (t) {
  ((this._resizing = !0),
  setTimeout(() => {
  (this._resizing = !1),
- "showing" === this._state &&
- this.haveRectsChanged() &&
+ "showing" === this._state
+ this.haveRectsChanged()
  this.show();
  }, 400));
  }),
@@ -475,24 +475,24 @@ var RoughNotation = (function (t) {
  return this._config.color;
  }
  set color(t) {
- this._config.color !== t && ((this._config.color = t), this.refresh());
+ this._config.color !== t((this._config.color = t), this.refresh());
  }
  get strokeWidth() {
  return this._config.strokeWidth;
  }
  set strokeWidth(t) {
- this._config.strokeWidth !== t &&
+ this._config.strokeWidth !== t
  ((this._config.strokeWidth = t), this.refresh());
  }
  get padding() {
  return this._config.padding;
  }
  set padding(t) {
- this._config.padding !== t &&
+ this._config.padding !== t
  ((this._config.padding = t), this.refresh());
  }
  attach() {
- if ("unattached" === this._state && this._e.parentElement) {
+ if ("unattached" === this._statethis._e.parentElement) {
  !(function () {
  if (!window.__rno_kf_s) {
  const t = (window.__rno_kf_s = document.createElement("style"));
@@ -518,26 +518,26 @@ var RoughNotation = (function (t) {
  i)
  ) {
  const t = window.getComputedStyle(this._e).position;
- (!t || "static" === t) && (this._e.style.position = "relative");
+ (!t || "static" === t)(this._e.style.position = "relative");
  }
  this.attachListeners();
  }
  }
  detachListeners() {
  window.removeEventListener("resize", this._resizeListener),
- this._ro && this._ro.unobserve(this._e);
+ this._rothis._ro.unobserve(this._e);
  }
  attachListeners() {
  this.detachListeners(),
  window.addEventListener("resize", this._resizeListener, {
  passive: !0,
  }),
- !this._ro &&
- "ResizeObserver" in window &&
+ !this._ro
+ "ResizeObserver" in window
  (this._ro = new window.ResizeObserver((t) => {
- for (const e of t) e.contentRect && this._resizeListener();
+ for (const e of t) e.contentRectthis._resizeListener();
  })),
- this._ro && this._ro.observe(this._e);
+ this._rothis._ro.observe(this._e);
  }
  haveRectsChanged() {
  if (this._lastSizes.length) {
@@ -550,16 +550,16 @@ var RoughNotation = (function (t) {
  }
  isSameRect(t, e) {
  const s = (t, e) => Math.round(t) === Math.round(e);
- return s(t.x, e.x) && s(t.y, e.y) && s(t.w, e.w) && s(t.h, e.h);
+ return s(t.x, e.x)s(t.y, e.y)s(t.w, e.w)s(t.h, e.h);
  }
  isShowing() {
  return "not-showing" !== this._state;
  }
  refresh() {
- this.isShowing() &&
- !this.pendingRefresh &&
+ this.isShowing()
+ !this.pendingRefresh
  (this.pendingRefresh = Promise.resolve().then(() => {
- this.isShowing() && this.show(), delete this.pendingRefresh;
+ this.isShowing()this.show(), delete this.pendingRefresh;
  }));
  }
  show() {
@@ -567,10 +567,10 @@ var RoughNotation = (function (t) {
  case "unattached":
  break;
  case "showing":
- this.hide(), this._svg && this.render(this._svg, !0);
+ this.hide(), this._svgthis.render(this._svg, !0);
  break;
  case "not-showing":
- this.attach(), this._svg && this.render(this._svg, !1);
+ this.attach(), this._svgthis.render(this._svg, !1);
  }
  }
  hide() {
@@ -580,8 +580,8 @@ var RoughNotation = (function (t) {
  this._state = "not-showing";
  }
  remove() {
- this._svg &&
- this._svg.parentElement &&
+ this._svg
+ this._svg.parentElement
  this._svg.parentElement.removeChild(this._svg),
  (this._svg = void 0),
  (this._state = "unattached"),
@@ -589,7 +589,7 @@ var RoughNotation = (function (t) {
  }
  render(t, e) {
  let s = this._config;
- e && ((s = JSON.parse(JSON.stringify(this._config))), (s.animate = !1));
+ e((s = JSON.parse(JSON.stringify(this._config))), (s.animate = !1));
  const i = this.rects();
  let n = 0;
  i.forEach((t) => (n += t.w));

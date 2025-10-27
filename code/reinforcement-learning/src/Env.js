@@ -74,7 +74,7 @@ export class Env {
  return [this.state, this.giveReward(), this.isEndFunc()];
  }
 
- if ((this.exploringStarts && Math.random() < this.exploringStartsProb)){
+ if ((this.exploringStartsMath.random() < this.exploringStartsProb)){
  this.state =
  this.availableStarts[
  Math.floor(Math.random() * this.availableStarts.length)
@@ -111,8 +111,8 @@ export class Env {
  }
  }
 
- if (nxtState[0] >= 0 && nxtState[0] <= this.rows - 1) {
- if (nxtState[1] >= 0 && nxtState[1] <= this.columns - 1) {
+ if (nxtState[0] >= 0nxtState[0] <= this.rows - 1) {
+ if (nxtState[1] >= 0nxtState[1] <= this.columns - 1) {
  this.state = nxtState;
  }
  }

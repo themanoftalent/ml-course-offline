@@ -1,4 +1,4 @@
-![MLU-Explain Logo & Title](./assets/readme_header.png)
+![MLU-Explain LogoTitle](./assets/readme_header.png)
 
 This repository holds the code used for Amazon's [MLU-Explain](https://mlu-explain.github.io/) educational articles on machine learning. MLU-Explain exists to illustrate core machine learning concepts using visual essays in a fun, informative, and accessible manner.
 
@@ -16,7 +16,7 @@ This material exists as supplementary educational material for [Machine Learning
 
 **Code**: [/code/linear-regression/](/code/linear-regression)
 
-**Authors**: Jared Wilber
+**Authors**: 
 
 ## Logistic Regression
 
@@ -28,19 +28,19 @@ This material exists as supplementary educational material for [Machine Learning
 
 **Code**: [/code/logistic-regression/](/code/logistic-regression)
 
-**Authors**: Erin Bugbee, Jared Wilber
+**Authors**: Erin Bugbee, 
 
-## ROC & AUC
+## ROCAUC
 
-<img src="./assets/gifs/roc-auc.gif" alt="ROC & AUC Article Preview" width="400"/>
+<img src="./assets/gifs/roc-auc.gif" alt="ROCAUC Article Preview" width="400"/>
 
-**Title**: [ROC & AUC](https://mlu-explain.github.io/roc-auc/)
+**Title**: [ROCAUC](https://mlu-explain.github.io/roc-auc/)
 
 **Summary**: A visual explanation of the Receiver Operating Characteristic Curve (ROC) curve, how it works with a live interactive example, and how it relates to Area Under The Curve (AUC).
 
 **Code**: [/code/roc-auc/](/code/roc-auc)
 
-**Authors**: Jared Wilber
+**Authors**: 
 
 ## Train, Test, And Validation Sets
 
@@ -52,19 +52,19 @@ This material exists as supplementary educational material for [Machine Learning
 
 **Code**: [/code/train-test-validation/](/code/train-test-validation)
 
-**Authors**: Jared Wilber, 
+**Authors**: , 
 
-## Precision & Recall
+## PrecisionRecall
 
-<img src="./assets/gifs/precision-recall.gif" alt="Precision & Recall Article Preview" width="400"/>
+<img src="./assets/gifs/precision-recall.gif" alt="PrecisionRecall Article Preview" width="400"/>
 
-**Title**: [Precision & Recall](https://mlu-explain.github.io/precision-recall/)
+**Title**: [PrecisionRecall](https://mlu-explain.github.io/precision-recall/)
 
 **Summary**: When it comes to evaluating classification models, accuracy is often a poor metric. This article covers two common alternatives, Precision and Recall, as well as the F1-score and Confusion Matrices.
 
 **Code**: [/code/precision-recall/](/code/precision-recall)
 
-**Authors**: Jared Wilber
+**Authors**: 
 
 ## Random Forest
 
@@ -76,7 +76,7 @@ This material exists as supplementary educational material for [Machine Learning
 
 **Code**: [/code/random-forest/](/code/random-forest)
 
-**Authors**: Jenny Yeon, Jared Wilber
+**Authors**: Jenny Yeon, 
 
 ## Decision Trees
 
@@ -88,7 +88,7 @@ This material exists as supplementary educational material for [Machine Learning
 
 **Code**: [/code/decision-tree/](/code/decision-tree)
 
-**Authors**: Jared Wilber, Lucía Santamaría
+**Authors**: , Lucía Santamaría
 
 ## Bias Variance Tradeoff
 
@@ -100,7 +100,7 @@ This material exists as supplementary educational material for [Machine Learning
 
 **Code**: [/code/bias-variance/](/code/bias-variance)
 
-**Authors**: Jared Wilber, 
+**Authors**: , 
 
 ## Double Descent: A Visual Introduction
 
@@ -112,7 +112,7 @@ This material exists as supplementary educational material for [Machine Learning
 
 **Code**: [/code/double-descent/](/code/double-descent)
 
-**Authors**: Jared Wilber, 
+**Authors**: , 
 
 ## Double Descent 2: A Mathematical Explanation
 
@@ -124,7 +124,7 @@ This material exists as supplementary educational material for [Machine Learning
 
 **Code**: [/code/double-descent2/](/code/double-descent2)
 
-**Authors**:, Jared Wilber
+**Authors**:, 
 
 ## Running Locally
 

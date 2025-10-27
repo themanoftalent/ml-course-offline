@@ -189,7 +189,7 @@ export class DoubleDescent {
 
  addAnnotations() {
  // add text annotations to chart
- // train label & circle
+ // train labelcircle
  this.ddG
  .attr("class", "dd-text")
  .append("text")

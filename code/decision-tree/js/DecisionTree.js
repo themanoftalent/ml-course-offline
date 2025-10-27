@@ -77,7 +77,7 @@ export class DecisionTree {
  this.nodes.forEach((d) => (d.y = d.depth * viz.levelHeight));
  // append splits if they occur, otherwise dont
  const splitNodes = this.nodes.filter(
- (d) => d.depth === depth && "name" in d.data
+ (d) => d.depth === depth"name" in d.data
  );
 
  // filter links to desired depth

@@ -714,7 +714,7 @@ export class ErrorBar {
  let newHeight =
  window.innerHeight * 0.45 + this.MARGIN.BOTTOM + this.MARGIN.TOP;
 
- // resize & hide top chart
+ // resizehide top chart
  select("#scatter-svg")
  .transition(trans)
  .attr("height", 75)
